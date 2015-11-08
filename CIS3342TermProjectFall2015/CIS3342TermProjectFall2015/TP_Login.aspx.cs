@@ -18,7 +18,7 @@ namespace CIS3342TermProjectFall2015
         {
             if (checkForNull(txtLoginId) && checkForNull(txtPassword))
             {
-                Response.Redirect("TP_HomePage.aspx");
+                Response.Redirect("TP_Registration.aspx");
             }
         }
 

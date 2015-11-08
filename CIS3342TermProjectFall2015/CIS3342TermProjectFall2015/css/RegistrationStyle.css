@@ -1,0 +1,12 @@
+﻿body {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #cccccc;
+}
+#register {
+    background-color: whitesmoke;
+    width: 500px;
+    padding: 25px;
+    border: 25px solid navy;
+    margin: 25px;
+}
