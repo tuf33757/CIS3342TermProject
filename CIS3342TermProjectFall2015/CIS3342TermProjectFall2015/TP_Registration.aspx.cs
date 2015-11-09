@@ -13,5 +13,10 @@ namespace CIS3342TermProjectFall2015
         {
 
         }
+
+        protected void cbBilling_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
