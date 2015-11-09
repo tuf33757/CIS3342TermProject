@@ -103,39 +103,66 @@ namespace CIS3342TermProjectFall2015 {
         protected global::System.Web.UI.WebControls.TextBox txtPasswordConfirm;
         
         /// <summary>
-        /// lblStreet1 control.
+        /// lblshipStreet1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStreet1;
+        protected global::System.Web.UI.WebControls.Label lblshipStreet1;
         
         /// <summary>
-        /// txtStreet1 control.
+        /// txtshipStreet1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStreet1;
+        protected global::System.Web.UI.WebControls.TextBox txtshipStreet1;
         
         /// <summary>
-        /// lblStreet2 control.
+        /// lblshipStreet2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStreet2;
+        protected global::System.Web.UI.WebControls.Label lblshipStreet2;
         
         /// <summary>
-        /// txtStreet2 control.
+        /// txtshipStreet2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStreet2;
+        protected global::System.Web.UI.WebControls.TextBox txtshipStreet2;
+        
+        /// <summary>
+        /// lblshipCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblshipCity;
+        
+        /// <summary>
+        /// txtshipCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtshipCity;
+        
+        /// <summary>
+        /// lblshipState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblshipState;
     }
 }

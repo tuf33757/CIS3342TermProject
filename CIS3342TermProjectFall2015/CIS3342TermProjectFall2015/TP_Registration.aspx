@@ -40,12 +40,18 @@
                     <asp:TextBox ID="txtPasswordConfirm" Text="" runat="server"></asp:TextBox>
 
                     <h3>Shipping Information</h3>
-                    <asp:Label ID="lblStreet1" runat="server" Text="Street 1: "></asp:Label>
-                    <asp:TextBox ID="txtStreet1" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblshipStreet1" runat="server" Text="Street 1: "></asp:Label>
+                    <asp:TextBox ID="txtshipStreet1" runat="server"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:Label ID="lblStreet2" runat="server" Text="Street 2: "></asp:Label>
-                    <asp:TextBox ID="txtStreet2" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblshipStreet2" runat="server" Text="Street 2: "></asp:Label>
+                    <asp:TextBox ID="txtshipStreet2" runat="server"></asp:TextBox>
+                    <br /><br />
+                    <asp:Label ID="lblshipCity" runat="server" Text="City: "></asp:Label>
+                    <asp:TextBox ID="txtshipCity" runat="server"></asp:TextBox>
+                    <br /><br />
+                    <asp:Label ID="lblshipState" runat="server" Text="State: "></asp:Label>
+
                 </form>
             </div>
         </div>
