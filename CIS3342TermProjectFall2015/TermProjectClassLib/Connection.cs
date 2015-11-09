@@ -12,9 +12,9 @@ namespace Utilities
     {
 
         //work from home
-        String SqlConnectString = "server=127.0.0.1,5555;Database=fa15_3342_tuf33757;User id=tuf33757;Password=Ibohx3qu";
+       // String SqlConnectString = "server=127.0.0.1,5555;Database=fa15_3342_tuf33757;User id=tuf33757;Password=Ibohx3qu";
         // Work in lab
-      //  String SqlConnectString = "server=cis-mssql1.temple.edu;Database=fa15_3342_tuf33757;User id=tuf33757;Password=Ibohx3qu";
+        String SqlConnectString = "server=cis-mssql1.temple.edu;Database=fa15_3342_tuf33757;User id=tuf33757;Password=Ibohx3qu";
         SqlConnection myConnectionSql;
         SqlCommand objCmd;
         SqlDataReader objDataReader;
