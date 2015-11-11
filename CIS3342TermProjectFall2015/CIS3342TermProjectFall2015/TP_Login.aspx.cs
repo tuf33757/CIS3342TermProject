@@ -20,18 +20,21 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+           
             if (checkForNull(txtLoginId) && checkForNull(txtPassword))
             {
                 lblError.Text = "";
-                if (checkUserPassword() ==1)
+                DataSet user =  validateUser();
+                string userType = user.Tables[0].Rows[0]["User_Type"].ToString();
+                if (userType =="Customer")
                 {
                     Response.Redirect("TP_Registration.aspx");
                 }
-                else if (checkUserPassword() == 2) 
+                else if (userType=="Merchant") 
                 {
                     Response.Redirect("TP_Merchant_Registration.aspx");
                 }
-                else if (checkUserPassword() == 3)
+                else if (userType=="Admin")
                 {
                     Response.Redirect("TP_Admin_Page.aspx");
                 }
@@ -50,15 +53,17 @@ namespace CIS3342TermProjectFall2015
                 return true;
         }
 
-        protected int checkUserPassword()
+        protected DataSet validateUser()
         {
             SqlCommand SQL = new SqlCommand();
             SQL.CommandType = CommandType.StoredProcedure;
             SQL.CommandText = "TP_validateUser";
             SQL.Parameters.AddWithValue("@username", txtLoginId.Text);
             SQL.Parameters.AddWithValue("@password", txtPassword.Text);
-            return  DB.DoUpdateUsingCmdObj(SQL);
-            
+            DataSet DS = DB.GetDataSetUsingCmdObj(SQL);
+            return DS;    
         }
+
+
     }
 }
