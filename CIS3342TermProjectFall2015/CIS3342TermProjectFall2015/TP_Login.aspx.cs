@@ -23,9 +23,17 @@ namespace CIS3342TermProjectFall2015
             if (checkForNull(txtLoginId) && checkForNull(txtPassword))
             {
                 lblError.Text = "";
-                if (checkUserPassword())
+                if (checkUserPassword() ==1)
                 {
                     Response.Redirect("TP_Registration.aspx");
+                }
+                else if (checkUserPassword() == 2) 
+                {
+                    Response.Redirect("TP_Merchant_Registration.aspx");
+                }
+                else if (checkUserPassword() == 3)
+                {
+                    Response.Redirect("TP_Admin_Page.aspx");
                 }
                 else
                     lblError.Text = "Username and/or Password do not match our records.";
@@ -42,18 +50,15 @@ namespace CIS3342TermProjectFall2015
                 return true;
         }
 
-        protected Boolean checkUserPassword()
+        protected int checkUserPassword()
         {
             SqlCommand SQL = new SqlCommand();
             SQL.CommandType = CommandType.StoredProcedure;
             SQL.CommandText = "TP_validateUser";
             SQL.Parameters.AddWithValue("@username", txtLoginId.Text);
             SQL.Parameters.AddWithValue("@password", txtPassword.Text);
-            int validate = DB.DoUpdateUsingCmdObj(SQL);
-            if (validate == 1)
-                return true;
-            else
-                return false;
+            return  DB.DoUpdateUsingCmdObj(SQL);
+            
         }
     }
 }
