@@ -20,29 +20,42 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-           
+
             if (checkForNull(txtLoginId) && checkForNull(txtPassword))
             {
                 lblError.Text = "";
-                DataSet user =  validateUser();
-                string userType = user.Tables[0].Rows[0]["User_Type"].ToString();
-                if (userType =="Customer")
+                DataSet user = validateUser();
+                try
                 {
-                    Response.Redirect("TP_Registration.aspx");
+                    string userType = user.Tables[0].Rows[0]["User_Type"].ToString();
+                    if (userType == "Customer")
+                    {
+                        Response.Redirect("TP_Registration.aspx");
+                    }
+                    else if (userType == "Merchant")
+                    {
+                        Response.Redirect("TP_Merchant_Registration.aspx");
+                    }
+                    else if (userType == "Admin")
+                    {
+                        Response.Redirect("TP_Admin_Page.aspx");
+                    }
+                    else
+                        lblError.Text = "Username and/or Password do not match our records.";
                 }
-                else if (userType=="Merchant") 
+                catch (IndexOutOfRangeException)
                 {
-                    Response.Redirect("TP_Merchant_Registration.aspx");
+                    lblError.Text = "Index out of Range";
+
+
                 }
-                else if (userType=="Admin")
-                {
-                    Response.Redirect("TP_Admin_Page.aspx");
-                }
-                else
-                    lblError.Text = "Username and/or Password do not match our records.";
             }
             else
                 lblError.Text = "Please Enter Username and Password.";
+
+
+
+
         }
 
         protected Boolean checkForNull(TextBox tb)
@@ -57,11 +70,12 @@ namespace CIS3342TermProjectFall2015
         {
             SqlCommand SQL = new SqlCommand();
             SQL.CommandType = CommandType.StoredProcedure;
-            SQL.CommandText = "TP_validateUser";
+            SQL.CommandText = "TPvalidateUser";
             SQL.Parameters.AddWithValue("@username", txtLoginId.Text);
             SQL.Parameters.AddWithValue("@password", txtPassword.Text);
-            DataSet DS = DB.GetDataSetUsingCmdObj(SQL);
-            return DS;    
+            DataSet DS = new DataSet();
+            DS = DB.GetDataSetUsingCmdObj(SQL);
+            return DS;
         }
 
 

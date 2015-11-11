@@ -24,6 +24,7 @@
 	<form class="form-signin">
 		<h1 class="form-signin-heading text-muted">Login Page</h1>
         <asp:Label ID="lblError" Text="" runat="server"></asp:Label>
+        <br />
         <asp:Label ID="lblLoginId" Text="Username:" runat="server"></asp:Label>
         <asp:TextBox ID ="txtLoginId" Text="" CssClass="form-control" runat="server" ></asp:TextBox>
 		<asp:Label ID="lblPassword" Text="Password" runat="server"></asp:Label>
