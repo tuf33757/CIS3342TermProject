@@ -18,7 +18,8 @@ namespace CIS3342TermProjectFall2015
             if (!IsPostBack && Request.Cookies["LoginID"] != null)
             {
                 HttpCookie cookie = Request.Cookies["LoginID"];
-                txtLoginId.Text = cookie.Values["Name"].ToString();
+                txtLoginId.Text = cookie.Values["LoginID"].ToString();
+                txtPassword.Text = cookie.Values["Customer_Password"].ToString();
                 
             }
 
@@ -89,9 +90,9 @@ namespace CIS3342TermProjectFall2015
 
         protected void createCookie(DataSet DS)
         {
-            if (Request.Cookies[DS.Tables[0].Rows[0]["LoginID"].ToString()] == null)
+            if (Request.Cookies["LoginID"] == null)
             {
-                HttpCookie myCookie = new HttpCookie(DS.Tables[0].Rows[0]["LoginID"].ToString());
+                HttpCookie myCookie = new HttpCookie("LoginID");
                 myCookie.Values["LoginID"] = DS.Tables[0].Rows[0]["LoginID"].ToString();
                 myCookie.Values["Customer_Password"] = DS.Tables[0].Rows[0]["Customer_Password"].ToString();
                 myCookie.Values["LastVisited"] = DateTime.Now.ToString();
