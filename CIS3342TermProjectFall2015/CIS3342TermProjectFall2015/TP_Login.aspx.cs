@@ -15,6 +15,12 @@ namespace CIS3342TermProjectFall2015
         DBConnect DB = new DBConnect();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack && Request.Cookies["LoginID"] != null)
+            {
+                HttpCookie cookie = Request.Cookies["LoginID"];
+                txtLoginId.Text = cookie.Values["Name"].ToString();
+                
+            }
 
         }
 
@@ -30,14 +36,17 @@ namespace CIS3342TermProjectFall2015
                     string userType = user.Tables[0].Rows[0]["User_Type"].ToString();
                     if (userType == "Customer")
                     {
+                        createCookie(user);
                         Response.Redirect("TP_Registration.aspx");
                     }
                     else if (userType == "Merchant")
                     {
+                        createCookie(user);
                         Response.Redirect("TP_Merchant_Registration.aspx");
                     }
                     else if (userType == "Admin")
                     {
+                        createCookie(user);
                         Response.Redirect("TP_Admin_Page.aspx");
                     }
                     else
@@ -78,7 +87,20 @@ namespace CIS3342TermProjectFall2015
             return DS;
         }
 
+        protected void createCookie(DataSet DS)
+        {
+            if (Request.Cookies[DS.Tables[0].Rows[0]["LoginID"].ToString()] == null)
+            {
+                HttpCookie myCookie = new HttpCookie(DS.Tables[0].Rows[0]["LoginID"].ToString());
+                myCookie.Values["LoginID"] = DS.Tables[0].Rows[0]["LoginID"].ToString();
+                myCookie.Values["Customer_Password"] = DS.Tables[0].Rows[0]["Customer_Password"].ToString();
+                myCookie.Values["LastVisited"] = DateTime.Now.ToString();
+                myCookie.Expires = new DateTime(2025, 1, 1);
 
+                Response.Cookies.Add(myCookie);
+                lblError.Text = "The cookie was written to the user's computer.";
+            }
+        }
 
     }
 }
