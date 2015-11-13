@@ -23,7 +23,7 @@ namespace TermProjectClassLib
         string billAddress1;
         string billAddress2;
         string billCity;
-        string cillState;
+        string billState;
         int billZip;
 
         float totalDollarSales;     
@@ -32,6 +32,7 @@ namespace TermProjectClassLib
         public Customer()
         {
         }
+
         public Customer(string fName, string lName, string email, string password, string userType)
         {
             this.firstName = fName;
@@ -52,7 +53,11 @@ namespace TermProjectClassLib
 
         public void setBillingAddress(string add1, string add2, string city, string state, int zip)
         {
-
+            billAddress1 = add1;
+            billAddress2 = add2;
+            billCity = city;
+            billState = state;
+            billZip = zip;
         }
     }
 }
