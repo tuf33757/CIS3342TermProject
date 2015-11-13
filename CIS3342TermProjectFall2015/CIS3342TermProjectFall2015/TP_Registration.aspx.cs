@@ -49,13 +49,13 @@ namespace CIS3342TermProjectFall2015
                         if (result)
                         {
                             newCust.setShippingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtbillZip.Text);
+
                             newCust.firstName = txtFirstName.Text;
                             newCust.lastName = txtLastName.Text;
                             newCust.setUserName(txtLoginId.Text);
                             newCust.setPassword(txtPassword.Text);
                             newCust.email = txtEmail.Text;
                             newCust.userType = "Customer";
-
                         }
                         else
                         {
@@ -65,6 +65,7 @@ namespace CIS3342TermProjectFall2015
                     else
                     {
                         //SET BILLING ADDRESS HERE BASED ON THE TEXTBOXES
+                        Boolean result = newCust.setBillingAddress(txtbillStreet1.Text, txtbillStreet2.Text, txtbillCity.Text, ddlbillState.SelectedValue, txtbillZip.Text);
                     }
                 }
                 else
