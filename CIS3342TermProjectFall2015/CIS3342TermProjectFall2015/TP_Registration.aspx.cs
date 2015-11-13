@@ -19,21 +19,52 @@ namespace CIS3342TermProjectFall2015
 
         protected void cbBilling_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (cbBilling.Checked == true)
+            {
+                txtbillCity.Enabled = false;
+                txtbillStreet1.Enabled = false;
+                txtbillStreet2.Enabled = false;
+                txtbillZip.Enabled = false;
+            }
+            else
+            {
+                txtbillCity.Enabled = true;
+                txtbillStreet1.Enabled = true;
+                txtbillStreet2.Enabled = true;
+                txtbillZip.Enabled = true;
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (passwordMatch(txtPassword.Text, txtPasswordConfirm.Text))
+            if (passwordsNotNull(txtPassword.Text, txtPasswordConfirm.Text))
             {
-                lblInform.Text = "Passwords Match";
+                if (passwordMatch(txtPassword.Text, txtPasswordConfirm.Text))
+                {
+                    lblInform.Text = "Passwords Match";
+                }
+                else
+                {
+                    lblInform.Text = "Passowrds Do Not Match";
+                }
             }
             else
             {
-                lblInform.Text = "Passowrds Do Not Match";
+                lblInform.Text = "Please enter passwords";
             }
         }
 
+        public Boolean passwordsNotNull(string p1, string p2)
+        {
+            if (p1 != "" && p2 != "")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public Boolean passwordMatch(string p1, string p2)
         {
             if (p1.Equals(p2))
@@ -45,5 +76,6 @@ namespace CIS3342TermProjectFall2015
                 return false;
             }
         }
+
     }
 }
