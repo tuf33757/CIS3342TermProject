@@ -21,7 +21,8 @@ namespace CIS3342TermProjectFall2015
         {
             if (cbBilling.Checked == true)
             {
-                txtbillCity.Enabled = false;
+                txtbillCity.Visible = false;
+                ddlbillState.Enabled = false;
                 txtbillStreet1.Enabled = false;
                 txtbillStreet2.Enabled = false;
                 txtbillZip.Enabled = false;
@@ -60,6 +61,10 @@ namespace CIS3342TermProjectFall2015
                         {
                             lblInform.Text = "Error setting billing address";
                         }
+                    }
+                    else
+                    {
+                        //SET BILLING ADDRESS HERE BASED ON THE TEXTBOXES
                     }
                 }
                 else
