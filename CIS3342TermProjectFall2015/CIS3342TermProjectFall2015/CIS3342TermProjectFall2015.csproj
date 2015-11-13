@@ -66,6 +66,7 @@
     <Content Include="css\RegistrationStyle.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\rusted.jpg" />
+    <Content Include="Images\Vault_Boy_Original.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\npm.js" />
