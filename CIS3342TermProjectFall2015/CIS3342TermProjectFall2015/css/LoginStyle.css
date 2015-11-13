@@ -1,12 +1,24 @@
 ﻿body {
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-color: #cccccc;
+    
+    background:url('\Images\Imagesackgroundimg.jpg') fixed; 
+    background-size:cover;
+    
 }
+
+.stuff {
+    background:url('\Images\backgroundimg.jpg') fixed; 
+    background-size:cover;
+}
+
 #signin {
-    background-color: lightgrey;
+    
+    position:relative;
+    left:50%;
     width: 300px;
     padding: 25px;
-    border: 25px solid navy;
-    margin: 25px;
+    border: 2px solid;
+    border-color:darkgreen;
+     border-radius: 25px;
+     opacity:0.8;
+
 }

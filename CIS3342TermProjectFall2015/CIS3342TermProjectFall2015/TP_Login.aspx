@@ -12,17 +12,22 @@
 
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
+
     <link href="css/LoginStyle.css" rel="stylesheet" />
+
     <title>Login</title>
 </head>
-<body>
+
+<body >
+    
     <%-- <form id="form1" runat="server">--%>
-    <div id="fullscreen_bg" class="fullscreen_bg" />
+
+    
 
     <div class="container">
-        <div id="signin">
+        <div id="signin" >
             <form class="form-signin" runat="server">
-                <h1 class="form-signin-heading text-muted">Login Page</h1>
+                <h1 class="form-signin-heading text-muted signin-label">Login Page</h1>
                 <asp:Label ID="lblError" Text="" runat="server"></asp:Label>
                 <br />
                 <asp:Label ID="lblLoginId" Text="Username:" runat="server"></asp:Label>
