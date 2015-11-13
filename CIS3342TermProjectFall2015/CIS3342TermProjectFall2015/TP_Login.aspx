@@ -52,7 +52,7 @@
                 <br />
                 <br />
                 <asp:Label ID="lblRegistration" Text="Register for a New Account:" runat="server"></asp:Label>
-                <asp:Button ID="btnRegister" Text="New Account" runat="server" CssClass="greenbutton" OnClick="btnRegister_Click" />
+                <asp:Button ID="btnRegister" Text="New Account" runat="server" CssClass="greenbuttonLarge" OnClick="btnRegister_Click" />
 
             </form>
         </div>

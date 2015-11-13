@@ -20,7 +20,7 @@ namespace CIS3342TermProjectFall2015
                 HttpCookie cookie = Request.Cookies["LoginID"];
                 txtLoginId.Text = cookie.Values["LoginID"].ToString();
                 txtPassword.Text = cookie.Values["Customer_Password"].ToString();
-                
+
             }
 
         }
@@ -41,7 +41,8 @@ namespace CIS3342TermProjectFall2015
                         { createCookie(user); }
                         else
                         { Response.Cookies["LoginID"].Expires = DateTime.Now.AddDays(-1); }
-                            Response.Redirect("TP_Registration.aspx");
+                        Session["Login"] = "true";
+                        Response.Redirect("TP_HomePage.aspx");
                     }
                     else if (userType == "Merchant")
                     {
@@ -49,15 +50,17 @@ namespace CIS3342TermProjectFall2015
                         { createCookie(user); }
                         else
                         { Response.Cookies["LoginID"].Expires = DateTime.Now.AddDays(-1); }
+                        Session["Login"] = "true";
                         Response.Redirect("TP_Merchant_Registration.aspx");
                     }
                     else if (userType == "Admin")
                     {
-                       
+
                         if (chkRemember.Checked == true)
                         { createCookie(user); }
                         else
                         { Response.Cookies["LoginID"].Expires = DateTime.Now.AddDays(-1); }
+                        Session["Login"] = "true";
                         Response.Redirect("TP_Admin_Page.aspx");
                     }
                     else
