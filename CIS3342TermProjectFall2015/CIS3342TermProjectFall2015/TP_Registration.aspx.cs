@@ -10,7 +10,7 @@ namespace CIS3342TermProjectFall2015
 {
     public partial class TP_Registration : System.Web.UI.Page
     {
-        
+        Customer newCust = new Customer();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +24,8 @@ namespace CIS3342TermProjectFall2015
         {
             if (cbBilling.Checked == true)
             {
-                txtbillCity.Enabled = false;
+                txtbillCity.Visible = false;
+                ddlbillState.Enabled = false;
                 txtbillStreet1.Enabled = false;
                 txtbillStreet2.Enabled = false;
                 txtbillZip.Enabled = false;
@@ -45,7 +46,29 @@ namespace CIS3342TermProjectFall2015
             {
                 if (passwordMatch(txtPassword.Text, txtPasswordConfirm.Text))
                 {
-                    lblInform.Text = "Passwords Match";
+                    if (cbBilling.Checked == true)
+                    {
+                        Boolean result = newCust.setBillingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtbillZip.Text);
+                        if (result)
+                        {
+                            newCust.setShippingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtbillZip.Text);
+                            newCust.firstName = txtFirstName.Text;
+                            newCust.lastName = txtLastName.Text;
+                            newCust.setUserName(txtLoginId.Text);
+                            newCust.setPassword(txtPassword.Text);
+                            newCust.email = txtEmail.Text;
+                            newCust.userType = "Customer";
+
+                        }
+                        else
+                        {
+                            lblInform.Text = "Error setting billing address";
+                        }
+                    }
+                    else
+                    {
+                        //SET BILLING ADDRESS HERE BASED ON THE TEXTBOXES
+                    }
                 }
                 else
                 {

@@ -23,7 +23,15 @@
             <form class="form-register" runat="server">
                 <h1 class="form-register-heading text-muted">Customer Registration</h1>
                 <br />
-                <h3>Login Information</h3>
+                <h3>User Information</h3>
+                <asp:Label ID="lblfname" Text="First Name:" runat="server"></asp:Label>
+                <asp:TextBox ID="txtFirstName" Text="" runat="server"></asp:TextBox>
+                <br />
+                <br />
+                <asp:Label ID="lbllastname" Text="Last Name:" runat="server"></asp:Label>
+                <asp:TextBox ID="txtLastName" Text="" runat="server"></asp:TextBox>
+                <br />
+                <br />
                 <asp:Label ID="lblLoginId" Text="Username:" runat="server"></asp:Label>
                 <asp:TextBox ID="txtLoginId" Text="" runat="server"></asp:TextBox>
                 <br />
