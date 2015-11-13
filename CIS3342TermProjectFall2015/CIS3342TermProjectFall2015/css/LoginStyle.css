@@ -1,12 +1,12 @@
 ﻿body {
     
-    background:url('\Images\Imagesackgroundimg.jpg') fixed; 
+    background:url(/Images/backgroundimg.jpg) fixed; 
     background-size:cover;
     
 }
 
 .stuff {
-    background:url('\Images\backgroundimg.jpg') fixed; 
+    background:url(/Images/backgroundimg.jpg) fixed; 
     background-size:cover;
 }
 
@@ -15,10 +15,22 @@
     position:relative;
     left:50%;
     width: 300px;
+    padding-top:50%;
     padding: 25px;
     border: 2px solid;
+    background-color:darkgray;
     border-color:darkgreen;
      border-radius: 25px;
      opacity:0.8;
 
+}
+
+#topBanner {
+    font-family:Coronetscript, cursive;
+    color:lightgoldenrodyellow;
+    box-shadow:1px 3px 24px #065212;
+    width:50%;
+    height:10%;
+    background-color:darkgray;
+     border-radius: 25px;
 }

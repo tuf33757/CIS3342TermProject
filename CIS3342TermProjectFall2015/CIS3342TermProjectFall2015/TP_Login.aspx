@@ -25,6 +25,9 @@
     
 
     <div class="container">
+        <div id="topbanner" runat="server">
+            <h2>Apocalpse Trading Company</h2>
+        </div>
         <div id="signin" >
             <form class="form-signin" runat="server">
                 <h1 class="form-signin-heading text-muted signin-label">Login Page</h1>
