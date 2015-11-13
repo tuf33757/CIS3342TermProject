@@ -37,17 +37,27 @@ namespace CIS3342TermProjectFall2015
                     string userType = user.Tables[0].Rows[0]["User_Type"].ToString();
                     if (userType == "Customer")
                     {
-                        createCookie(user);
-                        Response.Redirect("TP_Registration.aspx");
+                        if (chkRemember.Checked == true)
+                        { createCookie(user); }
+                        else
+                        { Response.Cookies["LoginID"].Expires = DateTime.Now.AddDays(-1); }
+                            Response.Redirect("TP_Registration.aspx");
                     }
                     else if (userType == "Merchant")
                     {
-                        createCookie(user);
+                        if (chkRemember.Checked == true)
+                        { createCookie(user); }
+                        else
+                        { Response.Cookies["LoginID"].Expires = DateTime.Now.AddDays(-1); }
                         Response.Redirect("TP_Merchant_Registration.aspx");
                     }
                     else if (userType == "Admin")
                     {
-                        createCookie(user);
+                       
+                        if (chkRemember.Checked == true)
+                        { createCookie(user); }
+                        else
+                        { Response.Cookies["LoginID"].Expires = DateTime.Now.AddDays(-1); }
                         Response.Redirect("TP_Admin_Page.aspx");
                     }
                     else

@@ -37,9 +37,11 @@
                 <asp:TextBox ID="txtLoginId" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                 <asp:Label ID="lblPassword" Text="Password" runat="server"></asp:Label>
                 <asp:TextBox ID="txtPassword" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                <br />
                 <asp:Button ID="btnSubmit" Text="Login" runat="server" CssClass="btn-group-sm" OnClick="btnSubmit_Click" />
                 <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="btn-group-sm" />
-
+                <br />
+                <asp:Label ID="lblRemember" Text="Remember me:" runat="server"></asp:Label><asp:CheckBox ID="chkRemember" Checked="true" runat="server" />
                 <br />
                 <br />
                 <asp:Label ID="lblRegistration" Text="Register for a New Account:" runat="server"></asp:Label>
