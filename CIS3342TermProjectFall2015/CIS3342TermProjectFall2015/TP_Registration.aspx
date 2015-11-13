@@ -13,7 +13,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/LoginStyle.css" rel="stylesheet" />
     <link href="css/RegistrationStyle.css" rel="stylesheet" />
-    <title>Register</title>
+    <title>Register Customer</title>
 </head>
 <body>
     <%--   <form id="form2" runat="server">--%>
