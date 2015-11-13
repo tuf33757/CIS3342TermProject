@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TermProjectClassLib
 {
-    class Customer
+    public class Customer
     {
         string custID;
         public string firstName;

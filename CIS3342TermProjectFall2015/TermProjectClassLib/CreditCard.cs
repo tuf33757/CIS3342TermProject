@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TermProjectClassLib
 {
-    class CreditCard
+    public class CreditCard
     {
         private String cardNumber;
         private String cardType;
