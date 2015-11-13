@@ -14,28 +14,6 @@ namespace CIS3342TermProjectFall2015
 
         }
 
-        protected void btnSubmitMerch_Click(object sender, EventArgs e)
-        {
-            if (passwordMatch(txtPassword.Text, txtPasswordConfirm.Text))
-            {
-                lblInform.Text = "Passwords Match";
-            }
-            else
-            {
-                lblInform.Text = "Passowrds Do Not Match";
-            }
-        }
-
-        public Boolean passwordMatch(string p1, string p2)
-        {
-            if (p1.Equals(p2))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+     
     }
 }

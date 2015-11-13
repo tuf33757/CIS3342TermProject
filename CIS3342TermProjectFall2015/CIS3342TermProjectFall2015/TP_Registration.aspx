@@ -187,6 +187,11 @@
                     <br />
                     <asp:Label ID="lblbillZip" runat="server" Text="Zip Code: "></asp:Label>
                     <asp:TextBox ID="txtbillZip" runat="server"></asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+                    <br />
+                    <asp:Label ID="lblInform" runat="server" Text=""></asp:Label>
                 </div>
             </form>
         </div>

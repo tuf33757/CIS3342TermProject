@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TermProjectClassLib;
 
 namespace CIS3342TermProjectFall2015
 {
     public partial class TP_Registration : System.Web.UI.Page
     {
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -17,6 +20,30 @@ namespace CIS3342TermProjectFall2015
         protected void cbBilling_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (passwordMatch(txtPassword.Text, txtPasswordConfirm.Text))
+            {
+                lblInform.Text = "Passwords Match";
+            }
+            else
+            {
+                lblInform.Text = "Passowrds Do Not Match";
+            }
+        }
+
+        public Boolean passwordMatch(string p1, string p2)
+        {
+            if (p1.Equals(p2))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
