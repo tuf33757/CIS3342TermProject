@@ -45,14 +45,14 @@
                 <asp:Label ID="lblPassword" Text="Password" runat="server"></asp:Label>
                 <asp:TextBox ID="txtPassword" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                 <br />
-                <asp:Button ID="btnSubmit" Text="Login" runat="server" CssClass="green button" OnClick="btnSubmit_Click" />
-                <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="btn-group-sm" />
+                <asp:Button ID="btnSubmit" Text="Login" runat="server" CssClass="greenbutton" OnClick="btnSubmit_Click" />
+                <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="greenbutton" />
                 <br />
                 <asp:Label ID="lblRemember" Text="Remember me:" runat="server"></asp:Label><asp:CheckBox ID="chkRemember" Checked="true" runat="server" />
                 <br />
                 <br />
                 <asp:Label ID="lblRegistration" Text="Register for a New Account:" runat="server"></asp:Label>
-                <asp:Button ID="btnRegister" Text="New Account" runat="server" CssClass="btn-group-lg" />
+                <asp:Button ID="btnRegister" Text="New Account" runat="server" CssClass="greenbutton" />
 
             </form>
         </div>
