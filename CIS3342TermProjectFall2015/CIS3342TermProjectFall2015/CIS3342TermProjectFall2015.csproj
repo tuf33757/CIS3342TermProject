@@ -75,6 +75,7 @@
     <Content Include="TP_Login.aspx" />
     <Content Include="TP_Merchant_Registration.aspx" />
     <Content Include="TP_Registration.aspx" />
+    <Content Include="TP_WebService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +114,10 @@
     </Compile>
     <Compile Include="TP_Registration.aspx.designer.cs">
       <DependentUpon>TP_Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TP_WebService.asmx.cs">
+      <DependentUpon>TP_WebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

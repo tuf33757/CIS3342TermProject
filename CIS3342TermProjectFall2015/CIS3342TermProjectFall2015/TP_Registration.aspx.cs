@@ -25,6 +25,7 @@ namespace CIS3342TermProjectFall2015
                 txtbillStreet1.Enabled = false;
                 txtbillStreet2.Enabled = false;
                 txtbillZip.Enabled = false;
+
             }
             else
             {
