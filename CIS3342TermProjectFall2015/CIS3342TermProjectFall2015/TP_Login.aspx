@@ -32,9 +32,12 @@
             <p1>Where your bottle caps spend</p1><br />
              <p2>    as well as your dollars!</p2>
         </div>
+        <div id="comments" class="comments" runat="server">
+            test
+        </div>
         <div id="signin" >
             <form class="form-signin" runat="server">
-                <h1 class="form-signin-heading text-muted signin-label">Login Page</h1>
+                <h1 class="form-signin-heading">Login Page</h1>
                 <asp:Label ID="lblError" Text="" runat="server"></asp:Label>
                 <br />
                 <asp:Label ID="lblLoginId" Text="Username:" runat="server"></asp:Label>
@@ -42,7 +45,7 @@
                 <asp:Label ID="lblPassword" Text="Password" runat="server"></asp:Label>
                 <asp:TextBox ID="txtPassword" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                 <br />
-                <asp:Button ID="btnSubmit" Text="Login" runat="server" CssClass="btn-group-sm" OnClick="btnSubmit_Click" />
+                <asp:Button ID="btnSubmit" Text="Login" runat="server" CssClass="green button" OnClick="btnSubmit_Click" />
                 <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="btn-group-sm" />
                 <br />
                 <asp:Label ID="lblRemember" Text="Remember me:" runat="server"></asp:Label><asp:CheckBox ID="chkRemember" Checked="true" runat="server" />
