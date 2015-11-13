@@ -8,8 +8,9 @@ namespace TermProjectClassLib
 {
     class Customer
     {
-        string firstName;
-        string lastName;
+        string custID;
+        public string firstName;
+        public string lastName;
         string email;
         string password;
         string userType;
@@ -26,7 +27,7 @@ namespace TermProjectClassLib
         string billState;
         int billZip;
 
-        float totalDollarSales;     
+        float totalDollarSales;
 
 
         public Customer()

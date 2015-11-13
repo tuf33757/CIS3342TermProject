@@ -71,6 +71,7 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\npm.js" />
     <Content Include="TP_Admin_Page.aspx" />
+    <Content Include="TP_CreditCardWS.asmx" />
     <Content Include="TP_HomePage.aspx" />
     <Content Include="TP_Login.aspx" />
     <Content Include="TP_Merchant_Registration.aspx" />
@@ -86,6 +87,10 @@
     </Compile>
     <Compile Include="TP_Admin_Page.aspx.designer.cs">
       <DependentUpon>TP_Admin_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TP_CreditCardWS.asmx.cs">
+      <DependentUpon>TP_CreditCardWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="TP_HomePage.aspx.cs">
       <DependentUpon>TP_HomePage.aspx</DependentUpon>
