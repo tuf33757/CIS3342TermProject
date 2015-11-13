@@ -1,36 +1,71 @@
 ﻿body {
-    
-    background:url(/Images/backgroundimg.jpg) fixed; 
-    background-size:cover;
-    
+    background: url(/Images/backgroundimg.jpg) fixed;
+    background-size: cover;
 }
 
 .stuff {
-    background:url(/Images/backgroundimg.jpg) fixed; 
-    background-size:cover;
+    background: url(/Images/backgroundimg.jpg) fixed;
+    background-size: cover;
 }
 
 #signin {
-    
-    position:relative;
-    left:50%;
+    position: relative;
+    left: 50%;
     width: 300px;
-    padding-top:50%;
+    padding-top: 50%;
     padding: 25px;
     border: 2px solid;
-    background-color:darkgray;
-    border-color:darkgreen;
-     border-radius: 25px;
-     opacity:0.8;
-
+    background-color: darkgray;
+    border-color: darkgreen;
+    border-radius: 25px;
+    opacity: 0.6;
 }
 
-#topBanner {
-    font-family:Coronetscript, cursive;
-    color:lightgoldenrodyellow;
-    box-shadow:1px 3px 24px #065212;
-    width:50%;
-    height:10%;
-    background-color:darkgray;
-     border-radius: 25px;
+.topBanner {
+    
+    box-shadow: 1px 3px 24px #065212;
+    width: 400px;
+    height: 220px;
+    background-color: darkseagreen;
+    background: darkseagreen url(/Images/Vault_Boy_Original.png) no-repeat right bottom;
+    border-radius: 25px;
+    opacity: 0.5;
+    -ms-transform: rotate(-7deg); /* IE 9 */
+    -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
+    transform: rotate(-7deg);
 }
+
+    .topBanner h1 {
+        color: lightgoldenrodyellow;
+        text-align: center;
+        font-family: Coronetscript, cursive;
+        font-size: x-large;
+        font-weight:700;
+    }
+
+    .topBanner p1 {
+       
+        padding: 10px;
+        margin: 20px;
+        width:100px;
+        height:150px;
+       
+        font-family: Coronetscript, cursive;
+        font-size:medium;
+        font-weight:400;
+        color:lightyellow;
+        
+    }
+    .topBanner p2 {
+       
+        padding: 10px;
+        margin: 20px;
+        width:100px;
+        height:150px;
+       
+        font-family: Coronetscript, cursive;
+        font-size:medium;
+        font-weight:400;
+        color:lightyellow;
+        
+    }

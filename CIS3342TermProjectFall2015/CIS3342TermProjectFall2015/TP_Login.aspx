@@ -25,8 +25,12 @@
     
 
     <div class="container">
-        <div id="topbanner" runat="server">
-            <h2>Apocalpse Trading Company</h2>
+        <br />
+        <br />
+        <div id="topbanner" class="topBanner" runat="server">
+           <h1> Apocalpse Trading Company</h1>
+            <p1>Where your bottle caps spend</p1><br />
+             <p2>    as well as your dollars!</p2>
         </div>
         <div id="signin" >
             <form class="form-signin" runat="server">
