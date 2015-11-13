@@ -23,7 +23,7 @@
 }
 
 .topBanner {
-    box-shadow: 1px 3px 24px #065212;
+    box-shadow: 25px 25px 35px #065212;
     width: 400px;
     height: 220px;
     background-color: darkseagreen;
@@ -33,6 +33,9 @@
     -ms-transform: rotate(-7deg); /* IE 9 */
     -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
     transform: rotate(-7deg);
+     -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
 }
 
     .topBanner h1 {
@@ -72,8 +75,6 @@
     width: 600px;
     height: 400px;
     margin-top: 50px;
-    padding-top: 60%;
-    padding: 25px;
     border: 2px solid;
     background-color: darkgray;
     border-color: darkgreen;
@@ -104,9 +105,10 @@
     -webkit-animation-iteration-count: infinite;
     width: 70px;
     height: 30px;
-    padding: 10px;
     border-radius: 10px;
     border-color:black;
+    color:white;
+    text-align:center;
 }
 
 .greenbuttonLarge {
@@ -115,7 +117,42 @@
     -webkit-animation-iteration-count: infinite;
     width: 140px;
     height: 30px;
-    padding: 10px;
     border-radius: 10px;
     border-color:black;
+    color:white;
+    text-align:center;
 }
+
+.commentbox {
+    background-color:wheat;
+    margin:25px;
+    height:350px;
+    width:550px;
+    border-radius: 25px;
+
+}
+
+    .commentbox p1 {
+        
+        padding: 10px;
+        margin: 20px;
+        width: 100px;
+        height: 150px;
+        font-family: Coronetscript, cursive;
+        font-size: medium;
+        font-weight: 400;
+        color: black;
+    }
+
+     .commentbox p2 {
+        
+        padding: 10px;
+        margin: 20px;
+        width: 100px;
+        height: 150px;
+        font-family: Coronetscript, cursive;
+        font-size: medium;
+        font-weight: 400;
+        color: black;
+        text-align:justify right;
+    }

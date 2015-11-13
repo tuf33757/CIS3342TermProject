@@ -33,7 +33,12 @@
              <p2>    as well as your dollars!</p2>
         </div>
         <div id="comments" class="comments" runat="server">
-            test
+            <div id="commentbox" class="commentbox" runat="server">
+                <br />
+                <br />
+                <p1>Don't sweat the little stuff, it's only the end of the world!</p1>
+                <p2>Co-Founder and Totally RAD Dude Rob Zahorchak</p2>
+            </div>
         </div>
         <div id="signin" >
             <form class="form-signin" runat="server">
