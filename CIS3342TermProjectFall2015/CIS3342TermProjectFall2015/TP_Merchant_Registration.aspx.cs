@@ -20,6 +20,10 @@ namespace CIS3342TermProjectFall2015
             {
                 lblInform.Text = "Passwords Match";
             }
+            else
+            {
+                lblInform.Text = "Passowrds Do Not Match";
+            }
         }
 
         public Boolean passwordMatch(string p1, string p2)
