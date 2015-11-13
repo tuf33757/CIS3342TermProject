@@ -9,11 +9,12 @@ namespace TermProjectClassLib
     public class Customer
     {
         string custID;
+        string userName;
         public string firstName;
         public string lastName;
-        string email;
+        public string email;
         string password;
-        string userType;
+        public string userType;
 
         string shipAddress1;
         string shipAddress2;
@@ -41,24 +42,52 @@ namespace TermProjectClassLib
             this.email = email;
             this.password = password;
             this.userType = userType;
+            totalDollarSales = 0;
         }
 
-        public void setShippingAddress(string add1, string add2, string city, string state, int zip)
+        public void setUserName(string username)
+        {
+            this.userName = username;
+        }
+        public void setPassword(string password)
+        {
+            this.password = password;
+        }
+
+        public Boolean setShippingAddress(string add1, string add2, string city, string state, string zip)
         {
             shipAddress1 = add1;
             shipAddress2 = add2;
             shipCity = city;
             shipState = state;
-            shipZip = zip;
+            string stringZip = zip;
+            bool result = Int32.TryParse(stringZip, out shipZip);
+            if (result)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public void setBillingAddress(string add1, string add2, string city, string state, int zip)
+        public Boolean setBillingAddress(string add1, string add2, string city, string state, string zip)
         {
             billAddress1 = add1;
             billAddress2 = add2;
             billCity = city;
             billState = state;
-            billZip = zip;
+            string stringZip = zip;
+            bool result = Int32.TryParse(stringZip, out billZip);
+            if (result)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
