@@ -38,6 +38,10 @@ namespace TermProjectClassLib
            return APIKey;
        }
 
-        //WRITE THE LOGIC TO GENERATE AN API KEY HERE
+       public void generateAPIKey()
+       {
+           //WRITE THE LOGIC TO GENERATE AN API KEY HERE
+       }
+        
     }
 }
