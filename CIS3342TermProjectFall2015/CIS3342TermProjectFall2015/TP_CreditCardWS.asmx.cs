@@ -45,32 +45,44 @@ namespace CIS3342TermProjectFall2015
             return myds;
         }
 
-        //[WebMethod]
-        //public Boolean AddCustomer(Customer cust, string password)
-        //{
-        //    if (cust != null && password == this.AccessKey)
-        //    {
-        //        SqlCommand command = new SqlCommand();
-        //        command.CommandType = CommandType.StoredProcedure;
-        //        command.CommandText = "InsertNewCustomer";
-        //        command.Parameters.AddWithValue("@customerID", cust.custID);
-        //        command.Parameters.AddWithValue("@firstName", cust.firstName);
-        //        command.Parameters.AddWithValue("@lastName", cust.lastName);
-        //        command.Parameters.AddWithValue("@addressLine1", cust.addLine1);
-        //        command.Parameters.AddWithValue("@addressLine2", cust.addLine2);
-        //        command.Parameters.AddWithValue("@city", cust.city);
-        //        command.Parameters.AddWithValue("@stateName", cust.state);
-        //        command.Parameters.AddWithValue("@zip", cust.zip);
+        [WebMethod]
+        public Boolean AddCustomer(Customer cust, string APIKey)
+        {
+            if (cust != null && APIKey == this.AccessKey)
+            {
+                SqlCommand command = new SqlCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "TP_AddCustomer";
 
-        //        objDB.DoUpdateUsingCmdObj(command);
+                command.Parameters.AddWithValue("@firstName", cust.firstName);
+                command.Parameters.AddWithValue("@lastName", cust.lastName);
+                command.Parameters.AddWithValue("@email", cust.email);
+                command.Parameters.AddWithValue("@userName", cust.getUsername());
+                command.Parameters.AddWithValue("@pasword", cust.getPassword());
+                command.Parameters.AddWithValue("@userType", cust.userType);
+                command.Parameters.AddWithValue("@totalDollarSales", 0);
 
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+                command.Parameters.AddWithValue("@shipAdd1", cust.shipAddress1);
+                command.Parameters.AddWithValue("@shipAdd2", cust.shipAddress2);
+                command.Parameters.AddWithValue("@shipCity", cust.shipCity);
+                command.Parameters.AddWithValue("@shipState", cust.shipState);
+                command.Parameters.AddWithValue("@shipZip", cust.shipZip);
+
+                command.Parameters.AddWithValue("@billAdd1", cust.billAddress1);
+                command.Parameters.AddWithValue("@billAdd2", cust.billAddress2);
+                command.Parameters.AddWithValue("@billCity", cust.billCity);
+                command.Parameters.AddWithValue("@billState", cust.billState);
+                command.Parameters.AddWithValue("@billZip", cust.billZip);
+
+                objDB.DoUpdateUsingCmdObj(command);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         //[WebMethod]
         //public Boolean UpdateCustomerInfo(Customer cust, string password)

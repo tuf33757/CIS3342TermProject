@@ -18,29 +18,33 @@
     <title>Login</title>
 </head>
 
-<body >
-    
+<body>
+
     <%-- <form id="form1" runat="server">--%>
 
-    
+
 
     <div class="container">
         <br />
         <br />
         <div id="topbanner" class="topBanner" runat="server">
-           <h1> Apocalpse Trading Company</h1>
-            <p1>Where your bottle caps spend</p1><br />
-             <p2>    as well as your dollars!</p2>
+            <h1>Apocalpse Trading Company</h1>
+            <p1>Where your bottle caps spend</p1>
+            <br />
+            <p2>    as well as your dollars!</p2>
         </div>
         <div id="comments" class="comments" runat="server">
             <div id="commentbox" class="commentbox" runat="server">
                 <br />
                 <br />
                 <p1>Don't sweat the little stuff, it's only the end of the world!</p1>
-                <p2>Co-Founder and Totally RAD Dude Rob Zahorchak</p2>
+                <p2>--Co-Founder and Totally RAD Dude Rob Zahorchak</p2>
+                <br />
+                <p1>Something something the world is ending something this is a quote. I have to code now.</p1>
+                <p2>--Co-Founder Tracey Harrison</p2>
             </div>
         </div>
-        <div id="signin" >
+        <div id="signin">
             <form class="form-signin" runat="server">
                 <h1 class="form-signin-heading">Login Page</h1>
                 <asp:Label ID="lblError" Text="" runat="server"></asp:Label>
