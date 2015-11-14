@@ -58,6 +58,8 @@ namespace CIS3342TermProjectFall2015
                             newCust.setPassword(txtPassword.Text);
                             newCust.email = txtEmail.Text;
                             newCust.userType = "Customer";
+
+
                         }
                         else
                         {
@@ -105,30 +107,36 @@ namespace CIS3342TermProjectFall2015
         }
 
         protected void clearPage(Control page)
-        { 
- {
-     foreach (Control c in page.Controls)
-     {
-          if (c.Controls.Count > 0)
-                clearPage(c);
-          else
-          {
-               if (c is TextBox)
-                  (c as TextBox).Text = "";
+        {
+            {
+                foreach (Control c in page.Controls)
+                {
+                    if (c.Controls.Count > 0)
+                        clearPage(c);
+                    else
+                    {
+                        if (c is TextBox)
+                            (c as TextBox).Text = "";
 
-               if (c is CheckBox)
-                  (c as CheckBox).Checked = false;
+                        if (c is CheckBox)
+                            (c as CheckBox).Checked = false;
 
-                if (c is DropDownList)
-                   (c as DropDownList).SelectedIndex = 1;
-           }
-       }
-   }
+                        if (c is DropDownList)
+                            (c as DropDownList).SelectedIndex = 1;
+                    }
+                    lblInform.Text = "";
+                }
+            }
         }
 
         protected void btnCleaar_Click(object sender, EventArgs e)
         {
             clearPage(this);
+        }
+
+        public void putCustomerInDB(Customer cust)
+        {
+            //WRITE THE CODE TO PUT A CUSTOMER IN THE DB HERE
         }
 
     }
