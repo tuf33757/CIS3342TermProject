@@ -72,25 +72,39 @@
     <Content Include="js\npm.js" />
     <Content Include="css\MerchantRegistration.css" />
     <Content Include="TP_Admin_Page.aspx" />
-    <Content Include="TP_CreditCardWS.asmx" />
     <Content Include="TP_HomePage.aspx" />
     <Content Include="TP_Login.aspx" />
     <Content Include="TP_Merchant_Registration.aspx" />
     <Content Include="TP_Registration.aspx" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\TP_CreditCardWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\TP_CreditCardWS\TP_CreditCardWS.disco" />
+    <Content Include="Web References\TP_WebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\TP_WebService\TP_WebService.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="TP_Admin_Page.aspx.cs">
       <DependentUpon>TP_Admin_Page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TP_Admin_Page.aspx.designer.cs">
       <DependentUpon>TP_Admin_Page.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TP_CreditCardWS.asmx.cs">
-      <DependentUpon>TP_CreditCardWS.asmx</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="TP_HomePage.aspx.cs">
       <DependentUpon>TP_HomePage.aspx</DependentUpon>
@@ -120,6 +134,16 @@
     <Compile Include="TP_Registration.aspx.designer.cs">
       <DependentUpon>TP_Registration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\TP_CreditCardWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TP_WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap-theme.css.map" />
@@ -128,6 +152,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Web References\TP_CreditCardWS\TP_CreditCardWS.wsdl" />
+    <Content Include="Web References\TP_WebService\TP_WebService.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -140,8 +166,41 @@
       <Project>{27c14ed0-686c-4ab3-ae69-7eee6aca3443}</Project>
       <Name>TermProjectClassLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebServices\WebServices.csproj">
+      <Project>{43c7ffee-cee6-4eaf-979c-29bd2c977c8f}</Project>
+      <Name>WebServices</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:12566/TP_CreditCardWS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TP_CreditCardWS\</RelPath>
+      <UpdateFromURL>http://localhost:12566/TP_CreditCardWS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CIS3342TermProjectFall2015_TP_CreditCardWS_TP_CreditCardWS</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:12566/TP_WebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TP_WebService\</RelPath>
+      <UpdateFromURL>http://localhost:12566/TP_WebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CIS3342TermProjectFall2015_TP_WebService_TP_WebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
