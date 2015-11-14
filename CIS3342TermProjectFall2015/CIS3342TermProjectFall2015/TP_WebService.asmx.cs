@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using TermProjectClassLib;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace CIS3342TermProjectFall2015
 {
@@ -16,11 +19,19 @@ namespace CIS3342TermProjectFall2015
     // [System.Web.Script.Services.ScriptService]
     public class TP_WebService : System.Web.Services.WebService
     {
+        DBConnect objDB = new DBConnect();
+        SqlCommand objCommand = new SqlCommand();
+
 
         [WebMethod]
-        public string HelloWorld()
+        public DataSet getDepartment()
         {
-            return "Hello World";
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "TP_GetDepartment";
+            DataSet myds = objDB.GetDataSetUsingCmdObj(command);
+            return myds;
         }
+
     }
 }

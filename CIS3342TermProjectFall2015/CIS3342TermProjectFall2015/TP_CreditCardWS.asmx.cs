@@ -23,6 +23,7 @@ namespace CIS3342TermProjectFall2015
         DBConnect objDB = new DBConnect();
         SqlCommand objCommand = new SqlCommand();
 
+        //Gets all the customer IDs
         [WebMethod]
         public DataSet getCustomerID()
         {
@@ -34,6 +35,8 @@ namespace CIS3342TermProjectFall2015
 
             return myDS;
         }
+
+        //Gets the customer id related to a specific account
         [WebMethod]
         public DataSet getCustomerIDFromAccountID(String AccountID)
         {
@@ -45,6 +48,7 @@ namespace CIS3342TermProjectFall2015
             return myds;
         }
 
+        //Adds a customer to the TP_Customer table in Rob's Database
         [WebMethod]
         public Boolean AddCustomer(Customer cust, string APIKey)
         {
@@ -111,6 +115,7 @@ namespace CIS3342TermProjectFall2015
         //    }
         //}
 
+        //Matches the customer info to make sure the customer exists
         [WebMethod]
         public DataSet MatchCustomerInfo(Object[] info)
         {
@@ -126,7 +131,7 @@ namespace CIS3342TermProjectFall2015
             return myds;
 
         }
-
+        //Gets the balance for a specific account
         [WebMethod]
         public DataSet GetBalance(String AccountID)
         {
@@ -139,7 +144,7 @@ namespace CIS3342TermProjectFall2015
             return myds;
         }
 
-
+        //Updates the account balance based on a purchase
         [WebMethod]
         public Boolean UpdateAccountBalance(Object[] Purchase, string password)
         {
@@ -170,6 +175,7 @@ namespace CIS3342TermProjectFall2015
 
         }
 
+        //Inserts a new transaction to an account
         [WebMethod]
         public Boolean InsertNewTransaction(Object[] TransactionInfo, string password)
         {
@@ -200,6 +206,8 @@ namespace CIS3342TermProjectFall2015
             }
 
         }
+
+        //Adds a new account to the DB for a specific customer
         [WebMethod]
         public Boolean InsertNewAccount(Object[] AccountInfo, string password)
         {

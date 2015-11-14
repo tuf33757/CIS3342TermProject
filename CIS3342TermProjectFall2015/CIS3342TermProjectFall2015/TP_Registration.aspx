@@ -63,6 +63,7 @@
                     <br />
                     <asp:Label ID="lblshipState" runat="server" Text="State: "></asp:Label>
                     <asp:DropDownList ID="ddlshipState" runat="server">
+                        <asp:ListItem>SELECT STATE</asp:ListItem>
                         <asp:ListItem>AK</asp:ListItem>
                         <asp:ListItem>AL</asp:ListItem>
                         <asp:ListItem>AR</asp:ListItem>
@@ -123,7 +124,7 @@
                 <div>
                     <h3>Billing Information</h3>
                     <asp:Label ID="lblsameBilling" runat="server" Text="Same as Shipping"></asp:Label>
-                    <asp:CheckBox ID="cbBilling" runat="server" OnCheckedChanged="cbBilling_CheckedChanged" />
+                    <asp:CheckBox ID="cbBilling" runat="server" OnCheckedChanged="cbBilling_CheckedChanged" AutoPostBack="true" />
                     <br />
                     <br />
                     <asp:Label ID="lblbillStreet1" runat="server" Text="Street 1: "></asp:Label>
@@ -140,6 +141,7 @@
                     <br />
                     <asp:Label ID="lblbillState" runat="server" Text="State: "></asp:Label>
                     <asp:DropDownList ID="ddlbillState" runat="server">
+                        <asp:ListItem>SELECT STATE</asp:ListItem>
                         <asp:ListItem>AK</asp:ListItem>
                         <asp:ListItem>AL</asp:ListItem>
                         <asp:ListItem>AR</asp:ListItem>

@@ -14,7 +14,7 @@ namespace CIS3342TermProjectFall2015
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
 
         }
 
@@ -22,7 +22,7 @@ namespace CIS3342TermProjectFall2015
         {
             if (cbBilling.Checked == true)
             {
-                txtbillCity.Visible = false;
+                txtbillCity.Enabled = false;
                 ddlbillState.Enabled = false;
                 txtbillStreet1.Enabled = false;
                 txtbillStreet2.Enabled = false;
@@ -35,6 +35,7 @@ namespace CIS3342TermProjectFall2015
                 txtbillStreet1.Enabled = true;
                 txtbillStreet2.Enabled = true;
                 txtbillZip.Enabled = true;
+                ddlbillState.Enabled = true;
             }
         }
 
@@ -65,8 +66,8 @@ namespace CIS3342TermProjectFall2015
                     }
                     else
                     {
-                        //SET BILLING ADDRESS HERE BASED ON THE TEXTBOXES
-                        Boolean result = newCust.setBillingAddress(txtbillStreet1.Text, txtbillStreet2.Text, txtbillCity.Text, ddlbillState.SelectedValue, txtbillZip.Text);
+                        Boolean result = newCust.setBillingAddress(txtbillStreet1.Text, txtbillStreet2.Text,
+                            txtbillCity.Text, ddlbillState.SelectedValue, txtbillZip.Text);
                     }
                 }
                 else
