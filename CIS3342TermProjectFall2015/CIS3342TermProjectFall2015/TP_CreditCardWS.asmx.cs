@@ -50,9 +50,9 @@ namespace CIS3342TermProjectFall2015
 
         //Adds a customer to the TP_Customer table in Rob's Database
         [WebMethod]
-        public Boolean AddCustomer(Customer cust, string APIKey)
+        public Boolean AddCustomer(Customer cust)
         {
-            if (cust != null && APIKey == this.AccessKey)
+            if (cust != null)
             {
                 SqlCommand command = new SqlCommand();
                 command.CommandType = CommandType.StoredProcedure;

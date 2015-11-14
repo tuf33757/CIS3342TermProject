@@ -11,10 +11,10 @@ namespace CIS3342TermProjectFall2015
     public partial class TP_Registration : System.Web.UI.Page
     {
         Customer newCust = new Customer();
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
 
         }
 
@@ -58,8 +58,6 @@ namespace CIS3342TermProjectFall2015
                             newCust.setPassword(txtPassword.Text);
                             newCust.email = txtEmail.Text;
                             newCust.userType = "Customer";
-
-
                         }
                         else
                         {
@@ -136,7 +134,7 @@ namespace CIS3342TermProjectFall2015
 
         public void putCustomerInDB(Customer cust)
         {
-            //WRITE THE CODE TO PUT A CUSTOMER IN THE DB HERE
+           
         }
 
     }
