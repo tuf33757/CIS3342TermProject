@@ -37,6 +37,8 @@ namespace CIS3342TermProjectFall2015.TP_WebService {
         
         private System.Threading.SendOrPostCallback getColNamesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback addMerchantOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -83,6 +85,9 @@ namespace CIS3342TermProjectFall2015.TP_WebService {
         
         /// <remarks/>
         public event getColNamesCompletedEventHandler getColNamesCompleted;
+        
+        /// <remarks/>
+        public event addMerchantCompletedEventHandler addMerchantCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getDepartment", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -170,6 +175,34 @@ namespace CIS3342TermProjectFall2015.TP_WebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/addMerchant", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void addMerchant(Merchant merch) {
+            this.Invoke("addMerchant", new object[] {
+                        merch});
+        }
+        
+        /// <remarks/>
+        public void addMerchantAsync(Merchant merch) {
+            this.addMerchantAsync(merch, null);
+        }
+        
+        /// <remarks/>
+        public void addMerchantAsync(Merchant merch, object userState) {
+            if ((this.addMerchantOperationCompleted == null)) {
+                this.addMerchantOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaddMerchantOperationCompleted);
+            }
+            this.InvokeAsync("addMerchant", new object[] {
+                        merch}, this.addMerchantOperationCompleted, userState);
+        }
+        
+        private void OnaddMerchantOperationCompleted(object arg) {
+            if ((this.addMerchantCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.addMerchantCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -185,6 +218,87 @@ namespace CIS3342TermProjectFall2015.TP_WebService {
                 return true;
             }
             return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Merchant {
+        
+        private string merchantIDField;
+        
+        private string storeNameField;
+        
+        private string firstNameField;
+        
+        private string lastNameField;
+        
+        private string storeDescripField;
+        
+        private string loginIDField;
+        
+        /// <remarks/>
+        public string merchantID {
+            get {
+                return this.merchantIDField;
+            }
+            set {
+                this.merchantIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string storeName {
+            get {
+                return this.storeNameField;
+            }
+            set {
+                this.storeNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string firstName {
+            get {
+                return this.firstNameField;
+            }
+            set {
+                this.firstNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string lastName {
+            get {
+                return this.lastNameField;
+            }
+            set {
+                this.lastNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string storeDescrip {
+            get {
+                return this.storeDescripField;
+            }
+            set {
+                this.storeDescripField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string loginID {
+            get {
+                return this.loginIDField;
+            }
+            set {
+                this.loginIDField = value;
+            }
         }
     }
     
@@ -265,6 +379,10 @@ namespace CIS3342TermProjectFall2015.TP_WebService {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.34209")]
+    public delegate void addMerchantCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

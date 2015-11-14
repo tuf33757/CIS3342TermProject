@@ -11,7 +11,9 @@ namespace CIS3342TermProjectFall2015
 {
     public partial class TP_Merchant_Registration : System.Web.UI.Page
     {
-        Merchant merch = new Merchant();
+        TP_WebService.TP_WebService tpWebService = new TP_WebService.TP_WebService();
+        TP_WebService.Merchant newMerch = new TP_WebService.Merchant();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //string session = (string)Session["Login"];
@@ -21,8 +23,11 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnSubmitMerch_Click(object sender, EventArgs e)
         {
-            if (checkForNull()== true)
-            { lblInform.Text = "Cogratz you win!"; }
+            if (checkForNull() == true)
+            {
+                lblInform.Text = "Cogratz you win!";
+                putMerchantInDB();
+            }
             else
                 lblInform.Text = "Please enter all required fields.";
 
@@ -73,6 +78,21 @@ namespace CIS3342TermProjectFall2015
         //    }
         //    return true;
         //}
+
+        public void putMerchantInDB()
+        {
+            newMerch.firstName = txtFirstName.Text;
+            newMerch.lastName = txtLastName.Text;
+            newMerch.storeName = txtStoreName.Text;
+            newMerch.storeDescrip = txtStoreDescription.Text;
+            newMerch.loginID = txtLoginId.Text;
+
+            Random rand = new Random();
+            int IDnum = rand.Next(100000);
+            newMerch.merchantID = txtLoginId.Text + IDnum;
+
+            tpWebService.addMerchant(newMerch);
+        }
 
     }
 }
