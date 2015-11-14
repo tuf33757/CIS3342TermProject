@@ -33,5 +33,16 @@ namespace CIS3342TermProjectFall2015
             return myds;
         }
 
+        [WebMethod]
+        public DataSet getCatalog(int departmentNumber)
+        {
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "TP_GetDepartment";
+            DataSet myds = objDB.GetDataSetUsingCmdObj(command);
+            return myds;
+
+        }
+
     }
 }
