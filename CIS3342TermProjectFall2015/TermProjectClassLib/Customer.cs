@@ -70,7 +70,7 @@ namespace TermProjectClassLib
                 shipAddress2 = add2;
                 shipCity = city;
                 shipState = state;
-                string shipzip = zip;
+                shipZip = zip;
                 return true;
             }
             catch (Exception)
@@ -88,7 +88,7 @@ namespace TermProjectClassLib
                 billAddress2 = add2;
                 billCity = city;
                 billState = state;
-                string billzip = zip;
+                billZip = zip;
                 return true;
             }
             catch (Exception)

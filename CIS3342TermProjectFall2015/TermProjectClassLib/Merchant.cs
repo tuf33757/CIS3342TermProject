@@ -19,13 +19,13 @@ namespace TermProjectClassLib
         {
         }
 
-        public Merchant(string ID, string storename, string fname, string lname, string api, string login, string descrip)
+        public Merchant(string ID, string storename, string fname, string lname, string login, string descrip)
         {
             merchantID = ID;
             storeName = storename;
             firstName = fname;
             lastName = lname;
-            APIKey = api;
+            APIKey = generateAPIKey();
             storeDescrip = descrip;
         }
 
@@ -37,8 +37,12 @@ namespace TermProjectClassLib
        {
            return APIKey;
        }
+       public void setAPIKey(string key)
+       {
+           APIKey = key;
+       }
 
-       public string getAPIKey()
+       public string generateAPIKey()
        {
            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
            var random = new Random();
