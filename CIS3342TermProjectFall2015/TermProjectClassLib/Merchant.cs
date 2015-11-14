@@ -15,12 +15,13 @@ namespace TermProjectClassLib
         public string lastName;
         string APIKey;
         public string storeDescrip;
+        public string loginID;
 
         public Merchant()
         {
         }
 
-        public Merchant(string ID, string storename, string fname, string lname, string login, string descrip)
+        public Merchant(string ID, string storename, string fname, string lname, string login, string descrip, string loginID)
         {
             merchantID = ID;
             storeName = storename;
@@ -28,6 +29,7 @@ namespace TermProjectClassLib
             lastName = lname;
             APIKey = generateAPIKey();
             storeDescrip = descrip;
+            this.loginID = loginID;
         }
 
        public string getMerchantID()
