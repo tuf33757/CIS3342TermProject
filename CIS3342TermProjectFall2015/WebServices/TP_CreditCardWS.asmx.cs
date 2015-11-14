@@ -7,7 +7,7 @@ using TermProjectClassLib;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace WebService
+namespace WebServices
 {
     /// <summary>
     /// Summary description for TP_CreditCardWS
