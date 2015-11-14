@@ -8,25 +8,24 @@ namespace TermProjectClassLib
 {
     public class Customer
     {
-        string custID;
-        string userName;
+        string userName { get; set; }
         public string firstName;
         public string lastName;
         public string email;
-        string password;
+        string password { get; set; }
         public string userType;
 
-        string shipAddress1;
-        string shipAddress2;
-        string shipCity;
-        string shipState;
-        int shipZip;
+        public string shipAddress1;
+        public string shipAddress2;
+        public string shipCity;
+        public string shipState;
+        public int shipZip;
 
-        string billAddress1;
-        string billAddress2;
-        string billCity;
-        string billState;
-        int billZip;
+        public string billAddress1;
+        public string billAddress2;
+        public string billCity;
+        public string billState;
+        public int billZip;
 
         float totalDollarSales;
 
@@ -43,6 +42,15 @@ namespace TermProjectClassLib
             this.password = password;
             this.userType = userType;
             totalDollarSales = 0;
+        }
+
+        public string getUsername()
+        {
+            return userName;
+        }
+        public string getPassword()
+        {
+            return password;
         }
 
         public void setUserName(string username)
