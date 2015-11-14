@@ -1,0 +1,74 @@
+﻿body {
+}
+
+    .register h1 {
+     color: #99e699;
+    }
+
+    @-webkit-keyframes greenPulse {
+    from {
+        background-color: #749a02;
+        -webkit-box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #91bd09;
+        -webkit-box-shadow: 0 0 18px #91bd09;
+    }
+
+    to {
+        background-color: #749a02;
+        -webkit-box-shadow: 0 0 9px #333;
+    }
+}
+
+.greenbutton {
+    -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    border-color:black;
+    color:white;
+    text-align:center;
+}
+
+@-webkit-keyframes darkGreenPulse {
+    from {
+        background-color: #004d00;
+        -webkit-box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #009933;
+        -webkit-box-shadow: 0 0 18px #91bd09;
+    }
+
+    to {
+        background-color:#004d00;
+        -webkit-box-shadow: 0 0 9px #333;
+    }
+}
+
+
+
+.register {
+  
+    position: relative;
+    width: 600px;
+    padding-top: 60%;
+    padding: 25px;
+    border: 2px solid;
+    background-color: darkgreen;
+    border-color: darkgreen;
+    border-radius: 25px;
+    opacity: 0.6;
+    color: #99e699;
+    margin: 0 auto;
+     -webkit-animation-name: darkGreenPulse;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-iteration-count: infinite;
+    border-radius: 10px;
+    border-color:black;
+}

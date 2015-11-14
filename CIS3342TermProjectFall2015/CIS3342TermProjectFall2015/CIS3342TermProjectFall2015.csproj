@@ -70,6 +70,7 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\npm.js" />
+    <Content Include="css\MerchantRegistration.css" />
     <Content Include="TP_Admin_Page.aspx" />
     <Content Include="TP_CreditCardWS.asmx" />
     <Content Include="TP_HomePage.aspx" />

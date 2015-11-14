@@ -124,7 +124,7 @@
 }
 
 .commentbox {
-    background-color:wheat;
+    background-color:darkgreen;
     margin:25px;
     height:350px;
     width:550px;
@@ -141,7 +141,7 @@
         font-family: Coronetscript, cursive;
         font-size: medium;
         font-weight: 400;
-        color: black;
+        color:lightgreen ;
     }
 
      .commentbox p2 {
@@ -153,6 +153,6 @@
         font-family: Coronetscript, cursive;
         font-size: medium;
         font-weight: 400;
-        color: black;
+        color: lightgreen;
         text-align:justify right;
     }

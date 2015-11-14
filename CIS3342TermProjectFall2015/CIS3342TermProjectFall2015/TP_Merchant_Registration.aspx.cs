@@ -11,9 +11,9 @@ namespace CIS3342TermProjectFall2015
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string session = (string)Session["Login"];
-            if (session != "true")
-                Response.Redirect("TP_Login.aspx");
+            //string session = (string)Session["Login"];
+            //if (session != "true")
+            //    Response.Redirect("TP_Login.aspx");
         }
 
         protected void btnSubmitMerch_Click(object sender, EventArgs e)
