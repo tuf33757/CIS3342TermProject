@@ -136,7 +136,7 @@ namespace CIS3342TermProjectFall2015
 
         public void putCustomerInDB()
         {
-            TP_CreditCardWS.Customer Cust = new TP_CreditCardWS.Customer(newCust); 
+            
         }
 
     }

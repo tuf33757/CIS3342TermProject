@@ -18,6 +18,10 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnSubmitMerch_Click(object sender, EventArgs e)
         {
+            if (checkForNull(this))
+            { }
+            else
+                lblInform.Text = "Please enter all required fields.";
 
         }
 
@@ -47,6 +51,17 @@ namespace CIS3342TermProjectFall2015
             }
         }
 
+        protected Boolean checkForNull(Control page)
+        {
+            foreach (Control c in page.Controls)
+            {
+                if ((c is TextBox) && (c as TextBox).Text == "")
+                    return false;
+                if ((c is DropDownList) && (c as DropDownList).SelectedIndex == 0)
+                    return false;
+            }
+            return true;
+        }
 
     }
 }

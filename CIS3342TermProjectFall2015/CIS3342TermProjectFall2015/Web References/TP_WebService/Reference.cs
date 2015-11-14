@@ -28,11 +28,14 @@ namespace CIS3342TermProjectFall2015.TP_WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="TP_WebServiceSoap", Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(object[]))]
     public partial class TP_WebService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback getDepartmentOperationCompleted;
         
         private System.Threading.SendOrPostCallback getCatalogOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getColNamesOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -77,6 +80,9 @@ namespace CIS3342TermProjectFall2015.TP_WebService {
         
         /// <remarks/>
         public event getCatalogCompletedEventHandler getCatalogCompleted;
+        
+        /// <remarks/>
+        public event getColNamesCompletedEventHandler getColNamesCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getDepartment", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -131,6 +137,35 @@ namespace CIS3342TermProjectFall2015.TP_WebService {
             if ((this.getCatalogCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.getCatalogCompleted(this, new getCatalogCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getColNames", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] getColNames(System.Data.DataSet ds) {
+            object[] results = this.Invoke("getColNames", new object[] {
+                        ds});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getColNamesAsync(System.Data.DataSet ds) {
+            this.getColNamesAsync(ds, null);
+        }
+        
+        /// <remarks/>
+        public void getColNamesAsync(System.Data.DataSet ds, object userState) {
+            if ((this.getColNamesOperationCompleted == null)) {
+                this.getColNamesOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetColNamesOperationCompleted);
+            }
+            this.InvokeAsync("getColNames", new object[] {
+                        ds}, this.getColNamesOperationCompleted, userState);
+        }
+        
+        private void OngetColNamesOperationCompleted(object arg) {
+            if ((this.getColNamesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getColNamesCompleted(this, new getColNamesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -201,6 +236,32 @@ namespace CIS3342TermProjectFall2015.TP_WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.34209")]
+    public delegate void getColNamesCompletedEventHandler(object sender, getColNamesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.34209")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getColNamesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getColNamesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
             }
         }
     }
