@@ -57,5 +57,24 @@ namespace WebServices
             return names;
         }
 
+        [WebMethod]
+        public void addMerchant(Merchant merch)
+        {
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "TP_AddMerchant";
+
+            command.Parameters.AddWithValue("@merchID", merch.getMerchantID());
+            command.Parameters.AddWithValue("@storeName", merch.storeName);
+            command.Parameters.AddWithValue("@storeDescrip", merch.storeDescrip);
+            command.Parameters.AddWithValue("@firstName", merch.firstName);
+            command.Parameters.AddWithValue("@lastName", merch.lastName);
+            command.Parameters.AddWithValue("@APIKey", merch.getAPIKey());
+            command.Parameters.AddWithValue("@loginID", merch.loginID);
+
+
+            objDB.DoUpdateUsingCmdObj(command);
+        }
+
     }
 }
