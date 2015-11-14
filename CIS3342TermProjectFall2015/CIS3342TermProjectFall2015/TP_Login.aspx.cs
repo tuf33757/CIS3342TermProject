@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using TermProjectClassLib;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace CIS3342TermProjectFall2015
 {
@@ -99,6 +100,7 @@ namespace CIS3342TermProjectFall2015
             DataSet DS = new DataSet();
             DS = DB.GetDataSetUsingCmdObj(SQL);
             return DS;
+
         }
 
         protected void createCookie(DataSet DS)
@@ -152,6 +154,8 @@ namespace CIS3342TermProjectFall2015
             }
         }
 
-      
-    }
+
+        
 }
+        }
+  

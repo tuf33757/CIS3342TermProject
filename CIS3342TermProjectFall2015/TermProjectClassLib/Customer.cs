@@ -8,11 +8,11 @@ namespace TermProjectClassLib
 {
     public class Customer
     {
-        string userName;
+        public string userName;
         public string firstName;
         public string lastName;
         public string email;
-        string password;
+        public string password;
         public string userType;
 
         public string shipAddress1;
@@ -27,7 +27,7 @@ namespace TermProjectClassLib
         public string billState;
         public string billZip;
 
-        float totalDollarSales;
+        public float totalDollarSales;
 
 
         public Customer()
@@ -96,6 +96,27 @@ namespace TermProjectClassLib
                 return false;
             }
 
+        }
+        public Customer(Customer cust)
+        { 
+        this.userName = cust.userName;
+        this.firstName = cust.firstName;
+        this.lastName = cust.lastName;
+        this.email = cust.email;
+        this.password = cust.password;
+        this.userType = cust.userType;
+        this.shipAddress1 = cust.shipAddress1;
+        this.shipAddress2 = cust.shipAddress2;
+        this.shipCity = cust.shipCity;
+        this.shipState = cust.shipState;
+        this.shipZip = cust.shipZip;
+        this.billAddress1 = cust.billAddress1;
+        this.billAddress2 = cust.billAddress2;
+        this.billCity = cust.billCity;
+        this.billState = cust.billState;
+        this.billZip = cust.billZip;
+
+        this.totalDollarSales = cust.totalDollarSales;
         }
     }
 }

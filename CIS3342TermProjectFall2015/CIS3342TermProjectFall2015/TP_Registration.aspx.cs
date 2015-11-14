@@ -11,7 +11,7 @@ namespace CIS3342TermProjectFall2015
 {
     public partial class TP_Registration : System.Web.UI.Page
     {
-        TP_CreditCardWS.Customer newCust = new TP_CreditCardWS.Customer();
+        Customer newCust = new Customer(); 
         TP_CreditCardWS.TP_CreditCardWS creditcardWS = new TP_CreditCardWS.TP_CreditCardWS();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -42,6 +42,7 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            
             if (passwordsNotNull(txtPassword.Text, txtPasswordConfirm.Text))
             {
                 if (passwordMatch(txtPassword.Text, txtPasswordConfirm.Text))
@@ -135,7 +136,7 @@ namespace CIS3342TermProjectFall2015
 
         public void putCustomerInDB()
         {
-            
+            TP_CreditCardWS.Customer Cust = new TP_CreditCardWS.Customer(newCust); 
         }
 
     }

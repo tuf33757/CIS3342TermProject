@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -42,6 +43,18 @@ namespace WebServices
             DataSet myds = objDB.GetDataSetUsingCmdObj(command);
             return myds;
 
+        }
+
+        [WebMethod]
+        public ArrayList getColNames(DataSet ds)
+        {
+            ArrayList names = new ArrayList();
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataColumn column in table.Columns)
+                    names.Add(column.ColumnName);
+            }
+            return names;
         }
 
     }
