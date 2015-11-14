@@ -8,11 +8,11 @@ namespace TermProjectClassLib
 {
     public class Customer
     {
-        string userName { get; set; }
+        string userName;
         public string firstName;
         public string lastName;
         public string email;
-        string password { get; set; }
+        string password;
         public string userType;
 
         public string shipAddress1;
@@ -95,7 +95,7 @@ namespace TermProjectClassLib
             {
                 return false;
             }
-          
+
         }
     }
 }
