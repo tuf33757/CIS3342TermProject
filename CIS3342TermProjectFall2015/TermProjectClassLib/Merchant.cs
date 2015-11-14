@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace TermProjectClassLib
 {
-    class Merchant
+    public class Merchant
     {
         string merchantID;
         public string storeName;
