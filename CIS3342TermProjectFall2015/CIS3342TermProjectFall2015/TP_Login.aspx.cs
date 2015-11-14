@@ -121,5 +121,10 @@ namespace CIS3342TermProjectFall2015
             Response.Redirect("TP_Registration.aspx");
         }
 
+        protected void btnMerchantRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TP_Merchant_Registration.aspx");
+        }
+
     }
 }
