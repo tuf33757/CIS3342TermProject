@@ -6,12 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TermProjectClassLib;
 
+
 namespace CIS3342TermProjectFall2015
 {
     public partial class TP_Registration : System.Web.UI.Page
     {
-        Customer newCust = new Customer();
-        
+        TP_CreditCardWS.Customer newCust = new TP_CreditCardWS.Customer();
+        TP_CreditCardWS.TP_CreditCardWS creditcardWS = new TP_CreditCardWS.TP_CreditCardWS();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -132,9 +133,9 @@ namespace CIS3342TermProjectFall2015
             clearPage(this);
         }
 
-        public void putCustomerInDB(Customer cust)
+        public void putCustomerInDB()
         {
-           
+            
         }
 
     }

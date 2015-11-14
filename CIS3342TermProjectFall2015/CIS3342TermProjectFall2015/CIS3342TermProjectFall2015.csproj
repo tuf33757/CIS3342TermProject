@@ -80,16 +80,16 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
-    <Content Include="Web References\TP_CreditCardWS\Reference.map">
+    <None Include="Web References\TP_CreditCardWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
-    <Content Include="Web References\TP_CreditCardWS\TP_CreditCardWS.disco" />
-    <Content Include="Web References\TP_WebService\Reference.map">
+    </None>
+    <None Include="Web References\TP_CreditCardWS\TP_CreditCardWS.disco" />
+    <None Include="Web References\TP_WebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
-    <Content Include="Web References\TP_WebService\TP_WebService.disco" />
+    </None>
+    <None Include="Web References\TP_WebService\TP_WebService.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -152,8 +152,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Web References\TP_CreditCardWS\TP_CreditCardWS.wsdl" />
-    <Content Include="Web References\TP_WebService\TP_WebService.wsdl" />
+    <None Include="Web References\TP_CreditCardWS\TP_CreditCardWS.wsdl" />
+    <None Include="Web References\TP_WebService\TP_WebService.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
