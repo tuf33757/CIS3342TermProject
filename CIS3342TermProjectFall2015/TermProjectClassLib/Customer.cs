@@ -19,13 +19,13 @@ namespace TermProjectClassLib
         public string shipAddress2;
         public string shipCity;
         public string shipState;
-        public int shipZip;
+        public string shipZip;
 
         public string billAddress1;
         public string billAddress2;
         public string billCity;
         public string billState;
-        public int billZip;
+        public string billZip;
 
         float totalDollarSales;
 
@@ -64,38 +64,38 @@ namespace TermProjectClassLib
 
         public Boolean setShippingAddress(string add1, string add2, string city, string state, string zip)
         {
-            shipAddress1 = add1;
-            shipAddress2 = add2;
-            shipCity = city;
-            shipState = state;
-            string stringZip = zip;
-            bool result = Int32.TryParse(stringZip, out shipZip);
-            if (result)
+            try
             {
+                shipAddress1 = add1;
+                shipAddress2 = add2;
+                shipCity = city;
+                shipState = state;
+                string shipzip = zip;
                 return true;
             }
-            else
+            catch (Exception)
             {
                 return false;
             }
+
         }
 
         public Boolean setBillingAddress(string add1, string add2, string city, string state, string zip)
         {
-            billAddress1 = add1;
-            billAddress2 = add2;
-            billCity = city;
-            billState = state;
-            string stringZip = zip;
-            bool result = Int32.TryParse(stringZip, out billZip);
-            if (result)
+            try
             {
+                billAddress1 = add1;
+                billAddress2 = add2;
+                billCity = city;
+                billState = state;
+                string billzip = zip;
                 return true;
             }
-            else
+            catch (Exception)
             {
                 return false;
             }
+          
         }
     }
 }
