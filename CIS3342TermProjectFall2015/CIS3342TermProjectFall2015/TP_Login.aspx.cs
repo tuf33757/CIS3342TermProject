@@ -126,5 +126,32 @@ namespace CIS3342TermProjectFall2015
             Response.Redirect("TP_Merchant_Registration.aspx");
         }
 
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            clearPage(this);
+        }
+        protected void clearPage(Control page)
+        {
+            {
+                foreach (Control c in page.Controls)
+                {
+                    if (c.Controls.Count > 0)
+                        clearPage(c);
+                    else
+                    {
+                        if (c is TextBox)
+                            (c as TextBox).Text = "";
+
+                        if (c is CheckBox)
+                            (c as CheckBox).Checked = false;
+
+                        if (c is DropDownList)
+                            (c as DropDownList).SelectedIndex = 1;
+                    }
+                }
+            }
+        }
+
+      
     }
 }

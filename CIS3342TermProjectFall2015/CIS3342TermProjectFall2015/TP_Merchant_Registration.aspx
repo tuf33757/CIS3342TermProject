@@ -52,6 +52,7 @@
                 <br />
                 <br />
                 <asp:Button ID="btnSubmitMerch" runat="server" CssClass="greenbutton" Text="Submit" OnClick="btnSubmitMerch_Click" />
+                 <asp:Button ID="btnCalcel" runat="server" CssClass="greenbutton" Text="Clear" OnClick="btnCalcel_Click" />
                 <br /><br />
                 <asp:Label ID="lblInform" runat="server" Text=""></asp:Label>
             </form>

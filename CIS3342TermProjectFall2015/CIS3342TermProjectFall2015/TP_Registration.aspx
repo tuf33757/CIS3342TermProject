@@ -202,7 +202,7 @@
                     <br />
                     <br />
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="greenbutton" OnClick="btnSubmit_Click" />
-                    <asp:Button ID="btnCleaar" runat="server" Text="Submit" CssClass="greenbutton" OnClick="btnCleaar_Click"  />
+                    <asp:Button ID="btnCleaar" runat="server" Text="Clear" CssClass="greenbutton" OnClick="btnCleaar_Click"  />
                     <br />
                     <asp:Label ID="lblInform" runat="server" Text=""></asp:Label>
                 </div>

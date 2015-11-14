@@ -58,7 +58,7 @@
                 <asp:TextBox ID="txtPassword" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                 <br />
                 <asp:Button ID="btnSubmit" Text="Login" runat="server" CssClass="greenbutton" OnClick="btnSubmit_Click" />
-                <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="greenbutton" />
+                <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="greenbutton" OnClick="btnCancel_Click" />
                 <br />
                 <asp:Label ID="lblRemember" Text="Remember me:" runat="server"></asp:Label><asp:CheckBox ID="chkRemember" Checked="true" runat="server" />
                 <br />
