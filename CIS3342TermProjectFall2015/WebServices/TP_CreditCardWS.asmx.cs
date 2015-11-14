@@ -6,6 +6,8 @@ using System.Web.Services;
 using TermProjectClassLib;
 using System.Data;
 using System.Data.SqlClient;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace WebServices
 {
@@ -50,6 +52,7 @@ namespace WebServices
 
         //Adds a customer to the TP_Customer table in Rob's Database
         [WebMethod]
+        [XmlInclude(typeof(Customer))]
         public Boolean AddCustomer(Customer cust)
         {
             if (cust != null)
