@@ -11,7 +11,7 @@ namespace CIS3342TermProjectFall2015
 {
     public partial class TP_Registration : System.Web.UI.Page
     {
-        Customer newCust = new Customer(); 
+        Customer newCust = new Customer();
         TP_CreditCardWS.TP_CreditCardWS creditcardWS = new TP_CreditCardWS.TP_CreditCardWS();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -42,17 +42,17 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            
+
             if (passwordsNotNull(txtPassword.Text, txtPasswordConfirm.Text))
             {
                 if (passwordMatch(txtPassword.Text, txtPasswordConfirm.Text))
                 {
                     if (cbBilling.Checked == true)
                     {
-                        Boolean result = newCust.setBillingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtbillZip.Text);
+                        Boolean result = newCust.setBillingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtshipZip.Text);
                         if (result)
                         {
-                            newCust.setShippingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtbillZip.Text);
+                            newCust.setShippingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtshipZip.Text);
 
                             newCust.firstName = txtFirstName.Text;
                             newCust.lastName = txtLastName.Text;
@@ -60,6 +60,8 @@ namespace CIS3342TermProjectFall2015
                             newCust.setPassword(txtPassword.Text);
                             newCust.email = txtEmail.Text;
                             newCust.userType = "Customer";
+
+                            putCustomerInDB();
                         }
                         else
                         {
@@ -70,6 +72,17 @@ namespace CIS3342TermProjectFall2015
                     {
                         Boolean result = newCust.setBillingAddress(txtbillStreet1.Text, txtbillStreet2.Text,
                             txtbillCity.Text, ddlbillState.SelectedValue, txtbillZip.Text);
+
+                        newCust.setShippingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtshipZip.Text);
+
+                        newCust.firstName = txtFirstName.Text;
+                        newCust.lastName = txtLastName.Text;
+                        newCust.setUserName(txtLoginId.Text);
+                        newCust.setPassword(txtPassword.Text);
+                        newCust.email = txtEmail.Text;
+                        newCust.userType = "Customer";
+
+                        putCustomerInDB();
                     }
                 }
                 else
@@ -136,7 +149,28 @@ namespace CIS3342TermProjectFall2015
 
         public void putCustomerInDB()
         {
-            
+            TP_CreditCardWS.Customer Cust = new TP_CreditCardWS.Customer();
+
+            Cust.userName = newCust.userName;
+            Cust.firstName = newCust.firstName;
+            Cust.lastName = newCust.lastName;
+            Cust.email = newCust.email;
+            Cust.password = newCust.password;
+            Cust.userType = newCust.userType;
+            Cust.shipAddress1 = newCust.shipAddress1;
+            Cust.shipAddress2 = newCust.shipAddress2;
+            Cust.shipCity = newCust.shipCity;
+            Cust.shipState = newCust.shipState;
+            Cust.shipZip = newCust.shipZip;
+            Cust.billAddress1 = newCust.billAddress1;
+            Cust.billAddress2 = newCust.billAddress2;
+            Cust.billCity = newCust.billCity;
+            Cust.billState = newCust.billState;
+            Cust.billZip = newCust.billZip;
+            Cust.totalDollarSales = newCust.totalDollarSales;
+
+            creditcardWS.AddCustomer(Cust);
+
         }
 
     }
