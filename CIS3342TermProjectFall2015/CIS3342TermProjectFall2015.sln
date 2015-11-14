@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIS3342TermProjectFall2015"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TermProjectClassLib", "TermProjectClassLib\TermProjectClassLib.csproj", "{27C14ED0-686C-4AB3-AE69-7EEE6ACA3443}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServices", "WebServices\WebServices.csproj", "{43C7FFEE-CEE6-4EAF-979C-29BD2C977C8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{27C14ED0-686C-4AB3-AE69-7EEE6ACA3443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27C14ED0-686C-4AB3-AE69-7EEE6ACA3443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27C14ED0-686C-4AB3-AE69-7EEE6ACA3443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C7FFEE-CEE6-4EAF-979C-29BD2C977C8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C7FFEE-CEE6-4EAF-979C-29BD2C977C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C7FFEE-CEE6-4EAF-979C-29BD2C977C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C7FFEE-CEE6-4EAF-979C-29BD2C977C8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
