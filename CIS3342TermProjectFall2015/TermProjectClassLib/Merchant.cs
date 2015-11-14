@@ -38,6 +38,12 @@ namespace TermProjectClassLib
            return APIKey;
        }
 
-        //WRITE THE LOGIC TO GENERATE AN API KEY HERE
+       public string getAPIKey()
+       {
+           const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+           var random = new Random();
+           return new string(Enumerable.Repeat(chars, 20)
+             .Select(s => s[random.Next(s.Length)]).ToArray());
+       }
     }
 }
