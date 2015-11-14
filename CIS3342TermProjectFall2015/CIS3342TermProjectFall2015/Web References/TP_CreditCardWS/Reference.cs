@@ -372,11 +372,15 @@ namespace CIS3342TermProjectFall2015.TP_CreditCardWS {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class Customer {
         
+        private string userNameField;
+        
         private string firstNameField;
         
         private string lastNameField;
         
         private string emailField;
+        
+        private string passwordField;
         
         private string userTypeField;
         
@@ -399,6 +403,18 @@ namespace CIS3342TermProjectFall2015.TP_CreditCardWS {
         private string billStateField;
         
         private string billZipField;
+        
+        private float totalDollarSalesField;
+        
+        /// <remarks/>
+        public string userName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                this.userNameField = value;
+            }
+        }
         
         /// <remarks/>
         public string firstName {
@@ -427,6 +443,16 @@ namespace CIS3342TermProjectFall2015.TP_CreditCardWS {
             }
             set {
                 this.emailField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
             }
         }
         
@@ -537,6 +563,16 @@ namespace CIS3342TermProjectFall2015.TP_CreditCardWS {
             }
             set {
                 this.billZipField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public float totalDollarSales {
+            get {
+                return this.totalDollarSalesField;
+            }
+            set {
+                this.totalDollarSalesField = value;
             }
         }
     }
