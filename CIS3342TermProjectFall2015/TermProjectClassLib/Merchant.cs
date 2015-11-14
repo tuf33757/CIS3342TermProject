@@ -9,7 +9,7 @@ namespace TermProjectClassLib
 {
     public class Merchant
     {
-        string merchantID;
+        public string merchantID;
         public string storeName;
         public string firstName;
         public string lastName;
@@ -19,6 +19,7 @@ namespace TermProjectClassLib
 
         public Merchant()
         {
+            APIKey = generateAPIKey();
         }
 
         public Merchant(string ID, string storename, string fname, string lname, string login, string descrip, string loginID)
@@ -32,27 +33,27 @@ namespace TermProjectClassLib
             this.loginID = loginID;
         }
 
-       public string getMerchantID()
-       {
-           return merchantID;
-       }
-       public string getAPIKey()
-       {
-           return APIKey;
-       }
-       public void setAPIKey(string key)
-       {
-           APIKey = key;
-       }
+        public string getMerchantID()
+        {
+            return merchantID;
+        }
+        public string getAPIKey()
+        {
+            return APIKey;
+        }
+        public void setAPIKey(string key)
+        {
+            APIKey = key;
+        }
 
-       public string generateAPIKey()
-       {
-           const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
-           var random = new Random();
-           return new string(Enumerable.Repeat(chars, 20)
-             .Select(s => s[random.Next(s.Length)]).ToArray());
-       }
+        public string generateAPIKey()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+            var random = new Random();
+            return new string(Enumerable.Repeat(chars, 20)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
 
-     
+
     }
 }
