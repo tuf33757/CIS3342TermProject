@@ -39,7 +39,7 @@
                 <br />
                 <br />
                 <asp:Label ID="lblEmail" runat="server" Text="Email Address: "></asp:Label>
-                <asp:TextBox ID="txtEmail" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33"  BorderColor="Black"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="lblPassword" Text="Password" runat="server"></asp:Label>
