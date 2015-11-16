@@ -1,8 +1,13 @@
-﻿.shopping {
+﻿body {
+    background: url(/Images/backgroundimg.jpg) fixed;
+    background-size: cover;
+}
+
+.shopping {
     float: left;
     position: relative;
     left: 10%;
-    width: 600px;
+    width: 1000px;
     height: 400px;
     margin-top: 50px;
     border: 2px solid;
@@ -10,4 +15,105 @@
     border-color: darkgreen;
     border-radius: 25px;
     opacity: 0.6;
+}
+  .custInfo{
+    position: relative;
+    float: right;
+    width: 300px;
+    padding-top: 60%;
+    padding: 25px;
+    border: 2px solid;
+    background-color: darkgray;
+    border-color: darkgreen;
+    border-radius: 25px;
+    opacity: 0.6;
+    color: black;
+}
+  .topBanner {
+    box-shadow: 25px 25px 35px #065212;
+    width: 400px;
+    height: 220px;
+    background-color: darkseagreen;
+    background: darkseagreen url(/Images/Vault_Boy_Original.png) no-repeat right bottom;
+    border-radius: 25px;
+    opacity: 0.5;
+    -ms-transform: rotate(-7deg); /* IE 9 */
+    -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
+    transform: rotate(-7deg);
+     -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+    .topBanner h1 {
+        color: lightgoldenrodyellow;
+        text-align: center;
+        font-family: Coronetscript, cursive;
+        font-size: x-large;
+        font-weight: 700;
+    }
+
+    .topBanner p1 {
+        padding: 10px;
+        margin: 20px;
+        width: 100px;
+        height: 150px;
+        font-family: Coronetscript, cursive;
+        font-size: medium;
+        font-weight: 400;
+        color: lightyellow;
+    }
+
+    .topBanner p2 {
+        padding: 10px;
+        margin: 20px;
+        width: 100px;
+        height: 150px;
+        font-family: Coronetscript, cursive;
+        font-size: medium;
+        font-weight: 400;
+        color: lightyellow;
+    }
+
+
+
+@-webkit-keyframes greenPulse {
+    from {
+        background-color: #749a02;
+        -webkit-box-shadow: 0 0 9px #333;
+    }
+
+    50% {
+        background-color: #91bd09;
+        -webkit-box-shadow: 0 0 18px #91bd09;
+    }
+
+    to {
+        background-color: #749a02;
+        -webkit-box-shadow: 0 0 9px #333;
+    }
+}
+
+.greenbutton {
+    -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    border-color:black;
+    color:white;
+    text-align:center;
+}
+
+.greenbuttonLarge {
+    -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    width: 140px;
+    height: 30px;
+    border-radius: 10px;
+    border-color:black;
+    color:white;
+    text-align:center;
 }

@@ -21,7 +21,7 @@ namespace CIS3342TermProjectFall2015
 
             if (!IsPostBack) {
 
-                lblWelcome.Text = "Welcome, " + (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
+                lblWelcome.Text = "        Welcome, " + (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
                 SqlCommand SQL = new SqlCommand();
                 SQL.CommandType = CommandType.StoredProcedure;
                 SQL.CommandText = "TP_GetDepartment";
