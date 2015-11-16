@@ -35,8 +35,11 @@
             </div>
 
             <div id="custInfo" class="custInfo" runat="server">
+                <div id="custInfoBox" class="CustInfoBox" runat="server">
+                <asp:Label ID="lclCustInfo" Text="Customer Information:" runat="server"></asp:Label>
                 <asp:Label ID="lblName" Text="test" runat="server"></asp:Label>
             </div>
+                </div>
         </form>
 </body>
 </html>
