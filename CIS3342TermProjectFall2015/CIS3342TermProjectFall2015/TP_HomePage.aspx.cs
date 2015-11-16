@@ -13,6 +13,8 @@ namespace CIS3342TermProjectFall2015
     public partial class TP_HomePage : System.Web.UI.Page
     {
         DBConnect DB = new DBConnect();
+        TP_WebService.TP_WebService tpWebService = new TP_WebService.TP_WebService();
+        TP_CreditCardWS.TP_CreditCardWS tpCreditCardWS = new TP_CreditCardWS.TP_CreditCardWS();
         protected void Page_Load(object sender, EventArgs e)
         {
             string session = (string)Session["Login"];
@@ -33,7 +35,23 @@ namespace CIS3342TermProjectFall2015
                 ddDepartment.Items.Insert(0, new ListItem("Please select", "0"));
                 lblName.Text = (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
 
+                
+
             }
+        }
+
+        protected void btnAddCard_Click(object sender, EventArgs e)
+        {
+            string username = (string)Session["LoginID"];
+           Boolean result = tpCreditCardWS.RequestAmazonCreditCard(username);
+           if (result)
+           {
+               lblRequest.Text = "Your request has been approved";
+           }
+           else
+           {
+               lblRequest.Text = "Your request has been denied.";
+           }
         }
     }
 }
