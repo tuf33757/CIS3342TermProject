@@ -76,5 +76,20 @@ namespace WebServices
             objDB.DoUpdateUsingCmdObj(command);
         }
 
+        [WebMethod]
+        public Boolean Purchase(string ProductID, int Quantity, String SiteID, String APIKey, String[] CustomerCreditInformation)
+        {
+            try
+            {
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
     }
 }
