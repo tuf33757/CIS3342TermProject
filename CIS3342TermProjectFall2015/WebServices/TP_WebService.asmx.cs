@@ -77,12 +77,37 @@ namespace WebServices
         }
 
         [WebMethod]
-        public Boolean Purchase(string ProductID, int Quantity, String SiteID, String APIKey, String[] CustomerCreditInformation)
+        public Boolean Purchase(string ProductID, int Quantity, String MerchantID, String APIKey,
+            String[] CustomerCreditInformation)
         {
             try
             {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "TP_ValidateAPIKey";
+                cmd.Parameters.AddWithValue("@MerchantID", MerchantID);
+                cmd.Parameters.AddWithValue("@APIKey", APIKey);
 
-                return true;
+                DataSet result = objDB.GetDataSetUsingCmdObj(cmd);
+                if (result != null)
+                {
+                    SqlCommand command = new SqlCommand();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "TP_AddPurchase";
+
+                    command.Parameters.AddWithValue("@LoginID", CustomerCreditInformation[0].ToString());
+                    command.Parameters.AddWithValue("@MerchantID", MerchantID);
+                    command.Parameters.AddWithValue("@Quantity", Quantity);
+                    command.Parameters.AddWithValue("@CardType", CustomerCreditInformation[1].ToString());
+
+                    objDB.DoUpdateUsingCmdObj(command);
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception)
             {
