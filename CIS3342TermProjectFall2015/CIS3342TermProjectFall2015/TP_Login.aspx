@@ -44,7 +44,9 @@
                 <p2>--Co-Founder Tracey Harrison</p2><br /><br />
 
                 <p1>This place doesn't pull it's punches!</p1><br />
-                <p2>--Mr. Fisty</p2>
+                <p2>--Mr. Fisty</p2><br /><br />
+                <p1>They do good work!</p1>
+                <p2>--Life long user Mox</p2>
             </div>
         </div>
         <div id="signin">
