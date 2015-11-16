@@ -28,18 +28,35 @@
         <form id="Form1" class="form-signin" runat="server">
             <div id="comments" class="comments" runat="server">
                 <div id="shopping" class="shopping" runat="server">
-                    <br />
-                    <br />
-                    <asp:DropDownList ID="ddDepartment" runat="server"></asp:DropDownList>
-                </div>
+                    <div id="shoppingInfo" class="shoppingInfo" runat="server">
+                        <div class="CustSearch">
+                        <br />
+                        <br />
+                        <asp:DropDownList ID="ddDepartment" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33"></asp:DropDownList>
+                    </div>
+                    </div>
+            </div>
             </div>
 
             <div id="custInfo" class="custInfo" runat="server">
                 <div id="custInfoBox" class="CustInfoBox" runat="server">
-                <asp:Label ID="lclCustInfo" Text="Customer Information:" runat="server"></asp:Label>
-                <asp:Label ID="lblName" Text="test" runat="server"></asp:Label>
-            </div>
+                    <asp:Label ID="lclCustInfo" Text="Customer Information:" runat="server"></asp:Label>
+                    <asp:Label ID="lblName" Text="" runat="server"></asp:Label>
+                     <asp:Label ID="lblEmail" Text="" runat="server"></asp:Label>
+                     <asp:Label ID="lblShippingAddress" Text="Shipping Address: " runat="server"></asp:Label>
+                    <asp:Label ID="lblAdderss1" Text="" runat="server"></asp:Label>
+                     <asp:Label ID="lblAddress2" Text="" runat="server"></asp:Label>
+                     <asp:Label ID="lblState" Text="" runat="server"></asp:Label>
+                     <asp:Label ID="lblZip" Text="test" runat="server"></asp:Label>
+                     <asp:Label ID="lblBillingAddress" Text="Billing Address:" runat="server"></asp:Label>
+                     <asp:Label ID="lblBillAdd1" Text="" runat="server"></asp:Label>
+                     <asp:Label ID="lblBillAdd2" Text="" runat="server"></asp:Label>
+                     <asp:Label ID="lblBillState" Text="" runat="server"></asp:Label>
+                     <asp:Label ID="lblBillZip" Text="" runat="server"></asp:Label>
+                     <asp:Label ID="lblRequest" Text="Request New Card:" runat="server"></asp:Label>
+                    <asp:Button ID="btnAddCard" Text="New Card" runat="server" />
                 </div>
+            </div>
         </form>
 </body>
 </html>
