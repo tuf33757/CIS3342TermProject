@@ -1,0 +1,13 @@
+﻿.shopping {
+    float: left;
+    position: relative;
+    left: 10%;
+    width: 600px;
+    height: 400px;
+    margin-top: 50px;
+    border: 2px solid;
+    background-color: darkgray;
+    border-color: darkgreen;
+    border-radius: 25px;
+    opacity: 0.6;
+}

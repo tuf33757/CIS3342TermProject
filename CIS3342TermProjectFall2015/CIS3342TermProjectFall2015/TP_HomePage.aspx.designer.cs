@@ -31,6 +31,15 @@ namespace CIS3342TermProjectFall2015 {
         protected global::System.Web.UI.WebControls.Label lblWelcome;
         
         /// <summary>
+        /// Form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        
+        /// <summary>
         /// comments control.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,13 @@ namespace CIS3342TermProjectFall2015 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl comments;
         
         /// <summary>
-        /// commentbox control.
+        /// shopping control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl commentbox;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl shopping;
         
         /// <summary>
         /// ddDepartment control.
