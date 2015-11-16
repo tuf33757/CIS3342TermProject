@@ -22,7 +22,7 @@
             <br />
             <br />
 
-            <asp:Label ID="lblWelcome" Text="" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="LightYellow" Font-Names=" Coronetscript, cursive"></asp:Label>
+            <asp:Label ID="lblWelcome" Text="" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="LightYellow" Font-Names=" Coronetscript, cursive" BorderWidth="15px" BorderColor="Transparent"></asp:Label>
 
         </div>
         <form id="Form1" class="form-signin" runat="server">
@@ -40,21 +40,21 @@
 
             <div id="custInfo" class="custInfo" runat="server">
                 <div id="custInfoBox" class="CustInfoBox" runat="server">
-                    <asp:Label ID="lclCustInfo" Text="Customer Information:" runat="server"></asp:Label>
-                    <asp:Label ID="lblName" Text="" runat="server"></asp:Label>
-                     <asp:Label ID="lblEmail" Text="" runat="server"></asp:Label>
-                     <asp:Label ID="lblShippingAddress" Text="Shipping Address: " runat="server"></asp:Label>
-                    <asp:Label ID="lblAdderss1" Text="" runat="server"></asp:Label>
-                     <asp:Label ID="lblAddress2" Text="" runat="server"></asp:Label>
-                     <asp:Label ID="lblState" Text="" runat="server"></asp:Label>
-                     <asp:Label ID="lblZip" Text="test" runat="server"></asp:Label>
-                     <asp:Label ID="lblBillingAddress" Text="Billing Address:" runat="server"></asp:Label>
-                     <asp:Label ID="lblBillAdd1" Text="" runat="server"></asp:Label>
-                     <asp:Label ID="lblBillAdd2" Text="" runat="server"></asp:Label>
-                     <asp:Label ID="lblBillState" Text="" runat="server"></asp:Label>
-                     <asp:Label ID="lblBillZip" Text="" runat="server"></asp:Label>
-                     <asp:Label ID="lblRequest" Text="Request New Card:" runat="server"></asp:Label>
-                    <asp:Button ID="btnAddCard" Text="New Card" runat="server" OnClick="btnAddCard_Click" />
+                    <asp:Label ID="lclCustInfo" Text="Customer Information:" runat="server"></asp:Label><br />
+                    <asp:Label ID="lblName" Text="" runat="server"></asp:Label><br />
+                     <asp:Label ID="lblEmail" Text="" runat="server"></asp:Label><br />
+                     <asp:Label ID="lblShippingAddress" Text="Shipping Address: " runat="server"></asp:Label><br />
+                    <asp:Label ID="lblAdderss1" Text="" runat="server"></asp:Label><br />
+                     <asp:Label ID="lblAddress2" Text="" runat="server"></asp:Label><br />
+                     <asp:Label ID="lblState" Text="" runat="server"></asp:Label><br />
+                     <asp:Label ID="lblZip" Text="" runat="server"></asp:Label><br />
+                     <asp:Label ID="lblBillingAddress" Text="Billing Address:" runat="server"></asp:Label><br />
+                     <asp:Label ID="lblBillAdd1" Text="" runat="server"></asp:Label><br />
+                     <asp:Label ID="lblBillAdd2" Text="" runat="server"></asp:Label><br />
+                     <asp:Label ID="lblBillState" Text="" runat="server"></asp:Label><br />
+                     <asp:Label ID="lblBillZip" Text="" runat="server"></asp:Label><br />
+                     <asp:Label ID="lblRequest" Text="Request New Card:" runat="server"></asp:Label><br /><br />
+                    <asp:Button ID="btnAddCard" Text="New Card" runat="server" CssClass="greenbuttonLarge" /><br />
                 </div>
             </div>
         </form>
