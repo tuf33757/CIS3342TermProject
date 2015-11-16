@@ -86,6 +86,29 @@
       <s:element name="addMerchantResponse">
         <s:complexType />
       </s:element>
+      <s:element name="Purchase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SiteID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APIKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerCreditInformation" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PurchaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PurchaseResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="getDepartmentSoapIn">
@@ -112,6 +135,12 @@
   <wsdl:message name="addMerchantSoapOut">
     <wsdl:part name="parameters" element="tns:addMerchantResponse" />
   </wsdl:message>
+  <wsdl:message name="PurchaseSoapIn">
+    <wsdl:part name="parameters" element="tns:Purchase" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseSoapOut">
+    <wsdl:part name="parameters" element="tns:PurchaseResponse" />
+  </wsdl:message>
   <wsdl:portType name="TP_WebServiceSoap">
     <wsdl:operation name="getDepartment">
       <wsdl:input message="tns:getDepartmentSoapIn" />
@@ -128,6 +157,10 @@
     <wsdl:operation name="addMerchant">
       <wsdl:input message="tns:addMerchantSoapIn" />
       <wsdl:output message="tns:addMerchantSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Purchase">
+      <wsdl:input message="tns:PurchaseSoapIn" />
+      <wsdl:output message="tns:PurchaseSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="TP_WebServiceSoap" type="tns:TP_WebServiceSoap">
@@ -168,6 +201,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Purchase">
+      <soap:operation soapAction="http://tempuri.org/Purchase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="TP_WebServiceSoap12" type="tns:TP_WebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -200,6 +242,15 @@
     </wsdl:operation>
     <wsdl:operation name="addMerchant">
       <soap12:operation soapAction="http://tempuri.org/addMerchant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Purchase">
+      <soap12:operation soapAction="http://tempuri.org/Purchase" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

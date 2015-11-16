@@ -27,6 +27,7 @@ namespace CIS3342TermProjectFall2015
             {
                 lblInform.Text = "Cogratz you win!";
                 putMerchantInDB();
+                Response.Redirect("HomePage.aspx");
             }
             else
                 lblInform.Text = "Please enter all required fields.";
