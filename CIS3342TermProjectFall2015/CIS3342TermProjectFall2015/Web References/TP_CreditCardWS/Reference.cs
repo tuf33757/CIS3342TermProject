@@ -352,24 +352,24 @@ namespace CIS3342TermProjectFall2015.TP_CreditCardWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RequestAmazonCreditCard", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool RequestAmazonCreditCard(Customer cust) {
+        public bool RequestAmazonCreditCard(string UserName) {
             object[] results = this.Invoke("RequestAmazonCreditCard", new object[] {
-                        cust});
+                        UserName});
             return ((bool)(results[0]));
         }
         
         /// <remarks/>
-        public void RequestAmazonCreditCardAsync(Customer cust) {
-            this.RequestAmazonCreditCardAsync(cust, null);
+        public void RequestAmazonCreditCardAsync(string UserName) {
+            this.RequestAmazonCreditCardAsync(UserName, null);
         }
         
         /// <remarks/>
-        public void RequestAmazonCreditCardAsync(Customer cust, object userState) {
+        public void RequestAmazonCreditCardAsync(string UserName, object userState) {
             if ((this.RequestAmazonCreditCardOperationCompleted == null)) {
                 this.RequestAmazonCreditCardOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRequestAmazonCreditCardOperationCompleted);
             }
             this.InvokeAsync("RequestAmazonCreditCard", new object[] {
-                        cust}, this.RequestAmazonCreditCardOperationCompleted, userState);
+                        UserName}, this.RequestAmazonCreditCardOperationCompleted, userState);
         }
         
         private void OnRequestAmazonCreditCardOperationCompleted(object arg) {

@@ -27,7 +27,7 @@ namespace CIS3342TermProjectFall2015
             {
                 lblInform.Text = "Cogratz you win!";
                 putMerchantInDB();
-                Response.Redirect("HomePage.aspx");
+                //lblInform.Text="Your APIKey is "
             }
             else
                 lblInform.Text = "Please enter all required fields.";
