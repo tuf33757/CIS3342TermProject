@@ -167,6 +167,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="RequestAmazonCreditCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust" type="tns:Customer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestAmazonCreditCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestAmazonCreditCardResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="getCustomerIDSoapIn">
@@ -217,6 +231,12 @@
   <wsdl:message name="InsertNewAccountSoapOut">
     <wsdl:part name="parameters" element="tns:InsertNewAccountResponse" />
   </wsdl:message>
+  <wsdl:message name="RequestAmazonCreditCardSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestAmazonCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="RequestAmazonCreditCardSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestAmazonCreditCardResponse" />
+  </wsdl:message>
   <wsdl:portType name="TP_CreditCardWSSoap">
     <wsdl:operation name="getCustomerID">
       <wsdl:input message="tns:getCustomerIDSoapIn" />
@@ -249,6 +269,10 @@
     <wsdl:operation name="InsertNewAccount">
       <wsdl:input message="tns:InsertNewAccountSoapIn" />
       <wsdl:output message="tns:InsertNewAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestAmazonCreditCard">
+      <wsdl:input message="tns:RequestAmazonCreditCardSoapIn" />
+      <wsdl:output message="tns:RequestAmazonCreditCardSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="TP_CreditCardWSSoap" type="tns:TP_CreditCardWSSoap">
@@ -325,6 +349,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RequestAmazonCreditCard">
+      <soap:operation soapAction="http://tempuri.org/RequestAmazonCreditCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="TP_CreditCardWSSoap12" type="tns:TP_CreditCardWSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -393,6 +426,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsertNewAccount">
       <soap12:operation soapAction="http://tempuri.org/InsertNewAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestAmazonCreditCard">
+      <soap12:operation soapAction="http://tempuri.org/RequestAmazonCreditCard" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
