@@ -255,7 +255,7 @@ namespace WebServices
 
         //Allows users to request an Amazon Card
         [WebMethod]
-        public Boolean RequestAmazonCreditCard(Customer cust)
+        public Boolean RequestAmazonCreditCard(string UserName)
         {
             try
             {
@@ -263,7 +263,7 @@ namespace WebServices
                 SqlCommand command = new SqlCommand();
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = "TP_AddAmazonCreditCard";
-                command.Parameters.AddWithValue("@CustomerID", cust.getUsername());
+                command.Parameters.AddWithValue("@CustomerID", UserName);
                 command.Parameters.AddWithValue("@expMonth", DateTime.Now.Month);
                 command.Parameters.AddWithValue("@expYear", year);
                 objDB.DoUpdateUsingCmdObj(command);
