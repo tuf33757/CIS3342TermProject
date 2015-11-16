@@ -43,6 +43,7 @@ namespace CIS3342TermProjectFall2015
                         else
                         { Response.Cookies["LoginID"].Expires = DateTime.Now.AddDays(-1); }
                         Session["Login"] = "true";
+                        createCustomerSessionObj(user);
                         Response.Redirect("TP_HomePage.aspx");
                     }
                     else if (userType == "Merchant")
@@ -52,6 +53,7 @@ namespace CIS3342TermProjectFall2015
                         else
                         { Response.Cookies["LoginID"].Expires = DateTime.Now.AddDays(-1); }
                         Session["Login"] = "true";
+                        createCustomerSessionObj(user);
                         Response.Redirect("TP_Merchant_Registration.aspx");
                     }
                     else if (userType == "Admin")
@@ -62,6 +64,7 @@ namespace CIS3342TermProjectFall2015
                         else
                         { Response.Cookies["LoginID"].Expires = DateTime.Now.AddDays(-1); }
                         Session["Login"] = "true";
+                        createCustomerSessionObj(user);
                         Response.Redirect("TP_Admin_Page.aspx");
                     }
                     else
@@ -154,8 +157,24 @@ namespace CIS3342TermProjectFall2015
             }
         }
 
-
-        
-}
+        protected void createCustomerSessionObj(DataSet DS)
+        {
+            Session["LoginID"] = DS.Tables[0].Rows[0]["LoginID"].ToString();
+            Session["Customer_First"] = DS.Tables[0].Rows[0]["Customer_First"].ToString();
+            Session["Customer_Last"] = DS.Tables[0].Rows[0]["Customer_Last"].ToString();
+            Session["Ship_Address_1"] = DS.Tables[0].Rows[0]["Ship_Address_1"].ToString();
+            Session["Ship_Address_2"] = DS.Tables[0].Rows[0]["Ship_Address_2"].ToString();
+            Session["Ship_City"] = DS.Tables[0].Rows[0]["Ship_City"].ToString();
+            Session["Ship_State"] = DS.Tables[0].Rows[0]["Ship_State"].ToString();
+            Session["Ship_Zip"] = DS.Tables[0].Rows[0]["Ship_Zip"].ToString();
+            Session["Bill_Address_1"] = DS.Tables[0].Rows[0]["Bill_Address_1"].ToString();
+            Session["Bill_Address_2"] = DS.Tables[0].Rows[0]["Bill_Address_2"].ToString();
+            Session["Bill_City"] = DS.Tables[0].Rows[0]["Bill_City"].ToString();
+            Session["Bill_State"] = DS.Tables[0].Rows[0]["Bill_State"].ToString();
+            Session["Customer_Email"] = DS.Tables[0].Rows[0]["Customer_Email"].ToString();
+            Session["User_Type"] = DS.Tables[0].Rows[0]["User_Type"].ToString();
         }
-  
+
+
+    }
+}
