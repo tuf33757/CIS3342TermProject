@@ -259,10 +259,13 @@ namespace WebServices
         {
             try
             {
+                int year = DateTime.Now.Year + 4;
                 SqlCommand command = new SqlCommand();
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = "TP_AddAmazonCreditCard";
                 command.Parameters.AddWithValue("@CustomerID", cust.getUsername());
+                command.Parameters.AddWithValue("@expMonth", DateTime.Now.Month);
+                command.Parameters.AddWithValue("@expYear", year);
                 objDB.DoUpdateUsingCmdObj(command);
                 return true;
             }
