@@ -31,6 +31,8 @@ namespace CIS3342TermProjectFall2015
                 ddDepartment.DataValueField = "DepartmentNumber";
                 ddDepartment.DataBind();
                 ddDepartment.Items.Insert(0, new ListItem("Please select", "0"));
+                lblName.Text = (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
+
             }
         }
     }
