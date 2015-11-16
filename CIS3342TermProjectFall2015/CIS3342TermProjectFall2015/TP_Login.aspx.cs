@@ -167,8 +167,8 @@ namespace CIS3342TermProjectFall2015
             Session["Ship_City"] = DS.Tables[0].Rows[0]["Ship_City"].ToString();
             Session["Ship_State"] = DS.Tables[0].Rows[0]["Ship_State"].ToString();
             Session["Ship_Zip"] = DS.Tables[0].Rows[0]["Ship_Zip"].ToString();
-            Session["Bill_Address_1"] = DS.Tables[0].Rows[0]["Bill_Address_1"].ToString();
-            Session["Bill_Address_2"] = DS.Tables[0].Rows[0]["Bill_Address_2"].ToString();
+            Session["Bill_Address_1"] = DS.Tables[0].Rows[0]["Bill_Address1"].ToString();
+            Session["Bill_Address_2"] = DS.Tables[0].Rows[0]["Bill_Address2"].ToString();
             Session["Bill_City"] = DS.Tables[0].Rows[0]["Bill_City"].ToString();
             Session["Bill_State"] = DS.Tables[0].Rows[0]["Bill_State"].ToString();
             Session["Customer_Email"] = DS.Tables[0].Rows[0]["Customer_Email"].ToString();
