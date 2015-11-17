@@ -18,10 +18,11 @@ namespace CIS3342TermProjectFall2015
         protected void Page_Load(object sender, EventArgs e)
         {
             string session = (string)Session["Login"];
-            if (session!="true")
+            if (session != "true")
                 Response.Redirect("TP_Login.aspx");
 
-            if (!IsPostBack) {
+            if (!IsPostBack)
+            {
 
                 lblWelcome.Text = "        Welcome, " + (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
                 SqlCommand SQL = new SqlCommand();
@@ -35,7 +36,7 @@ namespace CIS3342TermProjectFall2015
                 ddDepartment.Items.Insert(0, new ListItem("Please select", "0"));
                 lblName.Text = (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
 
-                
+
 
             }
         }
@@ -43,15 +44,16 @@ namespace CIS3342TermProjectFall2015
         protected void btnAddCard_Click(object sender, EventArgs e)
         {
             string username = (string)Session["LoginID"];
-           Boolean result = tpCreditCardWS.RequestAmazonCreditCard(username);
-           if (result)
-           {
-               lblRequest.Text = "Your request has been approved";
-           }
-           else
-           {
-               lblRequest.Text = "Your request has been denied.";
-           }
+            Boolean result = tpCreditCardWS.RequestAmazonCreditCard(username);
+            if (result)
+            {
+                lblRequest.Text = "Your request has been approved";
+            }
+            else
+            {
+                lblRequest.Text = "Your request has been denied.";
+            }
         }
+
     }
 }
