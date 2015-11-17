@@ -27,44 +27,44 @@
                 <br />
                 <h3>User Information</h3>
                 <asp:Label ID="lblfname" Text="First Name:" runat="server"></asp:Label>
-                <asp:TextBox ID="txtFirstName" Text="" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                <asp:TextBox ID="txtFirstName" Text="" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="lbllastname" Text="Last Name:" runat="server"></asp:Label>
-                <asp:TextBox ID="txtLastName" Text="" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                <asp:TextBox ID="txtLastName" Text="" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="lblLoginId" Text="Username:" runat="server"></asp:Label>
-                <asp:TextBox ID="txtLoginId" Text="" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                <asp:TextBox ID="txtLoginId" Text="" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="lblEmail" runat="server" Text="Email Address: "></asp:Label>
-                <asp:TextBox ID="txtEmail" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33"  BorderColor="Black"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="lblPassword" Text="Password" runat="server"></asp:Label>
-                <asp:TextBox ID="txtPassword" Text="" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" Text="" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="lblPasswordConfirm" Text="Confirm Password" runat="server"></asp:Label>
-                <asp:TextBox ID="txtPasswordConfirm" Text="" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                <asp:TextBox ID="txtPasswordConfirm" Text="" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
 
                 <div>
                     <h3>Shipping Information</h3>
                     <asp:Label ID="lblshipStreet1" runat="server" Text="Street 1: "></asp:Label>
-                    <asp:TextBox ID="txtshipStreet1" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                    <asp:TextBox ID="txtshipStreet1" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Label ID="lblshipStreet2" runat="server" Text="Street 2: "></asp:Label>
-                    <asp:TextBox ID="txtshipStreet2" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                    <asp:TextBox ID="txtshipStreet2" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Label ID="lblshipCity" runat="server" Text="City: "></asp:Label>
-                    <asp:TextBox ID="txtshipCity" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                    <asp:TextBox ID="txtshipCity" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Label ID="lblshipState" runat="server" Text="State: "></asp:Label>
-                    <asp:DropDownList ID="ddlshipState" runat="server" BackColor="#0F3D0F">
+                    <asp:DropDownList ID="ddlshipState" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33">
                         <asp:ListItem>SELECT STATE</asp:ListItem>
                         <asp:ListItem>AK</asp:ListItem>
                         <asp:ListItem>AL</asp:ListItem>
@@ -120,7 +120,7 @@
                     <br />
                     <br />
                     <asp:Label ID="lblshipZip" runat="server" Text="Zip Code: "></asp:Label>
-                    <asp:TextBox ID="txtshipZip" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                    <asp:TextBox ID="txtshipZip" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                 </div>
 
                 <div>
@@ -130,19 +130,19 @@
                     <br />
                     <br />
                     <asp:Label ID="lblbillStreet1" runat="server" Text="Street 1: "></asp:Label>
-                    <asp:TextBox ID="txtbillStreet1" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                    <asp:TextBox ID="txtbillStreet1" runat="server" BackColor="#0F3D0F"  ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Label ID="lblbillStreet2" runat="server" Text="Street 2: "></asp:Label>
-                    <asp:TextBox ID="txtbillStreet2" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                    <asp:TextBox ID="txtbillStreet2" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Label ID="lblbillCity" runat="server" Text="City: "></asp:Label>
-                    <asp:TextBox ID="txtbillCity" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                    <asp:TextBox ID="txtbillCity" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Label ID="lblbillState" runat="server" Text="State: "></asp:Label>
-                    <asp:DropDownList ID="ddlbillState" runat="server" BackColor="#0F3D0F">
+                    <asp:DropDownList ID="ddlbillState" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33">
                         <asp:ListItem>SELECT STATE</asp:ListItem>
                         <asp:ListItem>AK</asp:ListItem>
                         <asp:ListItem>AL</asp:ListItem>
@@ -198,7 +198,7 @@
                     <br />
                     <br />
                     <asp:Label ID="lblbillZip" runat="server" Text="Zip Code: "></asp:Label>
-                    <asp:TextBox ID="txtbillZip" runat="server" BackColor="#0F3D0F" BorderColor="Black"></asp:TextBox>
+                    <asp:TextBox ID="txtbillZip" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="greenbutton" OnClick="btnSubmit_Click" />
