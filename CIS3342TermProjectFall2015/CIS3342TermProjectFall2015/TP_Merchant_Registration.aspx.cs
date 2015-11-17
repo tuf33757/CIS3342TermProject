@@ -29,7 +29,8 @@ namespace CIS3342TermProjectFall2015
             {
                 lblInform.Text = "Cogratz you win!";
                 putMerchantInDB();
-                returnAPIKey()
+                returnAPIKey();
+                
                 //lblInform.Text="Your APIKey is "
             }
             else
@@ -102,9 +103,10 @@ namespace CIS3342TermProjectFall2015
             DBConnect DB = new DBConnect();
             SqlCommand SQL = new SqlCommand();
             SQL.CommandType = CommandType.StoredProcedure;
-            SQL.CommandText = "TP_GetDepartment";
+            SQL.CommandText = "TP_returnAPI";
+            SQL.Parameters.AddWithValue("@merchantID", newMerch.merchantID);
             DataSet DS = DB.GetDataSetUsingCmdObj(SQL);
-            lblAPI.Text = DS.Tables[0].Rows[0].ToString();
+            lblAPI.Text = "APIKey:  " + DS.Tables[0].Rows[0]["APIKey"].ToString();
         }
 
     }
