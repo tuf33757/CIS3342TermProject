@@ -121,7 +121,7 @@ namespace CIS3342TermProjectFall2015 {
         protected global::System.Web.UI.WebControls.Label lblEmail;
         
         /// <summary>
-        /// lblShipping Address control.
+        /// lblShippingAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -200,6 +200,15 @@ namespace CIS3342TermProjectFall2015 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBillState;
+        
+        /// <summary>
+        /// lblBillCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBillCity;
         
         /// <summary>
         /// lblBillZip control.

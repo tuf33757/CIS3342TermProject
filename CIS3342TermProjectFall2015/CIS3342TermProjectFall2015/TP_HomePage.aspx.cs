@@ -35,6 +35,17 @@ namespace CIS3342TermProjectFall2015
                 ddDepartment.DataBind();
                 ddDepartment.Items.Insert(0, new ListItem("Please select", "0"));
                 lblName.Text = (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
+                lblAdderss1.Text = (string)Session["Ship_Address_1"];
+                lblAddress2.Text = (string)Session["Ship_Address_2"];
+                lblState.Text = (string)Session["Ship_City"];
+                lblZip.Text = (string)Session["Ship_Zip"];
+                lblBillAdd1.Text = (string)Session["Bill_Address1"];
+                lblBillAdd2.Text = (string)Session["Bill_Address2"];
+                lblBillCity.Text = (string)Session["Bill_City"];
+                lblBillState.Text = (string)Session["Bill_State"];
+                lblBillZip.Text = (string)Session["Bill_Zip"];
+                lblEmail.Text = (string)Session["Customer_Email"];
+
 
 
 
