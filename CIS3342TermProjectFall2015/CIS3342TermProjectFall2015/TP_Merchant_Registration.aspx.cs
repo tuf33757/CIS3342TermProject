@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TermProjectClassLib;
+using System.Data;
+using System.Data.SqlClient;
 
 
 namespace CIS3342TermProjectFall2015
@@ -27,6 +29,7 @@ namespace CIS3342TermProjectFall2015
             {
                 lblInform.Text = "Cogratz you win!";
                 putMerchantInDB();
+                returnAPIKey()
                 //lblInform.Text="Your APIKey is "
             }
             else
@@ -93,6 +96,15 @@ namespace CIS3342TermProjectFall2015
             newMerch.merchantID = txtLoginId.Text + IDnum;
 
             tpWebService.addMerchant(newMerch);
+        }
+        protected void returnAPIKey() {
+
+            DBConnect DB = new DBConnect();
+            SqlCommand SQL = new SqlCommand();
+            SQL.CommandType = CommandType.StoredProcedure;
+            SQL.CommandText = "TP_GetDepartment";
+            DataSet DS = DB.GetDataSetUsingCmdObj(SQL);
+            lblAPI.Text = DS.Tables[0].Rows[0].ToString();
         }
 
     }

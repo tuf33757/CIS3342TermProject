@@ -30,7 +30,7 @@
                 <br />
                 <br />
                 <asp:Label ID="lblEmail" runat="server" Text="Email Address: "></asp:Label>
-                <asp:TextBox ID="txtEmail" runat="server" BackColor="#0F3D0F"ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                 <br />
                 <br />
                 <h3>Store Information</h3>
@@ -54,7 +54,8 @@
                 <asp:Button ID="btnSubmitMerch" runat="server" CssClass="greenbutton" Text="Submit" OnClick="btnSubmitMerch_Click" />
                  <asp:Button ID="btnCalcel" runat="server" CssClass="greenbutton" Text="Clear" OnClick="btnCalcel_Click" />
                 <br /><br />
-                <asp:Label ID="lblInform" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblInform" runat="server" Text=""></asp:Label><br /><br />
+                <asp:Label ID="lblAPI" runat="server" Text=""></asp:Label>
             </form>
         </div>
     </div>
