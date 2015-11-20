@@ -54,6 +54,8 @@
                      <asp:Label ID="lblBillState" Text="" runat="server"></asp:Label><br />
                     <asp:Label ID="lblBillCity" Text="" runat="server"></asp:Label><br />
                      <asp:Label ID="lblBillZip" Text="" runat="server"></asp:Label><br />
+                    <asp:Label ID="lblEdit" Text="Edit Customer Infomation: " runat="server"></asp:Label>
+                    <asp:Button ID="btnEdit" Text="Edit" runat="server" cssClass="greenbutton" OnClick="btnEdit_Click"/>
                      <asp:Label ID="lblRequest" Text="Request New Card:" runat="server"></asp:Label><br /><br />
                     <asp:Button ID="btnAddCard" Text="New Card" runat="server" CssClass="greenbuttonLarge" OnClick="btnAddCard_Click" /><br />
                 </div>

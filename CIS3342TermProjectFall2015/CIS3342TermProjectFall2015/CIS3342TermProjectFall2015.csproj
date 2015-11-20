@@ -73,6 +73,8 @@
     <Content Include="js\npm.js" />
     <Content Include="css\MerchantRegistration.css" />
     <Content Include="TP_Admin_Page.aspx" />
+    <Content Include="TP_Customer_Reg_Control.ascx" />
+    <Content Include="TP_Cust_Edit.aspx" />
     <Content Include="TP_HomePage.aspx" />
     <Content Include="TP_Login.aspx" />
     <Content Include="TP_Merchant_Registration.aspx" />
@@ -106,6 +108,19 @@
     </Compile>
     <Compile Include="TP_Admin_Page.aspx.designer.cs">
       <DependentUpon>TP_Admin_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TP_Customer_Reg_Control.ascx.cs">
+      <DependentUpon>TP_Customer_Reg_Control.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TP_Customer_Reg_Control.ascx.designer.cs">
+      <DependentUpon>TP_Customer_Reg_Control.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TP_Cust_Edit.aspx.cs">
+      <DependentUpon>TP_Cust_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TP_Cust_Edit.aspx.designer.cs">
+      <DependentUpon>TP_Cust_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="TP_HomePage.aspx.cs">
       <DependentUpon>TP_HomePage.aspx</DependentUpon>
