@@ -60,13 +60,18 @@
                         <p1>They do good work!</p1>
                         <p2>--Life long user Mox</p2>
                     </asp:Panel>
-                    <asp:Panel ID="pnlForgotEmail" runat="server">
-                        <asp:Label ID="lblForgotUserName" Text="Username:" runat="server"></asp:Label>
-                        <asp:TextBox ID="txtForgotUserName" Text="" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:Panel ID="pnlForgotEmail" runat="server" CssClass="">
+                        
+                            <asp:Label ID="lblForgotUserName" Text="Username:" runat="server" ForeColor="#66FF33"></asp:Label>
+                            <asp:TextBox ID="txtForgotUserName" Text="" CssClass="form-control" runat="server" Width="227px"></asp:TextBox>
+                            <br />
+                            <asp:Button ID="btnRequest" Text="Request Password" runat="server" CssClass="greenbuttonLarge" />
+                            <asp:Button ID="btnRequestCancel" Text="Cancel" runat="server" CssClass="greenbutton" />
+                       
                     </asp:Panel>
                 </div>
-        </div>
-            
+            </div>
+
 
             <div id="signin">
 
@@ -90,9 +95,10 @@
                 <asp:Button ID="btnRegister" Text="New Account" runat="server" CssClass="greenbuttonLarge" OnClick="btnRegister_Click" /><br />
                 <asp:Label ID="lblMerchant" Text="Register for a Merchant Account:" runat="server"></asp:Label>
                 <asp:Button ID="btnMerchantRegister" Text="New Partner" runat="server" CssClass="greenbuttonLarge" OnClick="btnMerchantRegister_Click" />
+            </div>
+
+        </div>
     </form>
-    </div>
-        
-    </div>
+
 </body>
 </html>
