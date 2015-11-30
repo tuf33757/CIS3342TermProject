@@ -59,6 +59,8 @@
                 <asp:Label ID="lblPassword" Text="Password" runat="server"></asp:Label>
                 <asp:TextBox ID="txtPassword" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                 <br />
+                <asp:Button ID="btnForgotPass" Text="Forgot Password" runat="server" 
+                BackColor="Transparent" ForeColor="#66FF33" BorderColor="Transparent" BorderStyle="None" Width="115px" /><br />
                 <asp:Button ID="btnSubmit" Text="Login" runat="server" CssClass="greenbutton" OnClick="btnSubmit_Click" />
                 <asp:Button ID="btnCancel" Text="Cancel" runat="server" CssClass="greenbutton" OnClick="btnCancel_Click" />
                 <br />
