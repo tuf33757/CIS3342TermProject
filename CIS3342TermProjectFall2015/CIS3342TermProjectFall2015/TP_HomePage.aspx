@@ -32,8 +32,16 @@
                         <div class="CustSearch">
                         <br />
                         <br />
-                        <asp:DropDownList ID="ddDepartment" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33"></asp:DropDownList>
-                    </div>
+                        <asp:DropDownList ID="ddDepartment" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" OnSelectedIndexChanged="ddDepartment_SelectedIndexChanged" AutoPostBack="true" ></asp:DropDownList>
+                        <asp:GridView ID="gvCatalog" runat="server" AutoGenerateColumns="False" BackColor="#0F3D0F" ForeColor="#66FF33" >
+                            <Columns>
+                                <asp:BoundField DataField ="ProductNumber" HeaderText="Product" />
+                                 <asp:BoundField DataField="Description" HeaderText="Description" />
+                                 <asp:BoundField DataField="QuantityOnHand" HeaderText="Available" />
+                                
+                            </Columns>
+                        </asp:GridView>
+                        </div>
                     </div>
             </div>
             </div>

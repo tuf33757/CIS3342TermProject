@@ -45,6 +45,8 @@ namespace CIS3342TermProjectFall2015
                 lblBillState.Text = (string)Session["Bill_State"];
                 lblBillZip.Text = (string)Session["Bill_Zip"];
                 lblEmail.Text = (string)Session["Customer_Email"];
+                DB.CloseConnection();
+
 
 
 
@@ -69,6 +71,21 @@ namespace CIS3342TermProjectFall2015
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             Response.Redirect("TP_Cust_Edit.aspx");
+        }
+
+        protected void ddDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddDepartment.SelectedIndex != 0)
+            {
+                DBConnect db = new DBConnect();
+                SqlCommand command = new SqlCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "TP_GetCatalog";
+                command.Parameters.AddWithValue("@DepartmentNumber", ddDepartment.SelectedValue);
+                DataSet DS = db.GetDataSetUsingCmdObj(command);
+                gvCatalog.DataSource = DS;
+                gvCatalog.DataBind();
+            }
         }
 
     }
