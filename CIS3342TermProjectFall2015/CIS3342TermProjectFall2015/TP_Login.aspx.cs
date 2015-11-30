@@ -16,6 +16,10 @@ namespace CIS3342TermProjectFall2015
         DBConnect DB = new DBConnect();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                pnlForgotEmail.Visible = false;
+            }
             if (!IsPostBack && Request.Cookies["LoginID"] != null)
             {
                 HttpCookie cookie = Request.Cookies["LoginID"];
@@ -173,6 +177,12 @@ namespace CIS3342TermProjectFall2015
             Session["Bill_State"] = DS.Tables[0].Rows[0]["Bill_State"].ToString();
             Session["Customer_Email"] = DS.Tables[0].Rows[0]["Customer_Email"].ToString();
             Session["User_Type"] = DS.Tables[0].Rows[0]["User_Type"].ToString();
+        }
+
+        protected void btnForgotPass_Click(object sender, EventArgs e)
+        {
+            pnlComments.Visible = false;
+            pnlForgotEmail.Visible = true;
         }
 
 
