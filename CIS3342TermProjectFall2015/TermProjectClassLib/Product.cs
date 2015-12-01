@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace TermProjectClassLib
 {
-    class Product
+    public class Product
     {
         public int productNum;
         public int productPrice;
-        string prodDescript;
-        int QOH;
-        string departmentNum;
-        string url = "";
+        public string prodDescript;
+        public int QOH;
+        public string departmentNum;
+        public string url = "";
 
         public Product()
         {

@@ -3,24 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace TermProjectClassLib
 {
     [Serializable]
-    class ShoppingCart
+    public class ShoppingCart
     {
-        public Product[] CartItems;
+        public ArrayList CartItems = new ArrayList();
         public string cartID;
         public string customerID;
 
         public ShoppingCart()
         {
+            
         }
 
-        public ShoppingCart(Product[] CartItems, string customerID)
+        public ShoppingCart( string customerID)
         {
-            this.CartItems = CartItems;
-            this.customerID = customerID;
+            this.customerID = customerID; 
+        }
+
+        public void addItemToCart(Product prod)
+        {
+            CartItems.Add(prod);
         }
 
     }
