@@ -60,7 +60,7 @@
                         <p1>They do good work!</p1>
                         <p2>--Life long user Mox</p2>
                     </asp:Panel>
-                    <asp:Panel ID="pnlForgotEmail" runat="server" CssClass="">
+                    <asp:Panel ID="pnlForgotEmail" runat="server" CssClass="pnlForgotEmail">
                         
                             <asp:Label ID="lblForgotUserName" Text="Username:" runat="server" ForeColor="#66FF33"></asp:Label>
                             <asp:TextBox ID="txtForgotUserName" Text="" CssClass="form-control" runat="server" Width="227px"></asp:TextBox>

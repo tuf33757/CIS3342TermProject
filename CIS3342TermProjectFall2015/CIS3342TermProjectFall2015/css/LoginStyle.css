@@ -33,7 +33,7 @@
     -ms-transform: rotate(-7deg); /* IE 9 */
     -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
     transform: rotate(-7deg);
-     -webkit-animation-name: greenPulse;
+    -webkit-animation-name: greenPulse;
     -webkit-animation-duration: 3s;
     -webkit-animation-iteration-count: infinite;
 }
@@ -106,9 +106,9 @@
     width: 70px;
     height: 30px;
     border-radius: 10px;
-    border-color:black;
-    color:white;
-    text-align:center;
+    border-color: black;
+    color: white;
+    text-align: center;
 }
 
 .greenbuttonLarge {
@@ -118,34 +118,21 @@
     width: 140px;
     height: 30px;
     border-radius: 10px;
-    border-color:black;
-    color:white;
-    text-align:center;
+    border-color: black;
+    color: white;
+    text-align: center;
 }
 
 .commentbox {
-    background-color:darkgreen;
-    margin:25px;
-    height:350px;
-    width:550px;
+    display: flex;
+    background-color: darkgreen;
+    margin: 25px;
+    height: 350px;
+    width: 550px;
     border-radius: 25px;
-
 }
 
     .commentbox p1 {
-        
-        padding: 10px;
-        margin: 20px;
-        width: 100px;
-        height: 150px;
-        font-family: Coronetscript, cursive;
-        font-size: medium;
-        font-weight: 400;
-        color:lightgreen ;
-    }
-
-     .commentbox p2 {
-        
         padding: 10px;
         margin: 20px;
         width: 100px;
@@ -154,6 +141,21 @@
         font-size: medium;
         font-weight: 400;
         color: lightgreen;
-        text-align:justify right;
     }
 
+    .commentbox p2 {
+        padding: 10px;
+        margin: 20px;
+        width: 100px;
+        height: 150px;
+        font-family: Coronetscript, cursive;
+        font-size: medium;
+        font-weight: 400;
+        color: lightgreen;
+        text-align: justify right;
+    }
+
+.pnlForgotEmail {
+    align-self: center;
+    margin: auto;
+}
