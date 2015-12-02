@@ -61,13 +61,13 @@
                         <p2>--Life long user Mox</p2>
                     </asp:Panel>
                     <asp:Panel ID="pnlForgotEmail" runat="server" CssClass="pnlForgotEmail">
-                        
-                            <asp:Label ID="lblForgotUserName" Text="Username:" runat="server" ForeColor="#66FF33"></asp:Label>
-                            <asp:TextBox ID="txtForgotUserName" Text="" CssClass="form-control" runat="server" Width="227px"></asp:TextBox>
-                            <br />
-                            <asp:Button ID="btnRequest" Text="Request Password" runat="server" CssClass="greenbuttonLarge" />
-                            <asp:Button ID="btnRequestCancel" Text="Cancel" runat="server" CssClass="greenbutton" />
-                       
+                        <asp:Label ID="lblForgotMessage" Text="" runat="server" ForeColor="#66FF33"></asp:Label>
+                        <asp:Label ID="lblForgotUserName" Text="Username:" runat="server" ForeColor="#66FF33"></asp:Label>
+                        <asp:TextBox ID="txtForgotUserName" Text="" CssClass="form-control" runat="server" Width="227px"></asp:TextBox>
+                        <br />
+                        <asp:Button ID="btnRequest" Text="Request Password" runat="server" CssClass="greenbuttonLarge" OnClick="btnRequest_Click" />
+                        <asp:Button ID="btnRequestCancel" Text="Cancel" runat="server" CssClass="greenbutton" OnClick="btnRequestCancel_Click" />
+
                     </asp:Panel>
                 </div>
             </div>

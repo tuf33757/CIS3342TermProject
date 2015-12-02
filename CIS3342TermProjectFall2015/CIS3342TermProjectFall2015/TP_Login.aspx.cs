@@ -185,6 +185,50 @@ namespace CIS3342TermProjectFall2015
             pnlForgotEmail.Visible = true;
         }
 
+        protected void btnRequest_Click(object sender, EventArgs e)
+        {
+            string pass = getPassowrdFromServer(txtForgotUserName.Text);
 
+            lblForgotMessage.Text = pass;
+        }
+
+        public string getPassowrdFromServer(string login)
+        {
+            DBConnect DB = new DBConnect();
+            SqlCommand SQL = new SqlCommand();
+            SQL.CommandType = CommandType.StoredProcedure;
+            SQL.CommandText = "TP_GetPassword";
+            SQL.Parameters.AddWithValue("@LoginID", login);
+
+            DataSet DS = new DataSet();
+            DS = DB.GetDataSetUsingCmdObj(SQL);
+            string pass = DS.Tables[0].Rows[0]["Customer_Password"].ToString();
+            return pass;
+        }
+
+        protected void btnRequestCancel_Click(object sender, EventArgs e)
+        {
+            pnlComments.Visible = true;
+            pnlForgotEmail.Visible = false;
+        }
+
+        protected void sendEmail(string pass) {
+
+            Email objEmail = new Email();
+            String strTO = txtForgotUserName.Text;
+            String strFROM = "Apocalypse Trading Company";
+            String strSubject = "Password Recovery";
+            String strMessage = "Thank you for contacting us before the end of the world!  here is you password: " + pass;
+
+            try
+            {
+                objEmail.SendMail(strTO, strFROM, strSubject, strMessage);
+                lblForgotMessage.Text = "The email was sent.";
+            }
+            catch (Exception ex)
+            {
+                lblForgotMessage.Text = "The email wasn't sent!";
+            }
+        }
     }
 }
