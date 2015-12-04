@@ -8,6 +8,8 @@ using TermProjectClassLib;
 using System.Data;
 using System.Data.SqlClient;
 using System.Collections;
+using System.Net.Mail;
+using System.Web.Mail;
 
 namespace CIS3342TermProjectFall2015
 {
@@ -212,23 +214,23 @@ namespace CIS3342TermProjectFall2015
             pnlForgotEmail.Visible = false;
         }
 
-        protected void sendEmail(string pass) {
+        //protected void sendEmail(string pass) {
 
-            Email objEmail = new Email();
-            String strTO = txtForgotUserName.Text;
-            String strFROM = "Apocalypse Trading Company";
-            String strSubject = "Password Recovery";
-            String strMessage = "Thank you for contacting us before the end of the world!  here is you password: " + pass;
+        //    Email objEmail = new Email();
+        //    String strTO = txtForgotUserName.Text;
+        //    String strFROM = "Apocalypse Trading Company";
+        //    String strSubject = "Password Recovery";
+        //    String strMessage = "Thank you for contacting us before the end of the world!  here is you password: " + pass;
 
-            try
-            {
-                objEmail.SendMail(strTO, strFROM, strSubject, strMessage);
-                lblForgotMessage.Text = "The email was sent.";
-            }
-            catch (Exception ex)
-            {
-                lblForgotMessage.Text = "The email wasn't sent!";
-            }
-        }
+        //    try
+        //    {
+        //        objEmail.SendMail(strTO, strFROM, strSubject, strMessage);
+        //        lblForgotMessage.Text = "The email was sent.";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblForgotMessage.Text = "The email wasn't sent!";
+        //    }
+       // }
     }
 }

@@ -54,6 +54,19 @@ namespace CIS3342TermProjectFall2015
             }
         }
 
+        protected void gvCatalog_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int index = Convert.ToInt32(e.CommandArgument);
+            if (e.CommandName == "Add")
+            {
+                //serialize
+            }
+            if (e.CommandName == "Remove")
+            {
+                //delete from database
+            }
+        }
+
         protected void btnAddCard_Click(object sender, EventArgs e)
         {
             string username = (string)Session["LoginID"];
