@@ -83,7 +83,8 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            Response.Redirect("TP_Cust_Edit.aspx");
+            Session["EditCust"] = true;
+            Response.Redirect("TP_Registration.aspx");
         }
 
         protected void ddDepartment_SelectedIndexChanged(object sender, EventArgs e)

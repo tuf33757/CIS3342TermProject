@@ -82,6 +82,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Web References\TP_CreditCardWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

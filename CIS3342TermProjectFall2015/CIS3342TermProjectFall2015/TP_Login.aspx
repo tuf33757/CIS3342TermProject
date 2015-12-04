@@ -78,7 +78,7 @@
                 <h1 class="form-signin-heading">Login:</h1>
                 <asp:Label ID="lblError" Text="" runat="server"></asp:Label>
                 <br />
-                <asp:Label ID="lblLoginId" Text="Username:" runat="server"></asp:Label>
+                <asp:Label ID="lblLoginId" Text="Email Address:" runat="server"></asp:Label>
                 <asp:TextBox ID="txtLoginId" Text="" CssClass="form-control" runat="server"></asp:TextBox>
                 <asp:Label ID="lblPassword" Text="Password" runat="server"></asp:Label>
                 <asp:TextBox ID="txtPassword" Text="" CssClass="form-control" runat="server"></asp:TextBox>

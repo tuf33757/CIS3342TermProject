@@ -192,6 +192,7 @@ namespace CIS3342TermProjectFall2015
             string pass = getPassowrdFromServer(txtForgotUserName.Text);
 
             lblForgotMessage.Text = pass;
+            sendEmail(pass);
         }
 
         public string getPassowrdFromServer(string login)
@@ -214,23 +215,24 @@ namespace CIS3342TermProjectFall2015
             pnlForgotEmail.Visible = false;
         }
 
-        //protected void sendEmail(string pass) {
+        protected void sendEmail(string pass)
+        {
 
-        //    Email objEmail = new Email();
-        //    String strTO = txtForgotUserName.Text;
-        //    String strFROM = "Apocalypse Trading Company";
-        //    String strSubject = "Password Recovery";
-        //    String strMessage = "Thank you for contacting us before the end of the world!  here is you password: " + pass;
+            Email objEmail = new Email();
+            String strTO = txtForgotUserName.Text;
+            String strFROM = "Apocalypse_Trading_Company@gmail.com";
+            String strSubject = "Password Recovery";
+            String strMessage = "Thank you for contacting us before the end of the world!  here is you password: " + pass;
 
-        //    try
-        //    {
-        //        objEmail.SendMail(strTO, strFROM, strSubject, strMessage);
-        //        lblForgotMessage.Text = "The email was sent.";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        lblForgotMessage.Text = "The email wasn't sent!";
-        //    }
-       // }
+            try
+            {
+                objEmail.SendMail(strTO, strFROM, strSubject, strMessage);
+                lblForgotMessage.Text = "The email was sent.";
+            }
+            catch (Exception ex)
+            {
+                lblForgotMessage.Text = "The email wasn't sent!";
+            }
+        }
     }
 }
