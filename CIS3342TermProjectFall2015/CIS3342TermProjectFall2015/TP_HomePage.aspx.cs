@@ -49,25 +49,17 @@ namespace CIS3342TermProjectFall2015
                 lblEmail.Text = (string)Session["Customer_Email"];
                 DB.CloseConnection();
 
-
-
-
-
             }
         }
+
 
         protected void gvCatalog_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
             if (e.CommandName == "Add")
             {
-                //serialize
-                GridViewRow gvRow = gvCatalog.Rows[index];
-                String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
-                int prodNum = Convert.ToInt32(prodNumString);
-                Product newProd = new Product(prodNum);
-                cart.addItemToCart(newProd);
-                
+                addSelectedItemToCart(index);
+
             }
             if (e.CommandName == "Remove")
             {
@@ -107,6 +99,16 @@ namespace CIS3342TermProjectFall2015
                 gvCatalog.DataSource = DS;
                 gvCatalog.DataBind();
             }
+        }
+
+        public void addSelectedItemToCart(int index)
+        {
+            //serialize
+            GridViewRow gvRow = gvCatalog.Rows[index];
+            String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
+            int prodNum = Convert.ToInt32(prodNumString);
+            Product newProd = new Product(prodNum);
+            cart.addItemToCart(newProd);
         }
 
     }
