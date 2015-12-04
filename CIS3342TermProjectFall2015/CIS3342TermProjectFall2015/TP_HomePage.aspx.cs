@@ -15,6 +15,8 @@ namespace CIS3342TermProjectFall2015
         DBConnect DB = new DBConnect();
         TP_WebService.TP_WebService tpWebService = new TP_WebService.TP_WebService();
         TP_CreditCardWS.TP_CreditCardWS tpCreditCardWS = new TP_CreditCardWS.TP_CreditCardWS();
+        ShoppingCart cart = new ShoppingCart();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string session = (string)Session["Login"];
@@ -64,6 +66,7 @@ namespace CIS3342TermProjectFall2015
                 String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
                 int prodNum = Convert.ToInt32(prodNumString);
                 Product newProd = new Product(prodNum);
+                cart.addItemToCart(newProd);
                 
             }
             if (e.CommandName == "Remove")
