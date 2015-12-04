@@ -7,19 +7,24 @@ using System.Web.UI.WebControls;
 using TermProjectClassLib;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace CIS3342TermProjectFall2015
 {
     public partial class TP_HomePage : System.Web.UI.Page
     {
         DBConnect DB = new DBConnect();
+        SqlCommand objCommand = new SqlCommand();
         TP_WebService.TP_WebService tpWebService = new TP_WebService.TP_WebService();
         TP_CreditCardWS.TP_CreditCardWS tpCreditCardWS = new TP_CreditCardWS.TP_CreditCardWS();
         ShoppingCart cart = new ShoppingCart();
+        string loginID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             string session = (string)Session["Login"];
+            loginID = (string)Session["LoginID"];
             if (session != "true")
                 Response.Redirect("TP_Login.aspx");
 
@@ -110,6 +115,24 @@ namespace CIS3342TermProjectFall2015
             int prodNum = Convert.ToInt32(prodNumString);
             Product newProd = new Product(prodNum);
             cart.addItemToCart(newProd);
+        }
+
+        protected void btnPurchase_Click(object sender, EventArgs e)
+        {
+            BinaryFormatter serializer = new BinaryFormatter();
+            MemoryStream memStream = new MemoryStream();
+            serializer.Serialize(memStream, cart);
+            byte[] byteArray;
+            byteArray = memStream.ToArray();
+
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_StoreShoppingCart";
+
+            objCommand.Parameters.AddWithValue("@loginID", loginID);
+            objCommand.Parameters.AddWithValue("@shoppingCart", byteArray);
+
+            DB.DoUpdateUsingCmdObj(objCommand);
+
         }
 
     }
