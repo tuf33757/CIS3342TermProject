@@ -28,5 +28,10 @@ namespace TermProjectClassLib
             this.departmentNum = departmentNum;
             this.url = url;
         }
+
+        public Product(int prodNum)
+        {
+            this.productNum = prodNum;
+        }
     }
 }
