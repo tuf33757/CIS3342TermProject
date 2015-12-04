@@ -60,6 +60,11 @@ namespace CIS3342TermProjectFall2015
             if (e.CommandName == "Add")
             {
                 //serialize
+                GridViewRow gvRow = gvCatalog.Rows[index];
+                String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
+                int prodNum = Convert.ToInt32(prodNumString);
+                Product newProd = new Product(prodNum);
+                
             }
             if (e.CommandName == "Remove")
             {
