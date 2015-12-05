@@ -28,6 +28,10 @@ namespace TermProjectClassLib
         {
             CartItems.Add(prod);
         }
+        public void removeItemFromCart(Product prod)
+        {
+            CartItems.Remove(prod);
+        }
 
     }
 }
