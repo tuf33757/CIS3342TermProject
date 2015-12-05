@@ -146,7 +146,32 @@ namespace CIS3342TermProjectFall2015
 
         public void deserializeCart()
         {
+            BinaryFormatter deserializer = new BinaryFormatter();
+            MemoryStream memStream = new MemoryStream();
 
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetCart";
+            objCommand.Parameters.AddWithValue("@loginID", loginID);
+
+            DB.GetDataSetUsingCmdObj(objCommand);
+            Boolean end = false; int i = 0; ShoppingCart temp = new ShoppingCart();
+            while (!end)
+            {
+                try
+                {
+                    byte[] byteArray = (byte[])DB.GetField("ShoppingCart", i);
+                    Product prod;
+                    prod = (Product)deserializer.Deserialize(memStream);
+                    i++;
+
+                    temp.addItemToCart(prod);
+                }
+                catch (Exception)
+                {
+                    end = true;
+                }
+            }
+            cart=temp;
         }
 
     }
