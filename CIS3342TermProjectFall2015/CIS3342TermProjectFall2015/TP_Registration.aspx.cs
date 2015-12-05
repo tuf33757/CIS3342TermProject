@@ -223,54 +223,54 @@ namespace CIS3342TermProjectFall2015
  
             if (passwordsNotNull(txtCEPassword1.Text, txtCEPassword2.Text))
             {
-                if (passwordMatch(txtPassword.Text, txtPasswordConfirm.Text))
+                if (passwordMatch(txtCEPassword1.Text, txtCEPassword2.Text))
                 {
-                    if (cbBilling.Checked == true)
+                    if (chkBilling.Checked == true)
                     {
-                        Boolean result = newCust.setBillingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtshipZip.Text);
+                        Boolean result = newCust.setBillingAddress(txtCEStreet1.Text, txtCEStreet2.Text, txtCEShipCity.Text, ddShipState.SelectedValue, txtCEShipZip.Text);
                         if (result)
                         {
-                            newCust.setShippingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtshipZip.Text);
+                            newCust.setShippingAddress(txtCEStreet1.Text, txtCEStreet2.Text, txtCEShipCity.Text, ddShipState.SelectedValue, txtCEShipZip.Text);
 
-                            newCust.firstName = txtFirstName.Text;
-                            newCust.lastName = txtLastName.Text;
-                            newCust.setUserName(txtLoginId.Text);
-                            newCust.setPassword(txtPassword.Text);
-                            newCust.email = txtEmail.Text;
+                            newCust.firstName = txtCEFirstName.Text;
+                            newCust.lastName = txtCELast.Text;
+                            newCust.setUserName(txtCEUsername.Text);
+                            newCust.setPassword(txtCEPassword2.Text);
+                            newCust.email = txtCEEmail.Text;
                             newCust.userType = "Customer";
 
                             putCustomerInDB();
                         }
                         else
                         {
-                            lblInform.Text = "Error setting billing address";
+                            lblCEError.Text = "Error setting billing address";
                         }
                     }
                     else
                     {
-                        Boolean result = newCust.setBillingAddress(txtbillStreet1.Text, txtbillStreet2.Text,
-                            txtbillCity.Text, ddlbillState.SelectedValue, txtbillZip.Text);
+                        Boolean result = newCust.setBillingAddress(txtCEBillStreet1.Text, txtCEBillStreet2.Text,
+                            txtCEBillCity.Text, ddCEBillState.SelectedValue, txtCEBillZip.Text);
 
-                        newCust.setShippingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtshipZip.Text);
+                         newCust.setShippingAddress(txtCEStreet1.Text, txtCEStreet2.Text, txtCEShipCity.Text, ddShipState.SelectedValue, txtCEShipZip.Text);
 
-                        newCust.firstName = txtFirstName.Text;
-                        newCust.lastName = txtLastName.Text;
-                        newCust.setUserName(txtLoginId.Text);
-                        newCust.setPassword(txtPassword.Text);
-                        newCust.email = txtEmail.Text;
-                        newCust.userType = "Customer";
+                            newCust.firstName = txtCEFirstName.Text;
+                            newCust.lastName = txtCELast.Text;
+                            newCust.setUserName(txtCEUsername.Text);
+                            newCust.setPassword(txtCEPassword2.Text);
+                            newCust.email = txtCEEmail.Text;
+                            newCust.userType = "Customer";
 
-                        putCustomerInDB();
+                            putCustomerInDB();
                     }
                 }
                 else
                 {
-                    lblInform.Text = "Passowrds Do Not Match";
+                    lblCEError.Text = "Passowrds Do Not Match";
                 }
             }
             else
             {
-                lblInform.Text = "Please enter passwords";
+                lblCEError.Text = "Please enter passwords";
             }
         }
         }

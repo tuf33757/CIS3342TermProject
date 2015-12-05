@@ -208,7 +208,7 @@
                         <asp:Label ID="lblInform" runat="server" Text=""></asp:Label>
                     </div>
                 </asp:Panel>
-                <asp:Panel ID="pnlCustEdit" runat="server">
+                <asp:Panel ID="pnlCustEdit" runat="server" Visible="false">
                     <h1 class="form-register-heading text-muted">Edit Customer Information</h1>
                     <br />
                     <h3>User Information</h3>

@@ -129,6 +129,7 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            Session["CustEdit"] = false;
             Response.Redirect("TP_Registration.aspx");
         }
 
