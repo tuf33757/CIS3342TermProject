@@ -36,7 +36,7 @@
                                 <br />
                                 <asp:DropDownList ID="ddDepartment" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" OnSelectedIndexChanged="ddDepartment_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                 
-                                <asp:GridView ID="gvCatalog" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33" style="opacity:initial">
+                                <asp:GridView ID="gvCatalog" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33" style="opacity:initial" OnRowCommand="gvCatalog_RowCommand">
                                     <Columns>
                                         <asp:BoundField DataField="ProductNumber" HeaderText="Product" />
                                         <asp:BoundField DataField="Description" HeaderText="Description" />
