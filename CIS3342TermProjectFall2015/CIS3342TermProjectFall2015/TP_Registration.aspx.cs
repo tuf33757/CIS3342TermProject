@@ -217,6 +217,63 @@ namespace CIS3342TermProjectFall2015
             }
         
         }
+
+        protected void btnCESubmit_Click(object sender, EventArgs e)
+        {
+ 
+            if (passwordsNotNull(txtCEPassword1.Text, txtCEPassword2.Text))
+            {
+                if (passwordMatch(txtPassword.Text, txtPasswordConfirm.Text))
+                {
+                    if (cbBilling.Checked == true)
+                    {
+                        Boolean result = newCust.setBillingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtshipZip.Text);
+                        if (result)
+                        {
+                            newCust.setShippingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtshipZip.Text);
+
+                            newCust.firstName = txtFirstName.Text;
+                            newCust.lastName = txtLastName.Text;
+                            newCust.setUserName(txtLoginId.Text);
+                            newCust.setPassword(txtPassword.Text);
+                            newCust.email = txtEmail.Text;
+                            newCust.userType = "Customer";
+
+                            putCustomerInDB();
+                        }
+                        else
+                        {
+                            lblInform.Text = "Error setting billing address";
+                        }
+                    }
+                    else
+                    {
+                        Boolean result = newCust.setBillingAddress(txtbillStreet1.Text, txtbillStreet2.Text,
+                            txtbillCity.Text, ddlbillState.SelectedValue, txtbillZip.Text);
+
+                        newCust.setShippingAddress(txtshipStreet1.Text, txtshipStreet2.Text, txtshipCity.Text, ddlshipState.SelectedValue, txtshipZip.Text);
+
+                        newCust.firstName = txtFirstName.Text;
+                        newCust.lastName = txtLastName.Text;
+                        newCust.setUserName(txtLoginId.Text);
+                        newCust.setPassword(txtPassword.Text);
+                        newCust.email = txtEmail.Text;
+                        newCust.userType = "Customer";
+
+                        putCustomerInDB();
+                    }
+                }
+                else
+                {
+                    lblInform.Text = "Passowrds Do Not Match";
+                }
+            }
+            else
+            {
+                lblInform.Text = "Please enter passwords";
+            }
+        }
+        }
        
 
     }

@@ -387,7 +387,7 @@
                         <asp:TextBox ID="txtCEBillZip" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
                         <br />
                         <br />
-                        <asp:Button ID="btnCESubmit" runat="server" Text="Submit" CssClass="greenbutton"  />
+                        <asp:Button ID="btnCESubmit" runat="server" Text="Submit" CssClass="greenbutton" OnClick="btnCESubmit_Click"  />
                         <asp:Button ID="btnCEClear" runat="server" Text="Clear" CssClass="greenbutton"  />
                         <br />
                         <asp:Label ID="lblCEError" runat="server" Text=""></asp:Label>
