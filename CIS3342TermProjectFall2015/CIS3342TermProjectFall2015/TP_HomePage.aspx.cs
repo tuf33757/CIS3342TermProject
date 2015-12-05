@@ -63,11 +63,13 @@ namespace CIS3342TermProjectFall2015
             int index = Convert.ToInt32(e.CommandArgument);
             if (e.CommandName == "Add")
             {
+              //  deserializeCart();
                 addSelectedItemToCart(index);
 
             }
             if (e.CommandName == "Remove")
             {
+                deserializeCart();
                 removeSelectedItemFromCart(index);
             }
         }
@@ -170,8 +172,9 @@ namespace CIS3342TermProjectFall2015
                 {
                     end = true;
                 }
+                
             }
-            cart=temp;
+            cart.CartItems=temp.CartItems;
         }
 
     }
