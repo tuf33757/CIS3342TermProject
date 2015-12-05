@@ -68,7 +68,7 @@ namespace CIS3342TermProjectFall2015
             }
             if (e.CommandName == "Remove")
             {
-                
+                removeSelectedItemFromCart(index);
             }
         }
 
@@ -126,7 +126,7 @@ namespace CIS3342TermProjectFall2015
             cart.removeItemFromCart(newProd);
         }
 
-        protected void btnPurchase_Click(object sender, EventArgs e)
+        protected void btnUpdate_Click(object sender, EventArgs e)
         {
             BinaryFormatter serializer = new BinaryFormatter();
             MemoryStream memStream = new MemoryStream();
@@ -141,6 +141,11 @@ namespace CIS3342TermProjectFall2015
             objCommand.Parameters.AddWithValue("@shoppingCart", byteArray);
 
             DB.DoUpdateUsingCmdObj(objCommand);
+
+        }
+
+        public void deserializeCart()
+        {
 
         }
 

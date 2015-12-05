@@ -55,7 +55,7 @@
                                     </Columns>
                                 </asp:GridView>
                             </div>
-                            <asp:Button ID="btnPurchase" runat="server" Text="Send Cart to DB" OnClick="btnPurchase_Click" />
+                            <asp:Button ID="btnUpdate" runat="server" Text="Update Shopping Cart" OnClick="btnPurchase_Click" />
                         </div>
                     </div>
                 </div>
