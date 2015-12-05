@@ -178,6 +178,7 @@ namespace CIS3342TermProjectFall2015
             Session["Bill_City"] = DS.Tables[0].Rows[0]["Bill_City"].ToString();
             Session["Bill_State"] = DS.Tables[0].Rows[0]["Bill_State"].ToString();
             Session["Customer_Email"] = DS.Tables[0].Rows[0]["Customer_Email"].ToString();
+            Session["Bill_Zip"] = DS.Tables[0].Rows[0]["Bill_Zip"].ToString();
             Session["User_Type"] = DS.Tables[0].Rows[0]["User_Type"].ToString();
         }
 

@@ -221,7 +221,7 @@
                     <br />
                     <br />
                     <asp:Label ID="lblCEUsername" Text="Username:" runat="server"></asp:Label>
-                    <asp:TextBox ID="txtCEUsername" Text="" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black"></asp:TextBox>
+                    <asp:TextBox ID="txtCEUsername" Text="" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" BorderColor="Black" ReadOnly="true"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Label ID="lblCEEmail" runat="server" Text="Email Address: "></asp:Label>
@@ -312,7 +312,7 @@
                     <div>
                         <h3>Billing Information</h3>
                         <asp:Label ID="lblCESAMEADD" runat="server" Text="Same as Shipping"></asp:Label>
-                        <asp:CheckBox ID="chkBilling" runat="server" OnCheckedChanged="cbBilling_CheckedChanged" AutoPostBack="true" BackColor="#0F3D0F" BorderColor="Black" />
+                        <asp:CheckBox ID="chkBilling" runat="server"  AutoPostBack="true" BackColor="#0F3D0F" BorderColor="Black" OnCheckedChanged="chkBilling_CheckedChanged" />
                         <br />
                         <br />
                         <asp:Label ID="lblCEBillStreet1" runat="server" Text="Street 1: "></asp:Label>
