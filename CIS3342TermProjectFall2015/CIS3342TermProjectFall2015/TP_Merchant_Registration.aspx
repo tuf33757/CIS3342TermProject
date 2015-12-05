@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TP_Merchant_Registration.aspx.cs" Inherits="CIS3342TermProjectFall2015.TP_Merchant_Registration" %>
 
+<%@ Register Src="~/themeMusic.ascx" TagPrefix="uc1" TagName="themeMusic" %>
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,6 +22,7 @@
 <body>
     <br /><br />
     <div class="container">
+        <uc1:themeMusic runat="server" id="themeMusic" />
         <div id="registerMerch" class="register" runat="server">
             <form id="Form3" class="form-register-merch" runat="server">
                 

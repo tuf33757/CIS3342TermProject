@@ -13,6 +13,15 @@ namespace CIS3342TermProjectFall2015 {
     public partial class TP_Merchant_Registration {
         
         /// <summary>
+        /// themeMusic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CIS3342TermProjectFall2015.themeMusic themeMusic;
+        
+        /// <summary>
         /// registerMerch control.
         /// </summary>
         /// <remarks>

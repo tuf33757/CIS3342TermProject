@@ -72,6 +72,7 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\npm.js" />
     <Content Include="css\MerchantRegistration.css" />
+    <Content Include="themeMusic.ascx" />
     <Content Include="TP_Admin_Page.aspx" />
     <Content Include="TP_Cust_Edit.aspx" />
     <Content Include="TP_HomePage.aspx" />
@@ -101,6 +102,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="themeMusic.ascx.cs">
+      <DependentUpon>themeMusic.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="themeMusic.ascx.designer.cs">
+      <DependentUpon>themeMusic.ascx</DependentUpon>
     </Compile>
     <Compile Include="TP_Admin_Page.aspx.cs">
       <DependentUpon>TP_Admin_Page.aspx</DependentUpon>

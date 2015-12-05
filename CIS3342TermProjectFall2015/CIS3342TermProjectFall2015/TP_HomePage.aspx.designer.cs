@@ -22,6 +22,15 @@ namespace CIS3342TermProjectFall2015 {
         protected global::System.Web.UI.WebControls.Panel pnlLogIn;
         
         /// <summary>
+        /// themeMusic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CIS3342TermProjectFall2015.themeMusic themeMusic;
+        
+        /// <summary>
         /// topbanner control.
         /// </summary>
         /// <remarks>

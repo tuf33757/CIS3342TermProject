@@ -1,5 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TP_Login.aspx.cs" Inherits="CIS3342TermProjectFall2015.TP_Login" %>
 
+<%@ Register Src="~/ForgotPassword.ascx" TagPrefix="uc1" TagName="ForgotPassword" %>
+<%@ Register Src="~/themeMusic.ascx" TagPrefix="uc1" TagName="themeMusic" %>
+
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -71,7 +76,7 @@
                     </asp:Panel>
                 </div>
 
-                <iframe frameborder="0" src="https://www.youtube.com/embed/NdN7CzbkfTE?autoplay=1"  height="1" width="1"></iframe>
+                <uc1:themeMusic runat="server" id="themeMusic" />
 
             </div>
 

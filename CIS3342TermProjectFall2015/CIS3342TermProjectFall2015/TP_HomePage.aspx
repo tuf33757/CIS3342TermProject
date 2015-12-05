@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TP_HomePage.aspx.cs" Inherits="CIS3342TermProjectFall2015.TP_HomePage" %>
 
+<%@ Register Src="~/themeMusic.ascx" TagPrefix="uc1" TagName="themeMusic" %>
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,6 +15,7 @@
 <body>
     <asp:Panel ID="pnlLogIn" runat="server">
         <div class="container">
+            <uc1:themeMusic runat="server" id="themeMusic" />
             <br />
             <br />
 
