@@ -16,9 +16,29 @@ namespace CIS3342TermProjectFall2015
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((Boolean)Session["EditCust"]) {
-                pnlCustReg.Visible = false;
+            try
+            {
+                if ((Boolean)Session["EditCust"])
+                {
+                    pnlCustReg.Visible = false;
+                    txtCEUsername.Text = (string)Session["LoginID"];
+                    txtCEFirstName.Text= (string)Session["Customer_First"];
+                    txtCELast.Text = (string)Session["Customer_Last"];
+                    txtCEStreet1.Text = (string)Session["Ship_Address_1"];
+                    txtCEStreet2.Text = (string)Session["Ship_Address_2"];
+                    txtCEShipCity.Text = (string)Session["Ship_City"];
+                    ddShipState.SelectedValue = (string)Session["Ship_State"];
+                    txtCEShipZip.Text = (string)Session["Ship_Zip"];
+                    txtCEBillStreet1.Text = (string)Session["Bill_Address_1"];
+                    txtCEBillStreet2.Text = (string)Session["Bill_Address_2"];
+                    txtCEBillCity.Text = (string)Session["Bill_City"];
+                    ddCEBillState.SelectedValue = (string)Session["Bill_State"];
+                    txtCEBillZip.Text = (string)Session["Bill_Zip"];
+                    txtCEEmail.Text = (string)Session["Customer_Email"];
+                  
+                }
             }
+            catch (NullReferenceException ex) { }
         }
 
         protected void cbBilling_CheckedChanged(object sender, EventArgs e)
@@ -174,6 +194,30 @@ namespace CIS3342TermProjectFall2015
             creditcardWS.AddCustomer(Cust);
 
         }
+
+        protected void chkBilling_CheckedChanged(object sender, EventArgs e)
+        {
+         
+            if (chkBilling.Checked == true)
+            {
+                txtCEBillCity.Enabled = false;
+                ddCEBillState.Enabled = false;
+                txtCEStreet1.Enabled = false;
+                txtCEStreet2.Enabled = false;
+                txtCEBillZip.Enabled = false;
+
+            }
+            else
+            {
+                txtCEBillCity.Enabled = true;
+                ddCEBillState.Enabled = true;
+                txtCEStreet1.Enabled = true;
+                txtCEStreet2.Enabled = true;
+                txtCEBillZip.Enabled = true;
+            }
+        
+        }
+       
 
     }
 }
