@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TermProjectClassLib;
 
+using System.Data;
+using System.Data.SqlClient;
 
 namespace CIS3342TermProjectFall2015
 {
@@ -21,6 +23,7 @@ namespace CIS3342TermProjectFall2015
                 if ((Boolean)Session["EditCust"])
                 {
                     pnlCustReg.Visible = false;
+                    pnlCustEdit.Visible = true;
                     txtCEUsername.Text = (string)Session["LoginID"];
                     txtCEFirstName.Text = (string)Session["Customer_First"];
                     txtCELast.Text = (string)Session["Customer_Last"];
@@ -36,6 +39,10 @@ namespace CIS3342TermProjectFall2015
                     txtCEBillZip.Text = (string)Session["Bill_Zip"];
                     txtCEEmail.Text = (string)Session["Customer_Email"];
 
+                }
+                else {
+                    pnlCustReg.Visible = true;
+                    pnlCustEdit.Visible = false;
                 }
             }
             catch (NullReferenceException ex) { }
@@ -197,7 +204,7 @@ namespace CIS3342TermProjectFall2015
 
         protected void chkBilling_CheckedChanged(object sender, EventArgs e)
         {
-
+         
             if (chkBilling.Checked == true)
             {
                 txtCEBillCity.Enabled = false;
@@ -215,12 +222,12 @@ namespace CIS3342TermProjectFall2015
                 txtCEStreet2.Enabled = true;
                 txtCEBillZip.Enabled = true;
             }
-
+        
         }
 
         protected void btnCESubmit_Click(object sender, EventArgs e)
         {
-
+ 
             if (passwordsNotNull(txtCEPassword1.Text, txtCEPassword2.Text))
             {
                 if (passwordMatch(txtCEPassword1.Text, txtCEPassword2.Text))
@@ -239,7 +246,8 @@ namespace CIS3342TermProjectFall2015
                             newCust.email = txtCEEmail.Text;
                             newCust.userType = "Customer";
 
-                            putCustomerInDB();
+                            editCustomer();
+                            clearPage(this);
                         }
                         else
                         {
@@ -251,16 +259,17 @@ namespace CIS3342TermProjectFall2015
                         Boolean result = newCust.setBillingAddress(txtCEBillStreet1.Text, txtCEBillStreet2.Text,
                             txtCEBillCity.Text, ddCEBillState.SelectedValue, txtCEBillZip.Text);
 
-                        newCust.setShippingAddress(txtCEStreet1.Text, txtCEStreet2.Text, txtCEShipCity.Text, ddShipState.SelectedValue, txtCEShipZip.Text);
+                         newCust.setShippingAddress(txtCEStreet1.Text, txtCEStreet2.Text, txtCEShipCity.Text, ddShipState.SelectedValue, txtCEShipZip.Text);
 
-                        newCust.firstName = txtCEFirstName.Text;
-                        newCust.lastName = txtCELast.Text;
-                        newCust.setUserName(txtCEUsername.Text);
-                        newCust.setPassword(txtCEPassword2.Text);
-                        newCust.email = txtCEEmail.Text;
-                        newCust.userType = "Customer";
+                            newCust.firstName = txtCEFirstName.Text;
+                            newCust.lastName = txtCELast.Text;
+                            newCust.setUserName(txtCEUsername.Text);
+                            newCust.setPassword(txtCEPassword2.Text);
+                            newCust.email = txtCEEmail.Text;
+                            newCust.userType = "Customer";
 
-                        putCustomerInDB();
+                            editCustomer();
+                            clearPage(this);
                     }
                 }
                 else
@@ -273,9 +282,32 @@ namespace CIS3342TermProjectFall2015
                 lblCEError.Text = "Please enter passwords";
             }
         }
+
+        protected void editCustomer() {
+            DBConnect DB = new DBConnect();
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "TP_UpdateCustomer";
+            command.Parameters.AddWithValue("@firstName", newCust.firstName);
+            command.Parameters.AddWithValue("@lastName", newCust.lastName);
+            command.Parameters.AddWithValue("@email", newCust.email);
+            command.Parameters.AddWithValue("@userName", newCust.userName);
+            command.Parameters.AddWithValue("@password", newCust.password);
+            command.Parameters.AddWithValue("@shipAdd1", newCust.shipAddress1);
+            command.Parameters.AddWithValue("@shipAdd2", newCust.shipAddress2);
+            command.Parameters.AddWithValue("@shipCity", newCust.shipCity);
+            command.Parameters.AddWithValue("@shipState", newCust.shipState);
+            command.Parameters.AddWithValue("@shipZip", newCust.shipZip);
+            command.Parameters.AddWithValue("@billAdd1", newCust.billAddress1);
+            command.Parameters.AddWithValue("@billAdd2", newCust.billAddress2);
+            command.Parameters.AddWithValue("@billCity", newCust.billCity);
+            command.Parameters.AddWithValue("@billState", newCust.billState);
+            command.Parameters.AddWithValue("@billZip", newCust.billZip);
+            DB.GetDataSetUsingCmdObj(command);
+
+     
+        }
+        }
+       
+
     }
-}
-
-
-
-
