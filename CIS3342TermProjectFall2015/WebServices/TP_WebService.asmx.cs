@@ -40,6 +40,7 @@ namespace WebServices
             SqlCommand command = new SqlCommand();
             command.CommandType = CommandType.StoredProcedure;
             command.CommandText = "TP_GetCatalog";
+            objCommand.Parameters.AddWithValue("@DepartmentNumber", departmentNumber);
             DataSet myds = objDB.GetDataSetUsingCmdObj(command);
             return myds;
 
