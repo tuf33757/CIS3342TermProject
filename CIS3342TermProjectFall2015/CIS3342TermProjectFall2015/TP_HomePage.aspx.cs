@@ -68,7 +68,7 @@ namespace CIS3342TermProjectFall2015
             }
             if (e.CommandName == "Remove")
             {
-                //delete from database
+                
             }
         }
 
@@ -115,6 +115,15 @@ namespace CIS3342TermProjectFall2015
             int prodNum = Convert.ToInt32(prodNumString);
             Product newProd = new Product(prodNum);
             cart.addItemToCart(newProd);
+        }
+
+        public void removeSelectedItemFromCart(int index)
+        {
+            GridViewRow gvRow = gvCatalog.Rows[index];
+            String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
+            int prodNum = Convert.ToInt32(prodNumString);
+            Product newProd = new Product(prodNum);
+            cart.removeItemFromCart(newProd);
         }
 
         protected void btnPurchase_Click(object sender, EventArgs e)
