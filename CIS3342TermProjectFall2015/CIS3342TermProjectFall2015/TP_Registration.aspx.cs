@@ -22,7 +22,7 @@ namespace CIS3342TermProjectFall2015
                 {
                     pnlCustReg.Visible = false;
                     txtCEUsername.Text = (string)Session["LoginID"];
-                    txtCEFirstName.Text= (string)Session["Customer_First"];
+                    txtCEFirstName.Text = (string)Session["Customer_First"];
                     txtCELast.Text = (string)Session["Customer_Last"];
                     txtCEStreet1.Text = (string)Session["Ship_Address_1"];
                     txtCEStreet2.Text = (string)Session["Ship_Address_2"];
@@ -35,7 +35,7 @@ namespace CIS3342TermProjectFall2015
                     ddCEBillState.SelectedValue = (string)Session["Bill_State"];
                     txtCEBillZip.Text = (string)Session["Bill_Zip"];
                     txtCEEmail.Text = (string)Session["Customer_Email"];
-                  
+
                 }
             }
             catch (NullReferenceException ex) { }
@@ -197,7 +197,7 @@ namespace CIS3342TermProjectFall2015
 
         protected void chkBilling_CheckedChanged(object sender, EventArgs e)
         {
-         
+
             if (chkBilling.Checked == true)
             {
                 txtCEBillCity.Enabled = false;
@@ -215,12 +215,12 @@ namespace CIS3342TermProjectFall2015
                 txtCEStreet2.Enabled = true;
                 txtCEBillZip.Enabled = true;
             }
-        
+
         }
 
         protected void btnCESubmit_Click(object sender, EventArgs e)
         {
- 
+
             if (passwordsNotNull(txtCEPassword1.Text, txtCEPassword2.Text))
             {
                 if (passwordMatch(txtCEPassword1.Text, txtCEPassword2.Text))
@@ -251,16 +251,16 @@ namespace CIS3342TermProjectFall2015
                         Boolean result = newCust.setBillingAddress(txtCEBillStreet1.Text, txtCEBillStreet2.Text,
                             txtCEBillCity.Text, ddCEBillState.SelectedValue, txtCEBillZip.Text);
 
-                         newCust.setShippingAddress(txtCEStreet1.Text, txtCEStreet2.Text, txtCEShipCity.Text, ddShipState.SelectedValue, txtCEShipZip.Text);
+                        newCust.setShippingAddress(txtCEStreet1.Text, txtCEStreet2.Text, txtCEShipCity.Text, ddShipState.SelectedValue, txtCEShipZip.Text);
 
-                            newCust.firstName = txtCEFirstName.Text;
-                            newCust.lastName = txtCELast.Text;
-                            newCust.setUserName(txtCEUsername.Text);
-                            newCust.setPassword(txtCEPassword2.Text);
-                            newCust.email = txtCEEmail.Text;
-                            newCust.userType = "Customer";
+                        newCust.firstName = txtCEFirstName.Text;
+                        newCust.lastName = txtCELast.Text;
+                        newCust.setUserName(txtCEUsername.Text);
+                        newCust.setPassword(txtCEPassword2.Text);
+                        newCust.email = txtCEEmail.Text;
+                        newCust.userType = "Customer";
 
-                            putCustomerInDB();
+                        putCustomerInDB();
                     }
                 }
                 else
@@ -273,8 +273,9 @@ namespace CIS3342TermProjectFall2015
                 lblCEError.Text = "Please enter passwords";
             }
         }
-        }
-       
-
     }
 }
+
+
+
+
