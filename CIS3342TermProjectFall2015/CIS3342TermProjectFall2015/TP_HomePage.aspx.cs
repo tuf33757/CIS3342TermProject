@@ -54,6 +54,7 @@ namespace CIS3342TermProjectFall2015
                 lblEmail.Text = (string)Session["Customer_Email"];
                 DB.CloseConnection();
 
+                deserializeCart();
             }
         }
 
@@ -63,13 +64,13 @@ namespace CIS3342TermProjectFall2015
             int index = Convert.ToInt32(e.CommandArgument);
             if (e.CommandName == "Add")
             {
-              //  deserializeCart();
+               
                 addSelectedItemToCart(index);
 
             }
             if (e.CommandName == "Remove")
             {
-                deserializeCart();
+              
                 removeSelectedItemFromCart(index);
             }
         }
@@ -111,7 +112,7 @@ namespace CIS3342TermProjectFall2015
 
         public void addSelectedItemToCart(int index)
         {
-            //serialize
+            
             GridViewRow gvRow = gvCatalog.Rows[index];
             String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
             int prodNum = Convert.ToInt32(prodNumString);
@@ -156,25 +157,26 @@ namespace CIS3342TermProjectFall2015
             objCommand.Parameters.AddWithValue("@loginID", loginID);
 
             DB.GetDataSetUsingCmdObj(objCommand);
-            Boolean end = false; int i = 0; ShoppingCart temp = new ShoppingCart();
-            while (!end)
+            //Boolean end = false; int i = 0; 
+            ShoppingCart shopCart = new ShoppingCart();
+           // while (!end)
             {
                 try
                 {
-                    byte[] byteArray = (byte[])DB.GetField("ShoppingCart", i);
-                    Product prod;
-                    prod = (Product)deserializer.Deserialize(memStream);
-                    i++;
+                    byte[] byteArray = (byte[])DB.GetField("ShoppingCart", 0);
+                   //ShoppingCart shopCart;
+                    shopCart = (ShoppingCart)deserializer.Deserialize(memStream);
+                 //   i++;
 
-                    temp.addItemToCart(prod);
+                   // temp.addItemToCart(prod);
                 }
                 catch (Exception)
                 {
-                    end = true;
+                    //end = true;
                 }
                 
             }
-            cart.CartItems=temp.CartItems;
+            cart = shopCart;
         }
 
     }
