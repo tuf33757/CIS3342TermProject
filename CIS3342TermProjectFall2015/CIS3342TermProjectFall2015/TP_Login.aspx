@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TP_Login.aspx.cs" Inherits="CIS3342TermProjectFall2015.TP_Login" %>
 
-<%@ Register Src="~/ForgotPassword.ascx" TagPrefix="uc1" TagName="ForgotPassword" %>
+
 <%@ Register Src="~/themeMusic.ascx" TagPrefix="uc1" TagName="themeMusic" %>
 
 
