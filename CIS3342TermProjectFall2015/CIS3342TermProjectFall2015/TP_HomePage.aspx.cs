@@ -106,6 +106,7 @@ namespace CIS3342TermProjectFall2015
                 command.Parameters.AddWithValue("@DepartmentNumber", ddDepartment.SelectedValue);
                 DataSet DS = db.GetDataSetUsingCmdObj(command);
                 gvCatalog.DataSource = DS;
+                
                 gvCatalog.DataBind();
             }
         }
@@ -178,6 +179,8 @@ namespace CIS3342TermProjectFall2015
             }
             cart = shopCart;
         }
+
+       
 
     }
 }

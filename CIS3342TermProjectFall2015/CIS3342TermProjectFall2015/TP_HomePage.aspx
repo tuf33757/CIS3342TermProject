@@ -43,8 +43,8 @@
                                 <asp:GridView ID="gvCatalog" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33" style="opacity:initial" OnRowCommand="gvCatalog_RowCommand">
                                     <Columns>
                                         <asp:BoundField DataField="ProductNumber" HeaderText="Product" />
-                                        <asp:BoundField DataField="Description" HeaderText="Description" />
-                                        <asp:BoundField DataField="QuantityOnHand" HeaderText="Available" />
+                                        <asp:BoundField DataField="ProductDesc" HeaderText="Description" />
+                                        <asp:BoundField DataField="ProductQOH" HeaderText="Available" />
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:Button ID="btnSelect" runat="server" Text="Select" CommandName="Add" CommandArgument="<%#Container.DataItemIndex %>" />
@@ -55,7 +55,7 @@
                                                 <asp:Button ID="btnRemove" runat="server" Text="Remove" CommandName="Remove" CommandArgument="<%#Container.DataItemIndex %>" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
-
+                                        <asp:ImageField DataImageUrlField="ProductImageURL" HeaderText="Image"></asp:ImageField>
                                     </Columns>
                                 </asp:GridView>
                             </div>
