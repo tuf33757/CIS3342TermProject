@@ -49,9 +49,7 @@
                         <p2>--Co-Founder and Totally RAD Dude Rob Zahorchak</p2>
                         <br />
                         <br />
-                        <p1>Something something the world is ending something this is a</p1>
-                        <br />
-                        <p1> quote. I have to code now.</p1>
+                        <p1>Something something the world is ending...I have to code now.Bye.</p1>
                         <br />
                         <p2>--Co-Founder Tracey Harrison</p2>
                         <br />
@@ -63,6 +61,7 @@
                         <br />
                         <br />
                         <p1>They do good work!</p1>
+                        <br />
                         <p2>--Life long user Mox</p2>
                     </asp:Panel>
                     <asp:Panel ID="pnlForgotEmail" runat="server" CssClass="pnlForgotEmail">
