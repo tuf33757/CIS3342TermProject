@@ -28,6 +28,7 @@ namespace CIS3342TermProjectFall2015
         string loginID;
 
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string session = (string)Session["Login"];
@@ -37,16 +38,9 @@ namespace CIS3342TermProjectFall2015
 
             if (!IsPostBack)
             {
+                Session["Cart"] = cart;
                 Session["TotalCost"] = 0;
                 lblWelcome.Text = "        Welcome, " + (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
-                //SqlCommand SQL = new SqlCommand();
-                //SQL.CommandType = CommandType.StoredProcedure;
-                //SQL.CommandText = "TP_GetDepartment";
-                //DataSet DS = DB.GetDataSetUsingCmdObj(SQL);
-                //ddDepartment.DataSource = DS;
-                //ddDepartment.DataTextField = "DepartmentName";
-                //ddDepartment.DataValueField = "DepartmentNumber";
-                //ddDepartment.DataBind();
 
                 PutWebServicesInDataset();
 
@@ -132,7 +126,9 @@ namespace CIS3342TermProjectFall2015
             String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
             int prodNum = Convert.ToInt32(prodNumString);
             Product newProd = new Product(prodNum);
-            cart.addItemToCart(newProd);
+            ShoppingCart tempCart = (ShoppingCart)Session["Cart"];
+            tempCart.addItemToCart(newProd);
+            Session["Cart"] = tempCart;
         }
 
         public void increaseQOH(int index)
@@ -198,7 +194,10 @@ namespace CIS3342TermProjectFall2015
             String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
             int prodNum = Convert.ToInt32(prodNumString);
             Product newProd = new Product(prodNum);
-            cart.removeItemFromCart(newProd);
+            ShoppingCart tempCart = (ShoppingCart)Session["Cart"];
+            tempCart.removeItemFromCart(newProd);
+            Session["Cart"] = tempCart;
+
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -211,7 +210,8 @@ namespace CIS3342TermProjectFall2015
         {
             BinaryFormatter serializer = new BinaryFormatter();
             MemoryStream memStream = new MemoryStream();
-            serializer.Serialize(memStream, cart);
+            ShoppingCart tempCart = (ShoppingCart)Session["Cart"];
+            serializer.Serialize(memStream, tempCart);
             byte[] byteArray;
             byteArray = memStream.ToArray();
 
@@ -234,22 +234,16 @@ namespace CIS3342TermProjectFall2015
             objCommand.Parameters.AddWithValue("@loginID", loginID);
 
             DB.GetDataSetUsingCmdObj(objCommand);
-            //Boolean end = false; int i = 0; 
             ShoppingCart shopCart = new ShoppingCart();
-            // while (!end)
             {
                 try
                 {
                     byte[] byteArray = (byte[])DB.GetField("ShoppingCart", 0);
-                    //ShoppingCart shopCart;
                     shopCart = (ShoppingCart)deserializer.Deserialize(memStream);
-                    //   i++;
-
-                    // temp.addItemToCart(prod);
                 }
                 catch (Exception)
                 {
-                    //end = true;
+
                 }
 
             }
