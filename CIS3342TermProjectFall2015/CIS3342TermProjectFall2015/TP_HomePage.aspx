@@ -55,7 +55,9 @@
                                                 <asp:Button ID="btnRemove" runat="server" Text="Remove" CommandName="Remove" CommandArgument="<%#Container.DataItemIndex %>" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:ImageField DataImageUrlField="ProductImageURL" HeaderText="Image"></asp:ImageField>
+                                        <asp:ImageField DataImageUrlField="ProductImageURL" HeaderText="Image" ControlStyle-Width="28" ControlStyle-Height = "28">
+                                            <ItemStyle Height="50px" Width="50px" />
+                                        </asp:ImageField>
                                     </Columns>
                                 </asp:GridView>
                             </div>
