@@ -11,11 +11,24 @@
 
 
     <link href="css/HomePage.css" rel="stylesheet" />
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.elevateZoom-3.0.8.min.js"></script>
+    <script src="js/jquery.elevatezoom.js"></script>
+    <script>
+        $(function () {
+            $("[id*=gvCatalog] img").elevateZoom({
+                cursor: 'pointer',
+                tint: true,
+                tintColour: '#F90',
+                tintOpacity: 0.5,
+            });
+        });
+    </script>
 </head>
 <body>
     <asp:Panel ID="pnlLogIn" runat="server">
         <div class="container">
-            <uc1:themeMusic runat="server" id="themeMusic" />
+            <uc1:themeMusic runat="server" ID="themeMusic" />
             <br />
             <br />
 
@@ -39,8 +52,8 @@
                                 <br />
                                 <br />
                                 <asp:DropDownList ID="ddDepartment" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" OnSelectedIndexChanged="ddDepartment_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                                
-                                <asp:GridView ID="gvCatalog" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33"  OnRowCommand="gvCatalog_RowCommand" >
+
+                                <asp:GridView ID="gvCatalog" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33" OnRowCommand="gvCatalog_RowCommand">
                                     <Columns>
                                         <asp:BoundField DataField="ProductNumber" HeaderText="Product" />
                                         <asp:BoundField DataField="ProductDesc" HeaderText="Description" />
@@ -55,17 +68,18 @@
                                             <ItemTemplate>
                                                 <asp:Button ID="btnRemove" runat="server" Text="Remove" CommandName="Remove" CommandArgument="<%#Container.DataItemIndex %>" />
                                             </ItemTemplate>
+                                            
                                         </asp:TemplateField>
-                                        <asp:ImageField DataImageUrlField="ProductImageURL" HeaderText="Image" ControlStyle-Width="28" ControlStyle-Height = "28">
-                                           
+                                        <asp:ImageField DataImageUrlField="ProductImageURL" HeaderText="Image" ControlStyle-Width="50" ControlStyle-Height="50">
                                         </asp:ImageField>
                                     </Columns>
                                 </asp:GridView>
                             </div>
                             <asp:Button ID="btnUpdate" runat="server" Text="Update Shopping Cart" OnClick="btnUpdate_Click" />
-                            <br /><br />
+                            <br />
+                            <br />
                             <asp:Button ID="btnPurchase" runat="server" Text="Purchase" OnClick="btnPurchase_Click" />
-                            
+
                         </div>
                     </div>
                 </div>
@@ -97,6 +111,6 @@
             </form>
         </div>
     </asp:Panel>
-
+    
 </body>
 </html>

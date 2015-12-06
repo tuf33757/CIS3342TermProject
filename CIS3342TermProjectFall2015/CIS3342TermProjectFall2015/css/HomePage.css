@@ -33,7 +33,7 @@
     float: right;
     right:10%;
     width: 300px;
-    height:400px;
+    height:450px;
    
     
     border: 2px solid;
@@ -49,9 +49,9 @@
     margin:15px;
     padding:15px;
     width:225px;
-    height:325px;
+    height:375px;
     border-radius: 25px;
-    opacity: 0.6;
+    opacity: 0.9;
     border-radius: 25px;
     -webkit-animation-name: darkGreenPulse;
     -webkit-animation-duration: 5s;
@@ -164,5 +164,9 @@
         background-color:#004d00;
         -webkit-box-shadow: 0 0 9px #333;
     }
+}
+
+.picDisplay {
+    float:right;
 }
 
