@@ -207,10 +207,11 @@ namespace CIS3342TermProjectFall2015
          
             if (chkBilling.Checked == true)
             {
+
                 txtCEBillCity.Enabled = false;
                 ddCEBillState.Enabled = false;
-                txtCEStreet1.Enabled = false;
-                txtCEStreet2.Enabled = false;
+                txtCEBillStreet1.Enabled = false;
+                txtCEBillStreet2.Enabled = false;
                 txtCEBillZip.Enabled = false;
 
             }
@@ -218,9 +219,12 @@ namespace CIS3342TermProjectFall2015
             {
                 txtCEBillCity.Enabled = true;
                 ddCEBillState.Enabled = true;
-                txtCEStreet1.Enabled = true;
-                txtCEStreet2.Enabled = true;
+                txtCEBillStreet1.Enabled = true;
+                txtCEBillStreet2.Enabled = true;
                 txtCEBillZip.Enabled = true;
+
+               
+
             }
         
         }
@@ -303,7 +307,7 @@ namespace CIS3342TermProjectFall2015
             command.Parameters.AddWithValue("@billCity", newCust.billCity);
             command.Parameters.AddWithValue("@billState", newCust.billState);
             command.Parameters.AddWithValue("@billZip", newCust.billZip);
-            DB.GetDataSetUsingCmdObj(command);
+            DB.DoUpdateUsingCmdObj(command);
 
      
         }
