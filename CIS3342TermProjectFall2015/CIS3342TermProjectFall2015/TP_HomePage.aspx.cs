@@ -23,6 +23,8 @@ namespace CIS3342TermProjectFall2015
         NickEricWS.MerchantStore Merchant2 = new NickEricWS.MerchantStore();
         ArrayList Departments = new ArrayList();
         ShoppingCart cart = new ShoppingCart();
+        DataSet merchant2Dept = new DataSet();
+        DataSet merchant1Dept = new DataSet();
         string loginID;
 
 
@@ -37,14 +39,17 @@ namespace CIS3342TermProjectFall2015
             {
                 Session["TotalCost"] = 0;
                 lblWelcome.Text = "        Welcome, " + (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
-                SqlCommand SQL = new SqlCommand();
-                SQL.CommandType = CommandType.StoredProcedure;
-                SQL.CommandText = "TP_GetDepartment";
-                DataSet DS = DB.GetDataSetUsingCmdObj(SQL);
-                ddDepartment.DataSource = DS;
-                ddDepartment.DataTextField = "DepartmentName";
-                ddDepartment.DataValueField = "DepartmentNumber";
-                ddDepartment.DataBind();
+                //SqlCommand SQL = new SqlCommand();
+                //SQL.CommandType = CommandType.StoredProcedure;
+                //SQL.CommandText = "TP_GetDepartment";
+                //DataSet DS = DB.GetDataSetUsingCmdObj(SQL);
+                //ddDepartment.DataSource = DS;
+                //ddDepartment.DataTextField = "DepartmentName";
+                //ddDepartment.DataValueField = "DepartmentNumber";
+                //ddDepartment.DataBind();
+
+                PutWebServicesInDataset();
+
                 ddDepartment.Items.Insert(0, new ListItem("Please select", "0"));
                 lblName.Text = (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
                 lblAdderss1.Text = (string)Session["Ship_Address_1"];
@@ -272,12 +277,28 @@ namespace CIS3342TermProjectFall2015
 
         public void PutWebServicesInDataset()
         {
-            DataSet merchantDept = new DataSet();
-            merchantDept = Merchant1.GetDepartments();
+            merchant1Dept = Merchant1.GetDepartments();
+            merchant2Dept = Merchant1.GetDepartments();
+            // Departments.Add(merchant1Dept);
+            //  Departments.Add(merchant2Dept);
+            SqlCommand SQL = new SqlCommand();
+            SQL.CommandType = CommandType.StoredProcedure;
+            SQL.CommandText = "TP_GetDepartment";
+            DataSet DS = DB.GetDataSetUsingCmdObj(SQL);
+            // Departments.Add(DS);
+
+            DS.Merge(merchant1Dept);
+            DS.Merge(merchant2Dept);
+
+            ddDepartment.DataSource = DS;
+            ddDepartment.DataTextField = "DepartmentName";
+            ddDepartment.DataValueField = "DepartmentNumber";
+            ddDepartment.DataBind();
 
         }
-
-
-
     }
+
+
+
+
 }
