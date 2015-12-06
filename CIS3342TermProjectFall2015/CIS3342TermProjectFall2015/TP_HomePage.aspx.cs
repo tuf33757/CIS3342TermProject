@@ -240,6 +240,7 @@ namespace CIS3342TermProjectFall2015
                 {
                     byte[] byteArray = (byte[])DB.GetField("ShoppingCart", 0);
                     shopCart = (ShoppingCart)deserializer.Deserialize(memStream);
+                    Session["Cart"] = shopCart;
                 }
                 catch (Exception)
                 {
