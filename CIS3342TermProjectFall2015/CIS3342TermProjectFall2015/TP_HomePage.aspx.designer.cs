@@ -13,6 +13,15 @@ namespace CIS3342TermProjectFall2015 {
     public partial class TP_HomePage {
         
         /// <summary>
+        /// MenuBar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CIS3342TermProjectFall2015.MenuBar MenuBar;
+        
+        /// <summary>
         /// pnlLogIn control.
         /// </summary>
         /// <remarks>

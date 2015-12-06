@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TP_HomePage.aspx.cs" Inherits="CIS3342TermProjectFall2015.TP_HomePage" %>
 
 <%@ Register Src="~/themeMusic.ascx" TagPrefix="uc1" TagName="themeMusic" %>
+<%@ Register Src="~/MenuBar.ascx" TagPrefix="uc1" TagName="MenuBar" %>
+
 
 
 <!DOCTYPE html>
@@ -14,6 +16,7 @@
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="js/jquery.elevateZoom-3.0.8.min.js"></script>
     <script src="js/jquery.elevatezoom.js"></script>
+     <link href="css/NavBarStyle.css" rel="stylesheet" />
     <script>
         $(function () {
             $("[id*=gvCatalog] img").elevateZoom({
@@ -26,6 +29,7 @@
     </script>
 </head>
 <body>
+    <uc1:MenuBar runat="server" ID="MenuBar" />
     <asp:Panel ID="pnlLogIn" runat="server">
         <div class="container">
             <uc1:themeMusic runat="server" ID="themeMusic" />

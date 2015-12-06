@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TP_Registration.aspx.cs" Inherits="CIS3342TermProjectFall2015.TP_Registration" %>
 
 <%@ Register Src="~/themeMusic.ascx" TagPrefix="uc1" TagName="themeMusic" %>
+<%@ Register Src="~/MenuBar.ascx" TagPrefix="uc1" TagName="MenuBar" %>
+
 
 
 <!DOCTYPE html>
@@ -18,9 +20,11 @@
 
     <link href="css/LoginStyle.css" rel="stylesheet" />
     <link href="css/MerchantRegistration.css" rel="stylesheet" />
+     <link href="css/NavBarStyle.css" rel="stylesheet" />
     <title>Register Customer</title>
 </head>
 <body>
+    <uc1:MenuBar runat="server" ID="MenuBar" />
     <%--   <form id="form2" runat="server">--%>
     <div id="fullscreen_bg" class="fullscreen_bg" />
     <div class="container">
@@ -399,7 +403,7 @@
                         <br />
                         <asp:Label ID="lblCEError" runat="server" Text=""></asp:Label>
                     </div>
-                    <asp:Button ID="btnHome" runat="server" Text="Home Page" OnClick="btnHome_Click" />
+                    <asp:Button ID="btnHome" runat="server" Text="Home Page" OnClick="btnHome_Click" CssClass="greenbutton" />
                 </asp:Panel>
             </form>
         </div>
