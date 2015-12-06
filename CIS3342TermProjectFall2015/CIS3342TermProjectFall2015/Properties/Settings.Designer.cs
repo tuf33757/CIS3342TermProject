@@ -42,5 +42,27 @@ namespace CIS3342TermProjectFall2015.Properties {
                 return ((string)(this["CIS3342TermProjectFall2015_TP_WebService_TP_WebService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://cis-iis2.temple.edu/Fall2015/CIS3342_tud30322/TermProjectWS/MerchantStore." +
+            "asmx")]
+        public string CIS3342TermProjectFall2015_NickEricWS_MerchantStore {
+            get {
+                return ((string)(this["CIS3342TermProjectFall2015_NickEricWS_MerchantStore"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://cis-iis2.temple.edu/Fall2015/CIS3342_tuc54867/TermProjectWS/MerchantStore." +
+            "asmx")]
+        public string CIS3342TermProjectFall2015_GinErikaWS_MerchantStore {
+            get {
+                return ((string)(this["CIS3342TermProjectFall2015_GinErikaWS_MerchantStore"]));
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace WebServices.ErikaGinWS {
+namespace CIS3342TermProjectFall2015.NickEricWS {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -38,13 +38,11 @@ namespace WebServices.ErikaGinWS {
         
         private System.Threading.SendOrPostCallback PurchaseOperationCompleted;
         
-        private System.Threading.SendOrPostCallback addMerchantOperationCompleted;
-        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
         public MerchantStore() {
-            this.Url = global::WebServices.Properties.Settings.Default.WebServices_ErikaGinWS_MerchantStore;
+            this.Url = global::CIS3342TermProjectFall2015.Properties.Settings.Default.CIS3342TermProjectFall2015_NickEricWS_MerchantStore;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -89,9 +87,6 @@ namespace WebServices.ErikaGinWS {
         
         /// <remarks/>
         public event PurchaseCompletedEventHandler PurchaseCompleted;
-        
-        /// <remarks/>
-        public event addMerchantCompletedEventHandler addMerchantCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDepartments", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -151,32 +146,32 @@ namespace WebServices.ErikaGinWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RegisterSite", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool RegisterSite(string SiteID, string Description, string APIKey, string Email, string[] ContactInfo) {
+        public bool RegisterSite(string SiteName, string Description, string APIKey, string email, string PhoneNumber) {
             object[] results = this.Invoke("RegisterSite", new object[] {
-                        SiteID,
+                        SiteName,
                         Description,
                         APIKey,
-                        Email,
-                        ContactInfo});
+                        email,
+                        PhoneNumber});
             return ((bool)(results[0]));
         }
         
         /// <remarks/>
-        public void RegisterSiteAsync(string SiteID, string Description, string APIKey, string Email, string[] ContactInfo) {
-            this.RegisterSiteAsync(SiteID, Description, APIKey, Email, ContactInfo, null);
+        public void RegisterSiteAsync(string SiteName, string Description, string APIKey, string email, string PhoneNumber) {
+            this.RegisterSiteAsync(SiteName, Description, APIKey, email, PhoneNumber, null);
         }
         
         /// <remarks/>
-        public void RegisterSiteAsync(string SiteID, string Description, string APIKey, string Email, string[] ContactInfo, object userState) {
+        public void RegisterSiteAsync(string SiteName, string Description, string APIKey, string email, string PhoneNumber, object userState) {
             if ((this.RegisterSiteOperationCompleted == null)) {
                 this.RegisterSiteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRegisterSiteOperationCompleted);
             }
             this.InvokeAsync("RegisterSite", new object[] {
-                        SiteID,
+                        SiteName,
                         Description,
                         APIKey,
-                        Email,
-                        ContactInfo}, this.RegisterSiteOperationCompleted, userState);
+                        email,
+                        PhoneNumber}, this.RegisterSiteOperationCompleted, userState);
         }
         
         private void OnRegisterSiteOperationCompleted(object arg) {
@@ -188,23 +183,23 @@ namespace WebServices.ErikaGinWS {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Purchase", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool Purchase(string ProductID, int Quantity, string SiteID, string APIKey, string[] CustomerInfo) {
+        public bool Purchase(string ProductID, int Quantity, string SiteID, string APIKey, string[] information) {
             object[] results = this.Invoke("Purchase", new object[] {
                         ProductID,
                         Quantity,
                         SiteID,
                         APIKey,
-                        CustomerInfo});
+                        information});
             return ((bool)(results[0]));
         }
         
         /// <remarks/>
-        public void PurchaseAsync(string ProductID, int Quantity, string SiteID, string APIKey, string[] CustomerInfo) {
-            this.PurchaseAsync(ProductID, Quantity, SiteID, APIKey, CustomerInfo, null);
+        public void PurchaseAsync(string ProductID, int Quantity, string SiteID, string APIKey, string[] information) {
+            this.PurchaseAsync(ProductID, Quantity, SiteID, APIKey, information, null);
         }
         
         /// <remarks/>
-        public void PurchaseAsync(string ProductID, int Quantity, string SiteID, string APIKey, string[] CustomerInfo, object userState) {
+        public void PurchaseAsync(string ProductID, int Quantity, string SiteID, string APIKey, string[] information, object userState) {
             if ((this.PurchaseOperationCompleted == null)) {
                 this.PurchaseOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPurchaseOperationCompleted);
             }
@@ -213,41 +208,13 @@ namespace WebServices.ErikaGinWS {
                         Quantity,
                         SiteID,
                         APIKey,
-                        CustomerInfo}, this.PurchaseOperationCompleted, userState);
+                        information}, this.PurchaseOperationCompleted, userState);
         }
         
         private void OnPurchaseOperationCompleted(object arg) {
             if ((this.PurchaseCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.PurchaseCompleted(this, new PurchaseCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/addMerchant", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void addMerchant(Merchant merchant) {
-            this.Invoke("addMerchant", new object[] {
-                        merchant});
-        }
-        
-        /// <remarks/>
-        public void addMerchantAsync(Merchant merchant) {
-            this.addMerchantAsync(merchant, null);
-        }
-        
-        /// <remarks/>
-        public void addMerchantAsync(Merchant merchant, object userState) {
-            if ((this.addMerchantOperationCompleted == null)) {
-                this.addMerchantOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaddMerchantOperationCompleted);
-            }
-            this.InvokeAsync("addMerchant", new object[] {
-                        merchant}, this.addMerchantOperationCompleted, userState);
-        }
-        
-        private void OnaddMerchantOperationCompleted(object arg) {
-            if ((this.addMerchantCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.addMerchantCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -267,99 +234,6 @@ namespace WebServices.ErikaGinWS {
                 return true;
             }
             return false;
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Merchant {
-        
-        private int merchantIDField;
-        
-        private string merchantNameField;
-        
-        private string merchantURLField;
-        
-        private string merchantEmailField;
-        
-        private string merchantPasswordField;
-        
-        private string merchantPhoneNumberField;
-        
-        private string merchantAPIKeyField;
-        
-        /// <remarks/>
-        public int MerchantID {
-            get {
-                return this.merchantIDField;
-            }
-            set {
-                this.merchantIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string MerchantName {
-            get {
-                return this.merchantNameField;
-            }
-            set {
-                this.merchantNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string MerchantURL {
-            get {
-                return this.merchantURLField;
-            }
-            set {
-                this.merchantURLField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string MerchantEmail {
-            get {
-                return this.merchantEmailField;
-            }
-            set {
-                this.merchantEmailField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string MerchantPassword {
-            get {
-                return this.merchantPasswordField;
-            }
-            set {
-                this.merchantPasswordField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string MerchantPhoneNumber {
-            get {
-                return this.merchantPhoneNumberField;
-            }
-            set {
-                this.merchantPhoneNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string MerchantAPIKey {
-            get {
-                return this.merchantAPIKeyField;
-            }
-            set {
-                this.merchantAPIKeyField = value;
-            }
         }
     }
     
@@ -466,10 +340,6 @@ namespace WebServices.ErikaGinWS {
             }
         }
     }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.34209")]
-    public delegate void addMerchantCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

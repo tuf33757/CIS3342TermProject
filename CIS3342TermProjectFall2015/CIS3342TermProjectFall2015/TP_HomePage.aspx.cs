@@ -18,6 +18,7 @@ namespace CIS3342TermProjectFall2015
         SqlCommand objCommand = new SqlCommand();
         TP_WebService.TP_WebService tpWebService = new TP_WebService.TP_WebService();
         TP_CreditCardWS.TP_CreditCardWS tpCreditCardWS = new TP_CreditCardWS.TP_CreditCardWS();
+
         ShoppingCart cart = new ShoppingCart();
         string loginID;
         
@@ -264,6 +265,11 @@ namespace CIS3342TermProjectFall2015
             catch (Exception)
             {
             }
+        }
+
+        public void PutWebServiceInDataset()
+        {
+
         }
 
        
