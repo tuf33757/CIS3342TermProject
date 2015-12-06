@@ -66,12 +66,14 @@ namespace CIS3342TermProjectFall2015
             {
                
                 addSelectedItemToCart(index);
+                decreaseQOH(index);
 
             }
             if (e.CommandName == "Remove")
             {
               
                 removeSelectedItemFromCart(index);
+                increaseQOH(index);
             }
         }
 
@@ -119,6 +121,30 @@ namespace CIS3342TermProjectFall2015
             int prodNum = Convert.ToInt32(prodNumString);
             Product newProd = new Product(prodNum);
             cart.addItemToCart(newProd);
+        }
+
+        public void increaseQOH(int index)
+        {
+            GridViewRow gvRow = gvCatalog.Rows[index];
+            String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
+            int prodNum = Convert.ToInt32(prodNumString);
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AddItemToQOH";
+
+            objCommand.Parameters.AddWithValue("@productID", prodNum);
+            DB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public void decreaseQOH(int index)
+        {
+            GridViewRow gvRow = gvCatalog.Rows[index];
+            String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
+            int prodNum = Convert.ToInt32(prodNumString);
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_PurchaseProduct";
+
+            objCommand.Parameters.AddWithValue("@productID", prodNum);
+            DB.DoUpdateUsingCmdObj(objCommand);
         }
 
         public void removeSelectedItemFromCart(int index)
