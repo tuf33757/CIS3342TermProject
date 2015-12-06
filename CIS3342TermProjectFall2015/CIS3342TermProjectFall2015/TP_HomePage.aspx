@@ -68,18 +68,16 @@
                                             <ItemTemplate>
                                                 <asp:Button ID="btnRemove" runat="server" Text="Remove" CommandName="Remove" CommandArgument="<%#Container.DataItemIndex %>" />
                                             </ItemTemplate>
-                                            
+
                                         </asp:TemplateField>
                                         <asp:ImageField DataImageUrlField="ProductImageURL" HeaderText="Image" ControlStyle-Width="50" ControlStyle-Height="50">
                                         </asp:ImageField>
                                     </Columns>
                                 </asp:GridView>
-                            </div>
-                            <asp:Button ID="btnUpdate" runat="server" Text="Update Shopping Cart" OnClick="btnUpdate_Click" />
-                            <br />
-                            <br />
-                            <asp:Button ID="btnPurchase" runat="server" Text="Purchase" OnClick="btnPurchase_Click" />
 
+                                <asp:Button ID="btnUpdate" runat="server" Text="Update Shopping Cart" CssClass="greenbuttonLarge" OnClick="btnUpdate_Click" />
+                                <asp:Button ID="btnPurchase" runat="server" Text="Purchase" CssClass="greenbuttonLarge" OnClick="btnPurchase_Click" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,7 +99,7 @@
                         <asp:Label ID="lblBillCity" Text="" runat="server"></asp:Label><br />
                         <asp:Label ID="lblBillZip" Text="" runat="server"></asp:Label><br />
                         <asp:Label ID="lblEdit" Text="Edit Customer Infomation: " runat="server"></asp:Label>
-                        <asp:Button ID="btnEdit" Text="Edit" runat="server" CssClass="greenbutton" OnClick="btnEdit_Click" />
+                        <asp:Button ID="btnEdit" Text="Edit" runat="server" CssClass="greenbutton" OnClick="btnEdit_Click" /><br />
                         <asp:Label ID="lblRequest" Text="Request New Card:" runat="server"></asp:Label><br />
                         <br />
                         <asp:Button ID="btnAddCard" Text="New Card" runat="server" CssClass="greenbuttonLarge" OnClick="btnAddCard_Click" /><br />
@@ -111,6 +109,6 @@
             </form>
         </div>
     </asp:Panel>
-    
+
 </body>
 </html>
