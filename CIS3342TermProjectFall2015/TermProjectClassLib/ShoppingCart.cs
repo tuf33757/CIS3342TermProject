@@ -13,6 +13,7 @@ namespace TermProjectClassLib
         public ArrayList CartItems = new ArrayList();
         public string cartID;
         public string customerID;
+        public int total;
 
         public ShoppingCart()
         {
