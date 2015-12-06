@@ -22,27 +22,5 @@ namespace WebServices.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://cis-iis2.temple.edu/Fall2015/CIS3342_tuc54867/TermProjectWS/MerchantStore." +
-            "asmx")]
-        public string WebServices_ErikaGinWS_MerchantStore {
-            get {
-                return ((string)(this["WebServices_ErikaGinWS_MerchantStore"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://cis-iis2.temple.edu/Fall2015/CIS3342_tud30322/TermProjectWS/MerchantStore." +
-            "asmx")]
-        public string WebServices_NickEricWS_MerchantStore {
-            get {
-                return ((string)(this["WebServices_NickEricWS_MerchantStore"]));
-            }
-        }
     }
 }

@@ -63,8 +63,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
-    <Content Include="Web References\ErikaGinWS\MerchantStore.disco" />
-    <Content Include="Web References\NickEricWS\MerchantStore.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -82,28 +80,8 @@
       <DependentUpon>TP_WebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Web References\ErikaGinWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\NickEricWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web References\ErikaGinWS\MerchantStore.wsdl" />
-    <Content Include="Web References\ErikaGinWS\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
-    <Content Include="Web References\NickEricWS\MerchantStore.wsdl" />
-    <Content Include="Web References\NickEricWS\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -122,30 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://cis-iis2.temple.edu/Fall2015/CIS3342_tuc54867/TermProjectWS/MerchantStore.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\ErikaGinWS\</RelPath>
-      <UpdateFromURL>http://cis-iis2.temple.edu/Fall2015/CIS3342_tuc54867/TermProjectWS/MerchantStore.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>WebServices_ErikaGinWS_MerchantStore</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://cis-iis2.temple.edu/Fall2015/CIS3342_tud30322/TermProjectWS/MerchantStore.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\NickEricWS\</RelPath>
-      <UpdateFromURL>http://cis-iis2.temple.edu/Fall2015/CIS3342_tud30322/TermProjectWS/MerchantStore.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>WebServices_NickEricWS_MerchantStore</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
