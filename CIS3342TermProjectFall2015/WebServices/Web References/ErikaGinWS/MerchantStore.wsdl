@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetDepartments">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDepartmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDepartmentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductCatalog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DepartmentNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductCatalogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductCatalogResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterSite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APIKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactInfo" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegisterSiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegisterSiteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Purchase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SiteID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APIKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerInfo" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PurchaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PurchaseResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addMerchant">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="merchant" type="tns:Merchant" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Merchant">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MerchantID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantPhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantAPIKey" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="addMerchantResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDepartmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDepartments" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductCatalogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductCatalog" />
+  </wsdl:message>
+  <wsdl:message name="GetProductCatalogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductCatalogResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSiteSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterSite" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSiteSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseSoapIn">
+    <wsdl:part name="parameters" element="tns:Purchase" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseSoapOut">
+    <wsdl:part name="parameters" element="tns:PurchaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="addMerchantSoapIn">
+    <wsdl:part name="parameters" element="tns:addMerchant" />
+  </wsdl:message>
+  <wsdl:message name="addMerchantSoapOut">
+    <wsdl:part name="parameters" element="tns:addMerchantResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MerchantStoreSoap">
+    <wsdl:operation name="GetDepartments">
+      <wsdl:input message="tns:GetDepartmentsSoapIn" />
+      <wsdl:output message="tns:GetDepartmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductCatalog">
+      <wsdl:input message="tns:GetProductCatalogSoapIn" />
+      <wsdl:output message="tns:GetProductCatalogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSite">
+      <wsdl:input message="tns:RegisterSiteSoapIn" />
+      <wsdl:output message="tns:RegisterSiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Purchase">
+      <wsdl:input message="tns:PurchaseSoapIn" />
+      <wsdl:output message="tns:PurchaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addMerchant">
+      <wsdl:input message="tns:addMerchantSoapIn" />
+      <wsdl:output message="tns:addMerchantSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MerchantStoreSoap" type="tns:MerchantStoreSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDepartments">
+      <soap:operation soapAction="http://tempuri.org/GetDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductCatalog">
+      <soap:operation soapAction="http://tempuri.org/GetProductCatalog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSite">
+      <soap:operation soapAction="http://tempuri.org/RegisterSite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Purchase">
+      <soap:operation soapAction="http://tempuri.org/Purchase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMerchant">
+      <soap:operation soapAction="http://tempuri.org/addMerchant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MerchantStoreSoap12" type="tns:MerchantStoreSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDepartments">
+      <soap12:operation soapAction="http://tempuri.org/GetDepartments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductCatalog">
+      <soap12:operation soapAction="http://tempuri.org/GetProductCatalog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSite">
+      <soap12:operation soapAction="http://tempuri.org/RegisterSite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Purchase">
+      <soap12:operation soapAction="http://tempuri.org/Purchase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMerchant">
+      <soap12:operation soapAction="http://tempuri.org/addMerchant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MerchantStore">
+    <wsdl:port name="MerchantStoreSoap" binding="tns:MerchantStoreSoap">
+      <soap:address location="http://cis-iis2.temple.edu/Fall2015/CIS3342_tuc54867/TermProjectWS/MerchantStore.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MerchantStoreSoap12" binding="tns:MerchantStoreSoap12">
+      <soap12:address location="http://cis-iis2.temple.edu/Fall2015/CIS3342_tuc54867/TermProjectWS/MerchantStore.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
