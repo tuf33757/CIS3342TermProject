@@ -195,6 +195,7 @@ namespace CIS3342TermProjectFall2015
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             serializeCart();
+            lblInformUpdate.Text="Cart Updated";
         }
 
         public void serializeCart()

@@ -399,6 +399,7 @@
                         <br />
                         <asp:Label ID="lblCEError" runat="server" Text=""></asp:Label>
                     </div>
+                    <asp:Button ID="btnHome" runat="server" Text="Home Page" OnClick="btnHome_Click" />
                 </asp:Panel>
             </form>
         </div>

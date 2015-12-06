@@ -288,10 +288,11 @@ namespace CIS3342TermProjectFall2015
         }
 
         protected void editCustomer() {
-            DBConnect DB = new DBConnect();
+            DBConnect objDB = new DBConnect();
             SqlCommand command = new SqlCommand();
             command.CommandType = CommandType.StoredProcedure;
             command.CommandText = "TP_UpdateCustomer";
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@firstName", newCust.firstName);
             command.Parameters.AddWithValue("@lastName", newCust.lastName);
             command.Parameters.AddWithValue("@email", newCust.email);
@@ -307,9 +308,14 @@ namespace CIS3342TermProjectFall2015
             command.Parameters.AddWithValue("@billCity", newCust.billCity);
             command.Parameters.AddWithValue("@billState", newCust.billState);
             command.Parameters.AddWithValue("@billZip", newCust.billZip);
-            DB.DoUpdateUsingCmdObj(command);
+            objDB.DoUpdateUsingCmdObj(command);
 
      
+        }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TP_HomePage.aspx");
         }
         }
        
