@@ -63,7 +63,8 @@
                                 </asp:GridView>
                             </div>
                             <asp:Button ID="btnUpdate" runat="server" Text="Update Shopping Cart" OnClick="btnUpdate_Click" />
-                            
+                            <br /><br />
+                            <asp:Button ID="btnPurchase" runat="server" Text="Purchase" OnClick="btnPurchase_Click" />
                             
                         </div>
                     </div>

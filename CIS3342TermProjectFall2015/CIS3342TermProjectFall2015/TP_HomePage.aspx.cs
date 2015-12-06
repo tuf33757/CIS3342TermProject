@@ -67,6 +67,7 @@ namespace CIS3342TermProjectFall2015
                
                 addSelectedItemToCart(index);
                 decreaseQOH(index);
+                increaseTotal(index);
 
             }
             if (e.CommandName == "Remove")
@@ -74,6 +75,7 @@ namespace CIS3342TermProjectFall2015
               
                 removeSelectedItemFromCart(index);
                 increaseQOH(index);
+                decreaseTotal(index);
             }
         }
 
@@ -133,6 +135,21 @@ namespace CIS3342TermProjectFall2015
 
             objCommand.Parameters.AddWithValue("@productID", prodNum);
             DB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public void increaseTotal(int index)
+        {
+            GridViewRow gvRow = gvCatalog.Rows[index];
+            String costString = gvCatalog.Rows[index].Cells[3].Text;
+            int cost = Convert.ToInt32(costString);
+            cart.total = cart.total + cost;
+        }
+        public void decreaseTotal(int index)
+        {
+            GridViewRow gvRow = gvCatalog.Rows[index];
+            String costString = gvCatalog.Rows[index].Cells[3].Text;
+            int cost = Convert.ToInt32(costString);
+            cart.total = cart.total - cost;
         }
 
         public void decreaseQOH(int index)
@@ -204,6 +221,15 @@ namespace CIS3342TermProjectFall2015
                 
             }
             cart = shopCart;
+        }
+
+        protected void btnPurchase_Click(object sender, EventArgs e)
+        {
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetCart";
+            objCommand.Parameters.AddWithValue("@loginID", loginID);
+
+            DB.GetDataSetUsingCmdObj(objCommand);
         }
 
        
