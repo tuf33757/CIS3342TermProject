@@ -20,6 +20,7 @@ namespace CIS3342TermProjectFall2015
         TP_CreditCardWS.TP_CreditCardWS tpCreditCardWS = new TP_CreditCardWS.TP_CreditCardWS();
         ShoppingCart cart = new ShoppingCart();
         string loginID;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -143,6 +144,13 @@ namespace CIS3342TermProjectFall2015
             String costString = gvCatalog.Rows[index].Cells[3].Text;
             int cost = Convert.ToInt32(costString);
             cart.total = cart.total + cost;
+            try
+            {
+                Session["TotalCost"] = (int)Session["TotalCost"] + cost;
+            }
+            catch (Exception)
+            {
+            }
         }
         public void decreaseTotal(int index)
         {
@@ -150,6 +158,13 @@ namespace CIS3342TermProjectFall2015
             String costString = gvCatalog.Rows[index].Cells[3].Text;
             int cost = Convert.ToInt32(costString);
             cart.total = cart.total - cost;
+            try
+            {
+                Session["TotalCost"] = (int)Session["TotalCost"] - cost;
+            }
+            catch (Exception)
+            {
+            }
         }
 
         public void decreaseQOH(int index)
@@ -175,6 +190,11 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            serializeCart();
+        }
+
+        public void serializeCart()
+        {
             BinaryFormatter serializer = new BinaryFormatter();
             MemoryStream memStream = new MemoryStream();
             serializer.Serialize(memStream, cart);
@@ -188,7 +208,6 @@ namespace CIS3342TermProjectFall2015
             objCommand.Parameters.AddWithValue("@shoppingCart", byteArray);
 
             DB.DoUpdateUsingCmdObj(objCommand);
-
         }
 
         public void deserializeCart()
@@ -225,11 +244,15 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnPurchase_Click(object sender, EventArgs e)
         {
+            int total = (int)Session["TotalCost"];
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "TP_GetCart";
+            objCommand.CommandText = "TP_UpdateTotalDollars";
             objCommand.Parameters.AddWithValue("@loginID", loginID);
+            objCommand.Parameters.AddWithValue("@cost", total);
 
             DB.GetDataSetUsingCmdObj(objCommand);
+
+            serializeCart();
         }
 
        
