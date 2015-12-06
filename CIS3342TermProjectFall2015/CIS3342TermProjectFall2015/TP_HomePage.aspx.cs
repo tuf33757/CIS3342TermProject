@@ -123,6 +123,11 @@ namespace CIS3342TermProjectFall2015
             }
         }
 
+        //public int checkWebServiceDepartment(int departmentNum)
+        //{ 
+
+        //}
+
         public void addSelectedItemToCart(int index)
         {
 
