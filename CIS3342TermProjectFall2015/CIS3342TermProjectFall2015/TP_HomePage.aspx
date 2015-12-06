@@ -40,7 +40,7 @@
                                 <br />
                                 <asp:DropDownList ID="ddDepartment" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" OnSelectedIndexChanged="ddDepartment_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                 
-                                <asp:GridView ID="gvCatalog" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33" style="opacity:initial" OnRowCommand="gvCatalog_RowCommand">
+                                <asp:GridView ID="gvCatalog" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33"  OnRowCommand="gvCatalog_RowCommand" >
                                     <Columns>
                                         <asp:BoundField DataField="ProductNumber" HeaderText="Product" />
                                         <asp:BoundField DataField="ProductDesc" HeaderText="Description" />
@@ -56,7 +56,7 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:ImageField DataImageUrlField="ProductImageURL" HeaderText="Image" ControlStyle-Width="28" ControlStyle-Height = "28">
-                                            <ItemStyle Height="50px" Width="50px" />
+                                           
                                         </asp:ImageField>
                                     </Columns>
                                 </asp:GridView>
