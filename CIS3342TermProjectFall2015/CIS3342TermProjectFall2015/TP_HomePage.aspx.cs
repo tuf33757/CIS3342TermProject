@@ -9,6 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Collections;
 
 namespace CIS3342TermProjectFall2015
 {
@@ -18,10 +19,12 @@ namespace CIS3342TermProjectFall2015
         SqlCommand objCommand = new SqlCommand();
         TP_WebService.TP_WebService tpWebService = new TP_WebService.TP_WebService();
         TP_CreditCardWS.TP_CreditCardWS tpCreditCardWS = new TP_CreditCardWS.TP_CreditCardWS();
-
+        GinErikaWS.MerchantStore Merchant1 = new GinErikaWS.MerchantStore();
+        NickEricWS.MerchantStore Merchant2 = new NickEricWS.MerchantStore();
+        ArrayList Departments = new ArrayList();
         ShoppingCart cart = new ShoppingCart();
         string loginID;
-        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -66,7 +69,7 @@ namespace CIS3342TermProjectFall2015
             int index = Convert.ToInt32(e.CommandArgument);
             if (e.CommandName == "Add")
             {
-               
+
                 addSelectedItemToCart(index);
                 decreaseQOH(index);
                 increaseTotal(index);
@@ -74,7 +77,7 @@ namespace CIS3342TermProjectFall2015
             }
             if (e.CommandName == "Remove")
             {
-              
+
                 removeSelectedItemFromCart(index);
                 increaseQOH(index);
                 decreaseTotal(index);
@@ -112,14 +115,14 @@ namespace CIS3342TermProjectFall2015
                 command.Parameters.AddWithValue("@DepartmentNumber", ddDepartment.SelectedValue);
                 DataSet DS = db.GetDataSetUsingCmdObj(command);
                 gvCatalog.DataSource = DS;
-                
+
                 gvCatalog.DataBind();
             }
         }
 
         public void addSelectedItemToCart(int index)
         {
-            
+
             GridViewRow gvRow = gvCatalog.Rows[index];
             String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
             int prodNum = Convert.ToInt32(prodNumString);
@@ -196,7 +199,7 @@ namespace CIS3342TermProjectFall2015
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             serializeCart();
-            lblInformUpdate.Text="Cart Updated";
+            lblInformUpdate.Text = "Cart Updated";
         }
 
         public void serializeCart()
@@ -228,22 +231,22 @@ namespace CIS3342TermProjectFall2015
             DB.GetDataSetUsingCmdObj(objCommand);
             //Boolean end = false; int i = 0; 
             ShoppingCart shopCart = new ShoppingCart();
-           // while (!end)
+            // while (!end)
             {
                 try
                 {
                     byte[] byteArray = (byte[])DB.GetField("ShoppingCart", 0);
-                   //ShoppingCart shopCart;
+                    //ShoppingCart shopCart;
                     shopCart = (ShoppingCart)deserializer.Deserialize(memStream);
-                 //   i++;
+                    //   i++;
 
-                   // temp.addItemToCart(prod);
+                    // temp.addItemToCart(prod);
                 }
                 catch (Exception)
                 {
                     //end = true;
                 }
-                
+
             }
             cart = shopCart;
         }
@@ -267,12 +270,14 @@ namespace CIS3342TermProjectFall2015
             }
         }
 
-        public void PutWebServiceInDataset()
+        public void PutWebServicesInDataset()
         {
+            DataSet merchantDept = new DataSet();
+            merchantDept = Merchant1.GetDepartments();
 
         }
 
-       
+
 
     }
 }
