@@ -78,6 +78,7 @@
                                 <asp:Button ID="btnUpdate" runat="server" Text="Update Shopping Cart" CssClass="greenbuttonLarge" OnClick="btnUpdate_Click" />
                                 <asp:Label ID="lblInformUpdate" runat="server" Text=""></asp:Label>
                                 <asp:Button ID="btnPurchase" runat="server" Text="Purchase" CssClass="greenbuttonLarge" OnClick="btnPurchase_Click" />
+                                <br /> <asp:Label ID="lblTotalCost" runat="server" Text=""></asp:Label>
                             </div>
                         </div>
                     </div>

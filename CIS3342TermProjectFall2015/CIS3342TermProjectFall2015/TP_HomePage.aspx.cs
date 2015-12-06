@@ -72,6 +72,8 @@ namespace CIS3342TermProjectFall2015
                 addSelectedItemToCart(index);
                 decreaseQOH(index);
                 increaseTotal(index);
+                int totalCost = Convert.ToInt32(Session["TotalCost"]);
+                lblTotalCost.Text = "Your Current Total Is: $ " + totalCost;
 
             }
             if (e.CommandName == "Remove")
@@ -80,6 +82,8 @@ namespace CIS3342TermProjectFall2015
                 removeSelectedItemFromCart(index);
                 increaseQOH(index);
                 decreaseTotal(index);
+                int totalCost = Convert.ToInt32(Session["TotalCost"]);
+                lblTotalCost.Text = "Your Current Total Is: $ " + totalCost;
             }
         }
 
@@ -264,6 +268,9 @@ namespace CIS3342TermProjectFall2015
                 DB.GetDataSetUsingCmdObj(objCommand);
 
                 serializeCart();
+
+                lblTotalCost.Text = "";
+                lblInformUpdate.Text = "Thank You For Your Purchase!";
             }
             catch (Exception)
             {
