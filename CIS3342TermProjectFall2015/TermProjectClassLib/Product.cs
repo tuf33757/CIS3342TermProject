@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TermProjectClassLib
 {
+    [Serializable]
     public class Product
     {
         public int productNum;
