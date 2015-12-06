@@ -8,7 +8,7 @@
     position: relative;
     left: 15%;
     width: 1000px;
-    height: 400px;
+    height:auto;
     margin-top: 50px;
     border: 2px solid;
     background-color: darkgray;
@@ -20,7 +20,8 @@
 .shoppingInfo {
     margin:15px;
     width:960px;
-    height:360px;
+    height:auto;
+   padding-bottom:25px;
     background-color:darkgreen;
     -webkit-animation-name: darkGreenPulse;
     -webkit-animation-duration: 4s;
@@ -60,6 +61,7 @@
 
 .CustSearch {
     margin:15px;
+    height:auto;
 }
   .topBanner {
     box-shadow: 25px 25px 35px #065212;
