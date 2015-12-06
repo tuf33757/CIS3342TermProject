@@ -45,6 +45,7 @@
                                         <asp:BoundField DataField="ProductNumber" HeaderText="Product" />
                                         <asp:BoundField DataField="ProductDesc" HeaderText="Description" />
                                         <asp:BoundField DataField="ProductQOH" HeaderText="Available" />
+                                        <asp:BoundField DataField="ProductPrice" HeaderText="Price" />
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:Button ID="btnSelect" runat="server" Text="Select" CommandName="Add" CommandArgument="<%#Container.DataItemIndex %>" />
