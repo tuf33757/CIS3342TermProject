@@ -31,7 +31,7 @@ namespace CIS3342TermProjectFall2015
 
             if (!IsPostBack)
             {
-
+                Session["TotalCost"] = 0;
                 lblWelcome.Text = "        Welcome, " + (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
                 SqlCommand SQL = new SqlCommand();
                 SQL.CommandType = CommandType.StoredProcedure;
@@ -146,7 +146,9 @@ namespace CIS3342TermProjectFall2015
             cart.total = cart.total + cost;
             try
             {
-                Session["TotalCost"] = (int)Session["TotalCost"] + cost;
+                int temp = (int)Session["TotalCost"];
+                temp += cost;
+                Session["TotalCost"] = temp;
             }
             catch (Exception)
             {
@@ -160,7 +162,9 @@ namespace CIS3342TermProjectFall2015
             cart.total = cart.total - cost;
             try
             {
-                Session["TotalCost"] = (int)Session["TotalCost"] - cost;
+                int temp = (int)Session["TotalCost"];
+                temp -= cost;
+                Session["TotalCost"] = temp;
             }
             catch (Exception)
             {
@@ -244,15 +248,21 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnPurchase_Click(object sender, EventArgs e)
         {
-            int total = (int)Session["TotalCost"];
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "TP_UpdateTotalDollars";
-            objCommand.Parameters.AddWithValue("@loginID", loginID);
-            objCommand.Parameters.AddWithValue("@cost", total);
+            try
+            {
+                int total = (int)Session["TotalCost"];
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_UpdateTotalDollars";
+                objCommand.Parameters.AddWithValue("@loginID", loginID);
+                objCommand.Parameters.AddWithValue("@cost", total);
 
-            DB.GetDataSetUsingCmdObj(objCommand);
+                DB.GetDataSetUsingCmdObj(objCommand);
 
-            serializeCart();
+                serializeCart();
+            }
+            catch (Exception)
+            {
+            }
         }
 
        
