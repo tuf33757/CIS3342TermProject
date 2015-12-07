@@ -10,7 +10,16 @@
 namespace CIS3342TermProjectFall2015 {
     
     
-    public partial class TP_HomePage {
+    public partial class TP_Customer_Accnt {
+        
+        /// <summary>
+        /// Head1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
         /// MenuBar control.
@@ -103,49 +112,13 @@ namespace CIS3342TermProjectFall2015 {
         protected global::System.Web.UI.WebControls.DropDownList ddDepartment;
         
         /// <summary>
-        /// gvCatalog control.
+        /// gvAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCatalog;
-        
-        /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
-        
-        /// <summary>
-        /// lblInformUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInformUpdate;
-        
-        /// <summary>
-        /// btnPurchase control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPurchase;
-        
-        /// <summary>
-        /// lblTotalCost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalCost;
+        protected global::System.Web.UI.WebControls.GridView gvAccount;
         
         /// <summary>
         /// custInfo control.
@@ -337,12 +310,12 @@ namespace CIS3342TermProjectFall2015 {
         protected global::System.Web.UI.WebControls.Label lblCustAccount;
         
         /// <summary>
-        /// btnCustAccount control.
+        /// btnHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCustAccount;
+        protected global::System.Web.UI.WebControls.Button btnHome;
     }
 }

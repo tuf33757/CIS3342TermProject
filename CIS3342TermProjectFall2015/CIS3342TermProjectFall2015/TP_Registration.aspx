@@ -403,7 +403,7 @@
                         <br />
                         <asp:Label ID="lblCEError" runat="server" Text=""></asp:Label>
                     </div>
-                    <asp:Button ID="btnHome" runat="server" Text="Home Page" OnClick="btnHome_Click" CssClass="greenbutton" />
+                    <asp:Button ID="btnHome" runat="server" Text="Home Page" OnClick="btnHome_Click" CssClass="greenbuttonLarge" />
                 </asp:Panel>
             </form>
         </div>

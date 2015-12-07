@@ -40,6 +40,7 @@ namespace CIS3342TermProjectFall2015
             {
                 Session["Cart"] = cart;
                 Session["TotalCost"] = 0;
+                Session["EditCust"] = true;
                 lblWelcome.Text = "        Welcome, " + (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
 
                 PutWebServicesInDataset();
@@ -324,6 +325,11 @@ namespace CIS3342TermProjectFall2015
 
             
 
+        }
+
+        protected void btnCustAccount_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TP_Customer_Accnt.aspx");
         }
     }
 
