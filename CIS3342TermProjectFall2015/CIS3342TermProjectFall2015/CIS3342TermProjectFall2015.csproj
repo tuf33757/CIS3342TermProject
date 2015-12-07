@@ -101,17 +101,17 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\TP_CreditCardWS\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\TP_CreditCardWS\TP_CreditCardWS.disco" />
-    <None Include="Web References\TP_WebService\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\TP_WebService\TP_WebService.disco" />
     <Content Include="Web References\NickEricWS\MerchantStore.disco" />
+    <Content Include="Web References\TP_CreditCardWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\TP_CreditCardWS\TP_CreditCardWS.disco" />
+    <Content Include="Web References\TP_WebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\TP_WebService\TP_webservice.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -212,8 +212,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <None Include="Web References\TP_CreditCardWS\TP_CreditCardWS.wsdl" />
-    <None Include="Web References\TP_WebService\TP_WebService.wsdl" />
+    <Content Include="Web References\TP_CreditCardWS\TP_CreditCardWS.wsdl" />
+    <Content Include="Web References\TP_WebService\TP_webservice.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -260,10 +260,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>CIS3342TermProjectFall2015_NickEricWS_MerchantStore</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:12566/TP_CreditCardWS.asmx">
+    <WebReferenceUrl Include="http://cis-iis2.temple.edu/Fall2015/Cis3342_tuf33757/TermProjectWS/TP_CreditCardWS.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\TP_CreditCardWS\</RelPath>
-      <UpdateFromURL>http://localhost:12566/TP_CreditCardWS.asmx</UpdateFromURL>
+      <UpdateFromURL>http://cis-iis2.temple.edu/Fall2015/Cis3342_tuf33757/TermProjectWS/TP_CreditCardWS.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -271,10 +271,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>CIS3342TermProjectFall2015_TP_CreditCardWS_TP_CreditCardWS</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:12566/TP_WebService.asmx">
+    <WebReferenceUrl Include="http://cis-iis2.temple.edu/Fall2015/cis3342_tuf33757/termprojectws/TP_webservice.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\TP_WebService\</RelPath>
-      <UpdateFromURL>http://localhost:12566/TP_WebService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://cis-iis2.temple.edu/Fall2015/cis3342_tuf33757/termprojectws/TP_webservice.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

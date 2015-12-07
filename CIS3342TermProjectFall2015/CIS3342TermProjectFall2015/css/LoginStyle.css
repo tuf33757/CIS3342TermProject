@@ -1,10 +1,10 @@
 ﻿body {
-    background: url(/Images/backgroundimg.jpg) fixed;
+    background: url("http://cis-iis2.temple.edu/fall2015/cis3342_tuf33757/termproject/Images/backgroundimg.jpg") fixed;
     background-size: cover;
 }
 
 .stuff {
-    background: url(/Images/backgroundimg.jpg) fixed;
+    background: url("http://cis-iis2.temple.edu/fall2015/cis3342_tuf33757/termproject/Images/backgroundimg.jpg") fixed;
     background-size: cover;
 }
 
@@ -27,7 +27,7 @@
     width: 400px;
     height: 220px;
     background-color: darkseagreen;
-    background: darkseagreen url(/Images/Vault_Boy_Original.png) no-repeat right bottom;
+    background: darkseagreen url("http://cis-iis2.temple.edu/fall2015/cis3342_tuf33757/termproject/Images/Vault_Boy_Original.png") no-repeat right bottom;
     border-radius: 25px;
     opacity: 0.5;
     -ms-transform: rotate(-7deg); /* IE 9 */
