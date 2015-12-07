@@ -96,11 +96,17 @@
                                 <br />
                             </div>
                         </asp:Panel>
-                        <asp:Panel ID="Panel1" runat="server" Visible="false">
-                            <div id="purchaseInfo" >
+                        <asp:Panel ID="pnlPurchase" runat="server" Visible="false">
+                            <div id="purchaseInfo" class="purchaseInfo">
+                                <br />
+                                <br />
                                 <asp:Label ID="lblSelectCard" runat="server" Text="Select Card:" ></asp:Label>
+                                <br />
                                 <asp:DropDownList ID="ddCreditCards" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33"></asp:DropDownList>
+                                <br />
+                                <asp:Label ID="lbltotalMessage" runat="server" Text="Your Total:"></asp:Label>
                                 <asp:Label ID="lblTotal" runat="server" Text=""></asp:Label>
+                                <br />
                                 <asp:Button ID="btnProcess" runat="server" Text="Process" CssClass="greenbutton" OnClick="btnProcess_Click" />
                             </div>
                         </asp:Panel>
@@ -108,8 +114,7 @@
                 </div>
             </div>
 
-            <asp:Panel ID="pnlPurchase" runat="server" Visible="false">
-            </asp:Panel>
+            
 
 
             <div id="custInfo" class="custInfo" runat="server">
