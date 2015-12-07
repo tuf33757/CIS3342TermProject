@@ -52,11 +52,14 @@ namespace CIS3342TermProjectFall2015
                
             }
         }
-        }
 
         protected void btnHome_Click(object sender, EventArgs e)
         {
             Response.Redirect("TP_HomePage.aspx");
         }
-    }
+    
+
+        }
+
+       
 }

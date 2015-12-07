@@ -118,32 +118,40 @@ namespace CIS3342TermProjectFall2015
                 command.CommandText = "TP_GetCatalog";
                 command.Parameters.AddWithValue("@DepartmentNumber", ddDepartment.SelectedValue);
                 DataSet DS = db.GetDataSetUsingCmdObj(command);
-                gvCatalog.DataSource = DS;
-                gvCatalog.DataBind();
+                if (DS.Tables[0].Rows.Count == 0)
+                {
+                    checkWebServiceDepartment(ddDepartment.SelectedValue);
+                }
+                else
+                {
+                    gvCatalog.DataSource = DS;
+                    gvCatalog.DataBind();
+                }
 
-                checkWebServiceDepartment(ddDepartment.SelectedValue);
+
             }
         }
 
         public void checkWebServiceDepartment(string departmentNum)
         {
-            try
-            {
-               DataSet DS = Merchant1.GetProductCatalog(departmentNum);
-               gvCatalog.DataSource = DS;
 
-               gvCatalog.DataBind();
-            }
-            catch (Exception)
+            DataSet DS = Merchant1.GetProductCatalog(departmentNum);
+            if (DS.Tables[0].Rows.Count == 0)
             {
-
-            }
-            try
-            {
-                DataSet DS = Merchant2.GetProductCatalog(departmentNum);
+                DS = Merchant2.GetProductCatalog(departmentNum);
                 gvCatalog.DataSource = DS;
-
                 gvCatalog.DataBind();
+            }
+            else
+            {
+                gvCatalog.DataSource = DS;
+                gvCatalog.DataBind();
+            }
+
+
+            try
+            {
+
             }
             catch (Exception)
             {
@@ -323,7 +331,7 @@ namespace CIS3342TermProjectFall2015
             ddDepartment.DataValueField = "DepartmentNumber";
             ddDepartment.DataBind();
 
-            
+
 
         }
 
