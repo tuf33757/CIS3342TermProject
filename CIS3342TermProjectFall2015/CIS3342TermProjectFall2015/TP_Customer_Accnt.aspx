@@ -45,7 +45,7 @@
                             <div class="CustSearch">
                                 <br />
                                 <br />
-                                <asp:DropDownList ID="ddDepartment" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" OnSelectedIndexChanged="ddDepartment_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                              
 
                                 <asp:GridView ID="gvAccount" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33" OnRowCommand="gvCatalog_RowCommand">
                                     <Columns>
