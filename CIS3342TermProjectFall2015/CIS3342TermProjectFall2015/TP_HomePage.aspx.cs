@@ -277,32 +277,8 @@ namespace CIS3342TermProjectFall2015
 
         protected void btnPurchase_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int total = (int)Session["TotalCost"];
-                objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "TP_UpdateTotalDollars";
-                objCommand.Parameters.AddWithValue("@loginID", loginID);
-                objCommand.Parameters.AddWithValue("@cost", total);
-
-                DB.GetDataSetUsingCmdObj(objCommand);
-
-                serializeCart();
-                objCommand.Parameters.Clear();
-
-                //objCommand.CommandType = CommandType.StoredProcedure;
-                //objCommand.CommandText = "TP_RecordPurchase";
-                //objCommand.Parameters.AddWithValue("@loginID", loginID);
-                //objCommand.Parameters.AddWithValue("@SiteID", "");
-                //objCommand.Parameters.AddWithValue("@Quantity", 1);
-                //objCommand.Parameters.AddWithValue("@CardType", "Amazon Card");
-
-                lblTotalCost.Text = "";
-                lblInformUpdate.Text = "Thank You For Your Purchase!";
-            }
-            catch (Exception)
-            {
-            }
+            pnlCatalog.Visible = false;
+            pnlPurchase.Visible = true;
         }
 
         public void PutWebServicesInDataset()
@@ -327,6 +303,37 @@ namespace CIS3342TermProjectFall2015
         protected void btnCustAccount_Click(object sender, EventArgs e)
         {
             Response.Redirect("TP_Customer_Accnt.aspx");
+        }
+
+        protected void btnProcess_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                int total = (int)Session["TotalCost"];
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_UpdateTotalDollars";
+                objCommand.Parameters.AddWithValue("@loginID", loginID);
+                objCommand.Parameters.AddWithValue("@cost", total);
+
+                DB.GetDataSetUsingCmdObj(objCommand);
+
+                serializeCart();
+                objCommand.Parameters.Clear();
+
+                //objCommand.CommandType = CommandType.StoredProcedure;
+                //objCommand.CommandText = "TP_RecordPurchase";
+                //objCommand.Parameters.AddWithValue("@loginID", loginID);
+                //objCommand.Parameters.AddWithValue("@SiteID", "");
+                //objCommand.Parameters.AddWithValue("@Quantity", 1);
+                //objCommand.Parameters.AddWithValue("@CardType", "Amazon Card");
+
+                lblTotalCost.Text = "";
+                lblInformUpdate.Text = "Thank You For Your Purchase!";
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }
