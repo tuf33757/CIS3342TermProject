@@ -89,17 +89,17 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\test.pubxml" />
-    <Content Include="Web References\GinErikaWS\MerchantStore.disco" />
+    <None Include="Web References\GinErikaWS\MerchantStore.disco" />
     <Content Include="Web References\NickEricWS\MerchantStore.wsdl" />
     <Content Include="Web References\NickEricWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
-    <Content Include="Web References\GinErikaWS\MerchantStore.wsdl" />
-    <Content Include="Web References\GinErikaWS\Reference.map">
+    <None Include="Web References\GinErikaWS\MerchantStore.wsdl" />
+    <None Include="Web References\GinErikaWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\TP_CreditCardWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

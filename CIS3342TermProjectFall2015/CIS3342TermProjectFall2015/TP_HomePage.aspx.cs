@@ -118,15 +118,37 @@ namespace CIS3342TermProjectFall2015
                 command.Parameters.AddWithValue("@DepartmentNumber", ddDepartment.SelectedValue);
                 DataSet DS = db.GetDataSetUsingCmdObj(command);
                 gvCatalog.DataSource = DS;
-
                 gvCatalog.DataBind();
+
+                checkWebServiceDepartment(ddDepartment.SelectedValue);
             }
         }
 
-        //public int checkWebServiceDepartment(int departmentNum)
-        //{ 
+        public void checkWebServiceDepartment(string departmentNum)
+        {
+            try
+            {
+               DataSet DS = Merchant1.GetProductCatalog(departmentNum);
+               gvCatalog.DataSource = DS;
 
-        //}
+               gvCatalog.DataBind();
+            }
+            catch (Exception)
+            {
+
+            }
+            try
+            {
+                DataSet DS = Merchant2.GetProductCatalog(departmentNum);
+                gvCatalog.DataSource = DS;
+
+                gvCatalog.DataBind();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
 
         public void addSelectedItemToCart(int index)
         {
@@ -285,14 +307,12 @@ namespace CIS3342TermProjectFall2015
         public void PutWebServicesInDataset()
         {
             merchant1Dept = Merchant1.GetDepartments();
-            merchant2Dept = Merchant1.GetDepartments();
-            // Departments.Add(merchant1Dept);
-            //  Departments.Add(merchant2Dept);
+            merchant2Dept = Merchant2.GetDepartments();
+
             SqlCommand SQL = new SqlCommand();
             SQL.CommandType = CommandType.StoredProcedure;
             SQL.CommandText = "TP_GetDepartment";
             DataSet DS = DB.GetDataSetUsingCmdObj(SQL);
-            // Departments.Add(DS);
 
             DS.Merge(merchant1Dept);
             DS.Merge(merchant2Dept);
@@ -301,6 +321,8 @@ namespace CIS3342TermProjectFall2015
             ddDepartment.DataTextField = "DepartmentName";
             ddDepartment.DataValueField = "DepartmentNumber";
             ddDepartment.DataBind();
+
+            
 
         }
     }
