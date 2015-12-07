@@ -38,6 +38,8 @@ namespace CIS3342TermProjectFall2015
 
             if (!IsPostBack)
             {
+                putAmazonCardInDropDown();
+
                 Session["Cart"] = cart;
                 Session["TotalCost"] = 0;
                 Session["EditCust"] = true;
@@ -63,6 +65,20 @@ namespace CIS3342TermProjectFall2015
             }
         }
 
+        public void putAmazonCardInDropDown()
+        {
+            DBConnect db = new DBConnect();
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "TP_GetAmazonCards";
+            command.Parameters.AddWithValue("@loginID", loginID);
+            DataSet DS = db.GetDataSetUsingCmdObj(command);
+
+            ddCreditCards.DataSource = DS;
+            ddCreditCards.DataTextField = "AccountID";
+            ddCreditCards.DataValueField = "AccountID";
+            ddCreditCards.DataBind();
+        }
 
         protected void gvCatalog_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -83,6 +99,7 @@ namespace CIS3342TermProjectFall2015
                 decreaseTotal(index);
                 int totalCost = Convert.ToInt32(Session["TotalCost"]);
                 lblTotalCost.Text = "Your Current Total Is: $ " + totalCost;
+                
             }
         }
 
@@ -328,12 +345,22 @@ namespace CIS3342TermProjectFall2015
                 //objCommand.Parameters.AddWithValue("@SiteID", "");
                 //objCommand.Parameters.AddWithValue("@Quantity", 1);
                 //objCommand.Parameters.AddWithValue("@CardType", "Amazon Card");
+                //objCommand.Parameters.AddWithValue("@ProductDescription", );
 
                 lblTotalCost.Text = "";
-                lblInformUpdate.Text = "Thank You For Your Purchase!";
+                lblInformPurchase.Text = "Thank You For Your Purchase!";
             }
             catch (Exception)
             {
+            }
+        }
+
+        protected void ddCreditCards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddCreditCards.SelectedIndex != 0)
+            {
+                string cardType = ddCreditCards.SelectedValue;
+                Session["CreditCardType"] = cardType;
             }
         }
     }
