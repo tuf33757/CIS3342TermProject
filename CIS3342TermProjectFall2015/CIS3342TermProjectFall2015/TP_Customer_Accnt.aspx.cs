@@ -35,7 +35,7 @@ namespace CIS3342TermProjectFall2015
 
               
 
-                ddDepartment.Items.Insert(0, new ListItem("Please select", "0"));
+               
                 lblName.Text = (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
                 lblAdderss1.Text = (string)Session["Ship_Address_1"];
                 lblAddress2.Text = (string)Session["Ship_Address_2"];
@@ -47,7 +47,7 @@ namespace CIS3342TermProjectFall2015
                 lblBillState.Text = (string)Session["Bill_State"];
                 lblBillZip.Text = (string)Session["Bill_Zip"];
                 lblEmail.Text = (string)Session["Customer_Email"];
-                DB.CloseConnection();
+               
 
                
             }
@@ -56,6 +56,11 @@ namespace CIS3342TermProjectFall2015
         protected void btnHome_Click(object sender, EventArgs e)
         {
             Response.Redirect("TP_HomePage.aspx");
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TP_Registration.aspx");
         }
     
 

@@ -32,7 +32,7 @@
   .custInfo{
     position: relative;
     float: right;
-    right:10%;
+  
     width: 300px;
     height:500px;
    
@@ -172,3 +172,6 @@
     float:right;
 }
 
+.space {
+    height:100px;
+}

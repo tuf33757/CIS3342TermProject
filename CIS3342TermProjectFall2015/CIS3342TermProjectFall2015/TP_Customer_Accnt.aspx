@@ -47,7 +47,7 @@
                                 <br />
                               
 
-                                <asp:GridView ID="gvAccount" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33" OnRowCommand="gvCatalog_RowCommand">
+                                <asp:GridView ID="gvAccount" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33" >
                                     <Columns>
                                         
                                     </Columns>
@@ -78,9 +78,7 @@
                         <asp:Label ID="lblEdit" Text="Edit Customer Infomation: " runat="server"></asp:Label>
                         <asp:Button ID="btnEdit" Text="Edit" runat="server" CssClass="greenbutton" OnClick="btnEdit_Click" /><br />
                         <asp:Label ID="lblRequest" Text="Request New Card:" runat="server"></asp:Label><br />
-                        <br />
-                        <asp:Button ID="btnAddCard" Text="New Card" runat="server" CssClass="greenbuttonLarge" OnClick="btnAddCard_Click" /><br />
-                        <asp:Label ID="lblCustAccount" Text="View Account History:" runat="server"></asp:Label><br />
+                        
                         <br />
                         <asp:Button ID="btnHome" Text="Home" runat="server" CssClass="greenbuttonLarge" OnClick="btnHome_Click"  /><br />
                     </div>
