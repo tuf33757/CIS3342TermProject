@@ -3,6 +3,7 @@
 <ul>
    <li class='active'><a href='TP_HomePage.aspx'><span>Home</span></a></li>
    <li><a href='TP_Registration.aspx'><span>User Info</span></a></li>
+    <li><a href='TP_CustomerAccnt.aspx'><span>History</span></a></li>
    
 </ul>
 </div>

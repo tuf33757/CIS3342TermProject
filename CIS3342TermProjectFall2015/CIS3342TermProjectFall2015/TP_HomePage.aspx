@@ -29,6 +29,10 @@
     </script>
 </head>
 <body>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panl1" TargetControlID="Button1"
+    CancelControlID="Button2" BackgroundCssClass="Background">
+</cc1:ModalPopupExtender>
     <uc1:MenuBar runat="server" ID="MenuBar" />
 
     <div class="container">
