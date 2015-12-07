@@ -32,9 +32,6 @@ namespace CIS3342TermProjectFall2015
                 Session["TotalCost"] = 0;
                 Session["EditCust"] = true;
                 lblWelcome.Text = "        Welcome, " + (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
-
-              
-
                
                 lblName.Text = (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
                 lblAdderss1.Text = (string)Session["Ship_Address_1"];
@@ -47,9 +44,7 @@ namespace CIS3342TermProjectFall2015
                 lblBillState.Text = (string)Session["Bill_State"];
                 lblBillZip.Text = (string)Session["Bill_Zip"];
                 lblEmail.Text = (string)Session["Customer_Email"];
-               
-
-               
+  
             }
         }
 

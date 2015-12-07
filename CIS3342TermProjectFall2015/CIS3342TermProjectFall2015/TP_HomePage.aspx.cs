@@ -69,13 +69,11 @@ namespace CIS3342TermProjectFall2015
             int index = Convert.ToInt32(e.CommandArgument);
             if (e.CommandName == "Add")
             {
-
                 addSelectedItemToCart(index);
                 decreaseQOH(index);
                 increaseTotal(index);
                 int totalCost = Convert.ToInt32(Session["TotalCost"]);
                 lblTotalCost.Text = "Your Current Total Is: $ " + totalCost;
-
             }
             if (e.CommandName == "Remove")
             {
@@ -127,14 +125,11 @@ namespace CIS3342TermProjectFall2015
                     gvCatalog.DataSource = DS;
                     gvCatalog.DataBind();
                 }
-
-
             }
         }
 
         public void checkWebServiceDepartment(string departmentNum)
         {
-
             DataSet DS = Merchant1.GetProductCatalog(departmentNum);
             if (DS.Tables[0].Rows.Count == 0)
             {
@@ -146,16 +141,6 @@ namespace CIS3342TermProjectFall2015
             {
                 gvCatalog.DataSource = DS;
                 gvCatalog.DataBind();
-            }
-
-
-            try
-            {
-
-            }
-            catch (Exception)
-            {
-
             }
         }
 
@@ -286,7 +271,6 @@ namespace CIS3342TermProjectFall2015
                 {
 
                 }
-
             }
             cart = shopCart;
         }
@@ -304,6 +288,14 @@ namespace CIS3342TermProjectFall2015
                 DB.GetDataSetUsingCmdObj(objCommand);
 
                 serializeCart();
+                objCommand.Parameters.Clear();
+
+                //objCommand.CommandType = CommandType.StoredProcedure;
+                //objCommand.CommandText = "TP_RecordPurchase";
+                //objCommand.Parameters.AddWithValue("@loginID", loginID);
+                //objCommand.Parameters.AddWithValue("@SiteID", "");
+                //objCommand.Parameters.AddWithValue("@Quantity", 1);
+                //objCommand.Parameters.AddWithValue("@CardType", "Amazon Card");
 
                 lblTotalCost.Text = "";
                 lblInformUpdate.Text = "Thank You For Your Purchase!";
@@ -330,9 +322,6 @@ namespace CIS3342TermProjectFall2015
             ddDepartment.DataTextField = "DepartmentName";
             ddDepartment.DataValueField = "DepartmentNumber";
             ddDepartment.DataBind();
-
-
-
         }
 
         protected void btnCustAccount_Click(object sender, EventArgs e)
@@ -340,8 +329,4 @@ namespace CIS3342TermProjectFall2015
             Response.Redirect("TP_Customer_Accnt.aspx");
         }
     }
-
-
-
-
 }
