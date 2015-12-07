@@ -83,6 +83,7 @@
                                 <asp:Label ID="lblInformUpdate" runat="server" Text=""></asp:Label>
                                 <asp:Button ID="btnPurchase" runat="server" Text="Purchase" CssClass="greenbuttonLarge" OnClick="btnPurchase_Click" />
                                 <br /> <asp:Label ID="lblTotalCost" runat="server" Text=""></asp:Label>
+                                <br /><br /><br /><br /><br /><br /><br /><br />
                             </div>
                         </div>
                     </div>
