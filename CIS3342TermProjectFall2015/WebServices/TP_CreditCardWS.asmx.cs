@@ -34,8 +34,10 @@ namespace WebServices
             DataSet myDS;
 
             myDS = objDB.GetDataSet(strSQL);
-
+            closeConnection();
             return myDS;
+          
+
         }
 
         //Gets the customer id related to a specific account
@@ -47,6 +49,7 @@ namespace WebServices
             command.CommandText = "GetCustID";
             command.Parameters.AddWithValue("@accountID", AccountID);
             DataSet myds = objDB.GetDataSetUsingCmdObj(command);
+            closeConnection();
             return myds;
         }
 
@@ -82,7 +85,7 @@ namespace WebServices
                 command.Parameters.AddWithValue("@billZip", cust.billZip);
 
                 objDB.DoUpdateUsingCmdObj(command);
-
+                closeConnection();
                 return true;
             }
             else
@@ -130,7 +133,7 @@ namespace WebServices
             command.Parameters.AddWithValue("@expYear", info[2]);
             command.Parameters.AddWithValue("@cardType", info[3]);
             DataSet myds = objDB.GetDataSetUsingCmdObj(command);
-
+            closeConnection();
             return myds;
 
         }
@@ -143,7 +146,7 @@ namespace WebServices
             command.CommandText = "GetBalance";
             command.Parameters.AddWithValue("@AccountID", AccountID);
             DataSet myds = objDB.GetDataSetUsingCmdObj(command);
-
+            closeConnection();
             return myds;
         }
 
@@ -164,15 +167,18 @@ namespace WebServices
                     command.Parameters.AddWithValue("@accountID", accountID);
                     command.Parameters.AddWithValue("@purchase", purchaseAmt);
                     objDB.DoUpdateUsingCmdObj(command);
+                    closeConnection();
                     return true;
                 }
                 catch (Exception)
                 {
+                    closeConnection();
                     return false;
                 }
             }
             else
             {
+                closeConnection();
                 return false;
             }
 
@@ -196,6 +202,7 @@ namespace WebServices
                     command.Parameters.AddWithValue("@accountID", accountID);
                     command.Parameters.AddWithValue("@amount", amount);
                     objDB.DoUpdateUsingCmdObj(command);
+                    closeConnection();
                     return true;
                 }
                 catch (Exception)
@@ -239,16 +246,19 @@ namespace WebServices
                     command.Parameters.AddWithValue("@creditLimit", creditLimit);
                     command.Parameters.AddWithValue("@creditBalance", balance);
                     objDB.DoUpdateUsingCmdObj(command);
+                    closeConnection();
                     return true;
                 }
                 catch (Exception)
                 {
+                    closeConnection();
                     return false;
                 }
 
             }
             else
             {
+                closeConnection();
                 return false;
             }
         }
@@ -267,14 +277,20 @@ namespace WebServices
                 command.Parameters.AddWithValue("@expMonth", DateTime.Now.Month);
                 command.Parameters.AddWithValue("@expYear", year);
                 objDB.DoUpdateUsingCmdObj(command);
+                closeConnection();
                 return true;
             }
             catch (Exception)
             {
+                closeConnection();
                 return false;
             }
         }
 
+        public void closeConnection()
+        {
+            objDB.CloseConnection();
+        }
 
     }
 }

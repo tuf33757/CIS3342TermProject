@@ -31,6 +31,7 @@ namespace WebServices
             command.CommandType = CommandType.StoredProcedure;
             command.CommandText = "TP_GetDepartment";
             DataSet myds = objDB.GetDataSetUsingCmdObj(command);
+            closeConnection();
             return myds;
         }
 
@@ -42,6 +43,7 @@ namespace WebServices
             command.CommandText = "TP_GetCatalog";
             command.Parameters.AddWithValue("@DepartmentNumber", departmentNumber);
             DataSet myds = objDB.GetDataSetUsingCmdObj(command);
+            closeConnection();
             return myds;
 
         }
@@ -55,6 +57,7 @@ namespace WebServices
                 foreach (DataColumn column in table.Columns)
                     names.Add(column.ColumnName);
             }
+            closeConnection();
             return names;
         }
 
@@ -75,6 +78,7 @@ namespace WebServices
 
 
             objDB.DoUpdateUsingCmdObj(command);
+            closeConnection();
         }
 
         [WebMethod]
@@ -102,7 +106,7 @@ namespace WebServices
                     command.Parameters.AddWithValue("@CardType", CustomerCreditInformation[1].ToString());
 
                     objDB.DoUpdateUsingCmdObj(command);
-
+                    closeConnection();
                     return true;
                 }
                 else
@@ -116,6 +120,10 @@ namespace WebServices
             }
         }
 
+        public void closeConnection()
+        {
+            objDB.CloseConnection();
+        }
 
     }
 }
