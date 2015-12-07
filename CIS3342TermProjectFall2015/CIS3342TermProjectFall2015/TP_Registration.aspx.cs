@@ -20,29 +20,33 @@ namespace CIS3342TermProjectFall2015
         {
             try
             {
-                if ((Boolean)Session["EditCust"])
+                if (!IsPostBack)
                 {
-                    pnlCustReg.Visible = false;
-                    pnlCustEdit.Visible = true;
-                    txtCEUsername.Text = (string)Session["LoginID"];
-                    txtCEFirstName.Text = (string)Session["Customer_First"];
-                    txtCELast.Text = (string)Session["Customer_Last"];
-                    txtCEStreet1.Text = (string)Session["Ship_Address_1"];
-                    txtCEStreet2.Text = (string)Session["Ship_Address_2"];
-                    txtCEShipCity.Text = (string)Session["Ship_City"];
-                    ddShipState.SelectedValue = (string)Session["Ship_State"];
-                    txtCEShipZip.Text = (string)Session["Ship_Zip"];
-                    txtCEBillStreet1.Text = (string)Session["Bill_Address_1"];
-                    txtCEBillStreet2.Text = (string)Session["Bill_Address_2"];
-                    txtCEBillCity.Text = (string)Session["Bill_City"];
-                    ddCEBillState.SelectedValue = (string)Session["Bill_State"];
-                    txtCEBillZip.Text = (string)Session["Bill_Zip"];
-                    txtCEEmail.Text = (string)Session["Customer_Email"];
+                    if ((Boolean)Session["EditCust"])
+                    {
+                        pnlCustReg.Visible = false;
+                        pnlCustEdit.Visible = true;
+                        txtCEUsername.Text = (string)Session["LoginID"];
+                        txtCEFirstName.Text = (string)Session["Customer_First"];
+                        txtCELast.Text = (string)Session["Customer_Last"];
+                        txtCEStreet1.Text = (string)Session["Ship_Address_1"];
+                        txtCEStreet2.Text = (string)Session["Ship_Address_2"];
+                        txtCEShipCity.Text = (string)Session["Ship_City"];
+                        ddShipState.SelectedValue = (string)Session["Ship_State"];
+                        txtCEShipZip.Text = (string)Session["Ship_Zip"];
+                        txtCEBillStreet1.Text = (string)Session["Bill_Address_1"];
+                        txtCEBillStreet2.Text = (string)Session["Bill_Address_2"];
+                        txtCEBillCity.Text = (string)Session["Bill_City"];
+                        ddCEBillState.SelectedValue = (string)Session["Bill_State"];
+                        txtCEBillZip.Text = (string)Session["Bill_Zip"];
+                        txtCEEmail.Text = (string)Session["Customer_Email"];
 
-                }
-                else {
-                    pnlCustReg.Visible = true;
-                    pnlCustEdit.Visible = false;
+                    }
+                    else
+                    {
+                        pnlCustReg.Visible = true;
+                        pnlCustEdit.Visible = false;
+                    }
                 }
             }
             catch (NullReferenceException ex) { }
@@ -308,7 +312,7 @@ namespace CIS3342TermProjectFall2015
             command.Parameters.AddWithValue("@billCity", newCust.billCity);
             command.Parameters.AddWithValue("@billState", newCust.billState);
             command.Parameters.AddWithValue("@billZip", newCust.billZip);
-            objDB.DoUpdateUsingCmdObj(command);
+            int ret = objDB.DoUpdateUsingCmdObj(command);
 
      
         }
