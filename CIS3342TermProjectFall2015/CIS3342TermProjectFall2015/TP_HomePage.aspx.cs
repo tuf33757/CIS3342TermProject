@@ -338,14 +338,15 @@ namespace CIS3342TermProjectFall2015
 
                 serializeCart();
                 objCommand.Parameters.Clear();
+                ShoppingCart cart = (ShoppingCart)Session["Cart"];
+                ArrayList prods = cart.CartItems;
+                foreach (Product item in prods)
+                {
+                    Product filledItem = getProductInfo(item);
+                    recorPurchase(filledItem);
+                
 
-                //objCommand.CommandType = CommandType.StoredProcedure;
-                //objCommand.CommandText = "TP_RecordPurchase";
-                //objCommand.Parameters.AddWithValue("@loginID", loginID);
-                //objCommand.Parameters.AddWithValue("@SiteID", "");
-                //objCommand.Parameters.AddWithValue("@Quantity", 1);
-                //objCommand.Parameters.AddWithValue("@CardType", "Amazon Card");
-                //objCommand.Parameters.AddWithValue("@ProductDescription", );
+                }
 
                 lblTotalCost.Text = "";
                 lblInformPurchase.Text = "Thank You For Your Purchase!";
@@ -362,6 +363,39 @@ namespace CIS3342TermProjectFall2015
                 string cardType = ddCreditCards.SelectedValue;
                 Session["CreditCardType"] = cardType;
             }
+        }
+        protected void recorPurchase(Product prod) {
+            DBConnect db = new DBConnect();
+
+            SqlCommand SQL = new SqlCommand();
+            
+           SQL.CommandType = CommandType.StoredProcedure;
+           SQL.CommandText = "TP_RecordPurchase";
+           SQL.Parameters.AddWithValue("@loginID", loginID);
+           SQL.Parameters.AddWithValue("@SiteID", "");
+           SQL.Parameters.AddWithValue("@Quantity", 1);
+           SQL.Parameters.AddWithValue("@CardType", "Amazon Card");
+           SQL.Parameters.AddWithValue("@ProductDescription", prod.prodDescript);
+           SQL.Parameters.AddWithValue("@ProductPrice", (float)prod.productPrice);
+           SQL.Parameters.AddWithValue("@Date", DateTime.Now);
+            int ret = db.DoUpdateUsingCmdObj(SQL);
+            db.CloseConnection();
+
+        }
+
+        protected Product getProductInfo(Product prod)
+        {
+            int productNumber = prod.productNum;
+            DBConnect db = new DBConnect();
+            SqlCommand SQL = new SqlCommand();
+            SQL.CommandType = CommandType.StoredProcedure;
+            SQL.CommandText = "TP_GetProductInfo";
+            SQL.Parameters.AddWithValue("@ProductId", productNumber);
+            DataSet ds = db.GetDataSetUsingCmdObj(SQL);
+            prod.prodDescript = ds.Tables[0].Rows[0]["ProductDesc"].ToString();
+            prod.productPrice = Int32.Parse(ds.Tables[0].Rows[0]["ProductPrice"].ToString());
+            db.CloseConnection();
+            return prod; 
         }
     }
 }
