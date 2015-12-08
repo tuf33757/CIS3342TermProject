@@ -11,6 +11,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections;
 using System.Text;
+using System.Web.Services;
+using System.Web.Script.Serialization;
 
 namespace CIS3342TermProjectFall2015
 {
@@ -49,14 +51,22 @@ namespace CIS3342TermProjectFall2015
                 {
                     StringBuilder cstext1 = new StringBuilder();
                     cstext1.Append("<script type=text/javascript> \n");
-                    cstext1.Append("var xhttp = new XMLHttpRequest();\n" +
-           " xhttp.onreadystatechange = function () {\n" +
-                "if (xhttp.readyState == 4 && xhttp.status == 200) {\n" +
-                    "console.log(xhttp.responseText);\n" +
-               " }\n" +
-            "};" +
-            "xhttp.open('GET', '/quotes.json', true);\n" +
-            "xhttp.send();\n");
+                    cstext1.Append(
+                    "$.ajax({" +
+                        "type: 'POST',\n" +
+                        "data: '{data: \"test\"}',"+
+                        "url: 'TP_HomePage.aspx/GetQuote',\n" +
+                        "contentType: 'application/json; charset=utf-8',\n" +
+                        "dataType: 'json',\n" +
+                        "success: OnSuccess,\n" +
+                        "failure: function(response) {\n" +
+                            "alert('nope');\n" +
+                        "}\n" +
+                    "});\n" +
+
+                    "function OnSuccess(response) {\n" +
+                        "alert(response.d);\n" +
+                    "};\n");
                     cstext1.Append("</script>");
 
                     cs.RegisterStartupScript(cstype, csname1, cstext1.ToString());
@@ -89,6 +99,14 @@ namespace CIS3342TermProjectFall2015
                 deserializeCart();
             }
         }
+
+        [WebMethod]
+        public static string GetQuote(string data)
+        {
+            return "AJAX Success!";
+            
+        }
+
 
         public void putAmazonCardInDropDown()
         {

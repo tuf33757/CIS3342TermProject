@@ -48,6 +48,7 @@
             <asp:Label ID="lblWelcome" Text="" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="LightYellow" Font-Names=" Coronetscript, cursive" BorderWidth="15px" BorderColor="Transparent"></asp:Label>
 
         </div>
+        
         <form id="Form1" class="form-signin" runat="server">
             <div id="comments" class="comments" runat="server">
                 <div id="shopping" class="shopping" runat="server">
