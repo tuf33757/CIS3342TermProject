@@ -11,6 +11,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections;
 using System.Text;
+using System.Web.Services;
+using System.Web.Script.Serialization;
 
 namespace CIS3342TermProjectFall2015
 {
@@ -39,8 +41,35 @@ namespace CIS3342TermProjectFall2015
 
             if (!IsPostBack)
             {
+                //AJAX Quote Generator
+                String csname1 = "QuoteScript";
+                Type cstype = this.GetType();
+                StringBuilder cstext1 = new StringBuilder();
+                ClientScriptManager cs = Page.ClientScript;
+                if (!cs.IsStartupScriptRegistered(cstype, csname1))
+                {
+                   
+                    //cstext1.Append("<script type=text/javascript> \n");
+                    cstext1.Append(
+                    "$.ajax({" +
+                        "type: 'POST',\n" +
+                        "data: '{data: \"test\"}'," +
+                        "url: 'TP_HomePage.aspx/GetQuote',\n" +
+                        "contentType: 'application/json; charset=utf-8',\n" +
+                        "dataType: 'json',\n" +
+                        "success: OnSuccess,\n" +
+                        "failure: function(response) {\n" +
+                            "alert('nope');\n" +
+                        "}\n" +
+                    "});\n" +
 
-               
+                    "function OnSuccess(response) {\n" +
+                        "alert(response.d);\n" +
+                    "};\n");
+                    //cstext1.Append("</script>");
+                   
+                }
+                cs.RegisterStartupScript(cstype, csname1, cstext1.ToString(), true);
 
                 putAmazonCardInDropDown();
 
@@ -69,6 +98,13 @@ namespace CIS3342TermProjectFall2015
             }
         }
 
+        [WebMethod]
+        public static string GetQuote(string data)
+        {
+            return "AJAX Success! At least this is ACTUALLY WORKING AJAX";
+
+        }
+
         public void putAmazonCardInDropDown()
         {
             DBConnect db = new DBConnect();
@@ -82,6 +118,7 @@ namespace CIS3342TermProjectFall2015
             ddCreditCards.DataTextField = "AccountID";
             ddCreditCards.DataValueField = "AccountID";
             ddCreditCards.DataBind();
+            ddCreditCards.Items.Insert(0, new ListItem("Select Card", "0"));
         }
 
         protected void gvCatalog_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -336,29 +373,35 @@ namespace CIS3342TermProjectFall2015
         {
             try
             {
-
-                int total = (int)Session["TotalCost"];
-                objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "TP_UpdateTotalDollars";
-                objCommand.Parameters.AddWithValue("@loginID", loginID);
-                objCommand.Parameters.AddWithValue("@cost", total);
-
-                DB.GetDataSetUsingCmdObj(objCommand);
-
-                serializeCart();
-                objCommand.Parameters.Clear();
-                ShoppingCart cart = (ShoppingCart)Session["Cart"];
-                ArrayList prods = cart.CartItems;
-                foreach (Product item in prods)
+                if (ddCreditCards.SelectedIndex != 0)
                 {
-                    //Product filledItem = getProductInfo(item);
-                   // recorPurchase(filledItem);
-                    recorPurchase(item);
+                    int total = (int)Session["TotalCost"];
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "TP_UpdateTotalDollars";
+                    objCommand.Parameters.AddWithValue("@loginID", loginID);
+                    objCommand.Parameters.AddWithValue("@cost", total);
 
+                    DB.GetDataSetUsingCmdObj(objCommand);
+
+                    serializeCart();
+                    objCommand.Parameters.Clear();
+                    ShoppingCart cart = (ShoppingCart)Session["Cart"];
+                    ArrayList prods = cart.CartItems;
+                    foreach (Product item in prods)
+                    {
+                        //Product filledItem = getProductInfo(item);
+                        // recorPurchase(filledItem);
+                        recorPurchase(item);
+
+                    }
+                    sendEmail(prods, total);
+                    lblTotalCost.Text = "";
+                    lblInformPurchase.Text = "Thank You For Your Purchase!";
                 }
-                sendEmail(prods,total);
-                lblTotalCost.Text = "";
-                lblInformPurchase.Text = "Thank You For Your Purchase!";
+                else
+                {
+                    lblInformPurchase.Text = "Please Select A Valid Card";
+                }
             }
             catch (Exception)
             {
