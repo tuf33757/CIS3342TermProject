@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TP_Customer_Accnt.aspx.cs" Inherits="CIS3342TermProjectFall2015.TP_Customer_Accnt" %>
+
 <%@ Register Src="~/themeMusic.ascx" TagPrefix="uc1" TagName="themeMusic" %>
 <%@ Register Src="~/MenuBar.ascx" TagPrefix="uc1" TagName="MenuBar" %>
 
@@ -15,8 +16,8 @@
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="js/jquery.elevateZoom-3.0.8.min.js"></script>
     <script src="js/jquery.elevatezoom.js"></script>
-     <link href="css/NavBarStyle.css" rel="stylesheet" />
-    
+    <link href="css/NavBarStyle.css" rel="stylesheet" />
+
 </head>
 <body>
     <uc1:MenuBar runat="server" ID="MenuBar" />
@@ -45,15 +46,18 @@
                             <div class="CustSearch">
                                 <br />
                                 <br />
-                              
 
-                                <asp:GridView ID="gvAccount" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33" >
+
+                                <asp:GridView ID="gvAccount" runat="server" AutoGenerateColumns="False" BackColor="#0B2D0B" ForeColor="#66FF33">
                                     <Columns>
-                                        
+                                        <asp:BoundField DataField="ProductDescription" HeaderText="Product" />
+                                        <asp:BoundField DataField="ProductPrice" HeaderText="Product Price" />
+                                        <asp:BoundField DataField="Date" HeaderText="Date Purchased" />
+                                        <asp:BoundField DataField="CardType" HeaderText="Card Used" />
                                     </Columns>
                                 </asp:GridView>
 
-                                
+
                             </div>
                         </div>
                     </div>
@@ -78,9 +82,9 @@
                         <asp:Label ID="lblEdit" Text="Edit Customer Infomation: " runat="server"></asp:Label>
                         <asp:Button ID="btnEdit" Text="Edit" runat="server" CssClass="greenbutton" OnClick="btnEdit_Click" /><br />
                         <asp:Label ID="lblRequest" Text="Request New Card:" runat="server"></asp:Label><br />
-                        
+
                         <br />
-                        <asp:Button ID="btnHome" Text="Home" runat="server" CssClass="greenbuttonLarge" OnClick="btnHome_Click"  /><br />
+                        <asp:Button ID="btnHome" Text="Home" runat="server" CssClass="greenbuttonLarge" OnClick="btnHome_Click" /><br />
                     </div>
                 </div>
 

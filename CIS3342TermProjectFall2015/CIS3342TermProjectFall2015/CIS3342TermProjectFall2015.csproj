@@ -90,6 +90,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\test.pubxml" />
+    <Content Include="js\quotes.json" />
     <None Include="Web References\GinErikaWS\MerchantStore.disco" />
     <None Include="Web References\NickEricWS\MerchantStore.wsdl" />
     <None Include="Web References\NickEricWS\Reference.map">
@@ -282,6 +283,9 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>CIS3342TermProjectFall2015_TP_WebService_TP_WebService</CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="quotes\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
