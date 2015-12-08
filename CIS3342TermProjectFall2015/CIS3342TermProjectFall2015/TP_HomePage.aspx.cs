@@ -40,28 +40,7 @@ namespace CIS3342TermProjectFall2015
             if (!IsPostBack)
             {
 
-                //AJAX Quote Generator
-                String csname1 = "QuoteScript";
-                Type cstype = this.GetType();
-
-                ClientScriptManager cs = Page.ClientScript;
-                if (!cs.IsStartupScriptRegistered(cstype, csname1))
-                {
-                    StringBuilder cstext1 = new StringBuilder();
-                    cstext1.Append("<script type=text/javascript> \n");
-                    cstext1.Append("var xhttp = new XMLHttpRequest();\n" +
-           " xhttp.onreadystatechange = function () {\n" +
-                "if (xhttp.readyState == 4 && xhttp.status == 200) {\n" +
-                    "console.log(xhttp.responseText);\n" +
-               " }\n" +
-            "};" +
-            "xhttp.open('GET', '/quotes.json', true);\n" +
-            "xhttp.send();\n");
-                    cstext1.Append("</script>");
-
-                    cs.RegisterStartupScript(cstype, csname1, cstext1.ToString());
-                }
-
+               
 
                 putAmazonCardInDropDown();
 
@@ -191,8 +170,10 @@ namespace CIS3342TermProjectFall2015
 
             GridViewRow gvRow = gvCatalog.Rows[index];
             String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
+            string prodDesc = gvCatalog.Rows[index].Cells[1].Text;
+            int prodPrice = Convert.ToInt32(gvCatalog.Rows[index].Cells[3].Text);
             int prodNum = Convert.ToInt32(prodNumString);
-            Product newProd = new Product(prodNum);
+            Product newProd = new Product(prodNum, prodPrice, prodDesc);
             ShoppingCart tempCart = (ShoppingCart)Session["Cart"];
             tempCart.addItemToCart(newProd);
             Session["Cart"] = tempCart;
@@ -370,12 +351,12 @@ namespace CIS3342TermProjectFall2015
                 ArrayList prods = cart.CartItems;
                 foreach (Product item in prods)
                 {
-                    Product filledItem = getProductInfo(item);
-                    recorPurchase(filledItem);
-                
+                    //Product filledItem = getProductInfo(item);
+                   // recorPurchase(filledItem);
+                    recorPurchase(item);
 
                 }
-
+                sendEmail(prods,total);
                 lblTotalCost.Text = "";
                 lblInformPurchase.Text = "Thank You For Your Purchase!";
             }
@@ -424,6 +405,32 @@ namespace CIS3342TermProjectFall2015
             prod.productPrice = Int32.Parse(ds.Tables[0].Rows[0]["ProductPrice"].ToString());
             db.CloseConnection();
             return prod; 
+        }
+
+        protected void sendEmail(ArrayList prod, float total)
+        {
+
+            Email objEmail = new Email();
+            String strTO = (string)Session["Email"];
+            String strFROM = "Apocalypse_Trading_Company@gmail.com";
+            String strSubject = "OrderConfirmation";
+            String strMessage = "Thank you for Purchasing: ";
+            foreach (Product item in prod)
+            {
+                strMessage += item.prodDescript + " \n";
+            }
+            strMessage += " your total was : " + total;
+
+
+            try
+            {
+                objEmail.SendMail(strTO, strFROM, strSubject, strMessage);
+                lblInformPurchase.Text = "The email was sent.";
+            }
+            catch (Exception ex)
+            {
+                lblInformPurchase.Text = "The email wasn't sent!";
+            }
         }
     }
 }
