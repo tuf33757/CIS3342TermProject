@@ -411,7 +411,7 @@ namespace CIS3342TermProjectFall2015
         {
 
             Email objEmail = new Email();
-            String strTO = (string)Session["Email"];
+            String strTO = (string)Session["Customer_Email"];
             String strFROM = "Apocalypse_Trading_Company@gmail.com";
             String strSubject = "OrderConfirmation";
             String strMessage = "Thank you for Purchasing: ";
