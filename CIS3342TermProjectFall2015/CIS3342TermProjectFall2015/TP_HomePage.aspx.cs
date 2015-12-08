@@ -322,6 +322,9 @@ namespace CIS3342TermProjectFall2015
             pnlCatalog.Visible = false;
             pnlPurchase.Visible = true;
             lblTotal.Text = Session["TotalCost"].ToString();
+
+            
+
         }
 
         public void PutWebServicesInDataset()

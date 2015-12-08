@@ -28,7 +28,15 @@ namespace CIS3342TermProjectFall2015
 
             if (!IsPostBack)
             {
-                
+
+                SqlCommand command = new SqlCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "TP_GetPurchaseHistory";
+                command.Parameters.AddWithValue("@loginID", loginID);
+                DataSet DS = DB.GetDataSetUsingCmdObj(command);
+                gvAccount.DataSource = DS;
+                gvAccount.DataBind();
+
                 Session["TotalCost"] = 0;
                 Session["EditCust"] = true;
                 lblWelcome.Text = "        Welcome, " + (string)Session["Customer_First"] + " " + (string)Session["Customer_Last"];
