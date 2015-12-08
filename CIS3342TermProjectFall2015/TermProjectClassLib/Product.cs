@@ -34,5 +34,12 @@ namespace TermProjectClassLib
         {
             this.productNum = prodNum;
         }
+
+        public Product(int productNum, int productPrice, string prodDescript)
+        {
+            this.productNum = productNum;
+            this.productPrice = productPrice;
+            this.prodDescript = prodDescript;
+        }
     }
 }

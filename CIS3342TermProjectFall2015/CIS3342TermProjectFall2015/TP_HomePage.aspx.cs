@@ -11,8 +11,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections;
 using System.Text;
-using System.Web.Services;
-using System.Web.Script.Serialization;
 
 namespace CIS3342TermProjectFall2015
 {
@@ -42,36 +40,7 @@ namespace CIS3342TermProjectFall2015
             if (!IsPostBack)
             {
 
-                //AJAX Quote Generator
-                String csname1 = "QuoteScript";
-                Type cstype = this.GetType();
-
-                ClientScriptManager cs = Page.ClientScript;
-                if (!cs.IsStartupScriptRegistered(cstype, csname1))
-                {
-                    StringBuilder cstext1 = new StringBuilder();
-                    cstext1.Append("<script type=text/javascript> \n");
-                    cstext1.Append(
-                    "$.ajax({" +
-                        "type: 'POST',\n" +
-                        "data: '{data: \"test\"}',"+
-                        "url: 'TP_HomePage.aspx/GetQuote',\n" +
-                        "contentType: 'application/json; charset=utf-8',\n" +
-                        "dataType: 'json',\n" +
-                        "success: OnSuccess,\n" +
-                        "failure: function(response) {\n" +
-                            "alert('nope');\n" +
-                        "}\n" +
-                    "});\n" +
-
-                    "function OnSuccess(response) {\n" +
-                        "alert(response.d);\n" +
-                    "};\n");
-                    cstext1.Append("</script>");
-
-                    cs.RegisterStartupScript(cstype, csname1, cstext1.ToString());
-                }
-
+               
 
                 putAmazonCardInDropDown();
 
@@ -99,14 +68,6 @@ namespace CIS3342TermProjectFall2015
                 deserializeCart();
             }
         }
-
-        [WebMethod]
-        public static string GetQuote(string data)
-        {
-            return "AJAX Success!";
-            
-        }
-
 
         public void putAmazonCardInDropDown()
         {
@@ -209,8 +170,10 @@ namespace CIS3342TermProjectFall2015
 
             GridViewRow gvRow = gvCatalog.Rows[index];
             String prodNumString = gvCatalog.Rows[index].Cells[0].Text;
+            string prodDesc = gvCatalog.Rows[index].Cells[1].Text;
+            int prodPrice = Convert.ToInt32(gvCatalog.Rows[index].Cells[3].Text);
             int prodNum = Convert.ToInt32(prodNumString);
-            Product newProd = new Product(prodNum);
+            Product newProd = new Product(prodNum, prodPrice, prodDesc);
             ShoppingCart tempCart = (ShoppingCart)Session["Cart"];
             tempCart.addItemToCart(newProd);
             Session["Cart"] = tempCart;
@@ -388,12 +351,12 @@ namespace CIS3342TermProjectFall2015
                 ArrayList prods = cart.CartItems;
                 foreach (Product item in prods)
                 {
-                    Product filledItem = getProductInfo(item);
-                    recorPurchase(filledItem);
-                
+                    //Product filledItem = getProductInfo(item);
+                   // recorPurchase(filledItem);
+                    recorPurchase(item);
 
                 }
-
+                sendEmail(prods,total);
                 lblTotalCost.Text = "";
                 lblInformPurchase.Text = "Thank You For Your Purchase!";
             }
@@ -442,6 +405,32 @@ namespace CIS3342TermProjectFall2015
             prod.productPrice = Int32.Parse(ds.Tables[0].Rows[0]["ProductPrice"].ToString());
             db.CloseConnection();
             return prod; 
+        }
+
+        protected void sendEmail(ArrayList prod, float total)
+        {
+
+            Email objEmail = new Email();
+            String strTO = (string)Session["Customer_Email"];
+            String strFROM = "Apocalypse_Trading_Company@gmail.com";
+            String strSubject = "OrderConfirmation";
+            String strMessage = "Thank you for Purchasing: ";
+            foreach (Product item in prod)
+            {
+                strMessage += item.prodDescript + " \n";
+            }
+            strMessage += " your total was : " + total;
+
+
+            try
+            {
+                objEmail.SendMail(strTO, strFROM, strSubject, strMessage);
+                lblInformPurchase.Text = "The email was sent.";
+            }
+            catch (Exception ex)
+            {
+                lblInformPurchase.Text = "The email wasn't sent!";
+            }
         }
     }
 }
