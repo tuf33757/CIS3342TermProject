@@ -377,7 +377,7 @@ namespace CIS3342TermProjectFall2015
            SQL.Parameters.AddWithValue("@CardType", "Amazon Card");
            SQL.Parameters.AddWithValue("@ProductDescription", prod.prodDescript);
            SQL.Parameters.AddWithValue("@ProductPrice", (float)prod.productPrice);
-           SQL.Parameters.AddWithValue("@Date", DateTime.Now);
+           SQL.Parameters.AddWithValue("@date", DateTime.Now);
             int ret = db.DoUpdateUsingCmdObj(SQL);
             db.CloseConnection();
 
