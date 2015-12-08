@@ -49,7 +49,6 @@
 
         </div>
         <form id="Form1" class="form-signin" runat="server">
-
             <div id="comments" class="comments" runat="server">
                 <div id="shopping" class="shopping" runat="server">
                     <div id="shoppingInfo" class="shoppingInfo" runat="server">
@@ -102,7 +101,7 @@
                             <div id="purchaseInfo" class="purchaseInfo">
                                 <br />
                                 <br />
-                                <asp:Label ID="lblSelectCard" runat="server" Text="Select Which Amazon Card You'd Like To Use:" ></asp:Label>
+                                <asp:Label ID="lblSelectCard" runat="server" Text="Select Which Amazon Card You'd Like To Use:"></asp:Label>
                                 <br />
                                 <asp:DropDownList ID="ddCreditCards" runat="server" BackColor="#0F3D0F" ForeColor="#66FF33" AutoPostBack="True" OnSelectedIndexChanged="ddCreditCards_SelectedIndexChanged">
                                     <asp:ListItem>Select Card</asp:ListItem>
@@ -112,7 +111,8 @@
                                 <asp:Label ID="lblTotal" runat="server" Text=""></asp:Label>
                                 <br />
                                 <asp:Button ID="btnProcess" runat="server" Text="Process" CssClass="greenbutton" OnClick="btnProcess_Click" />
-                                <br /><br />
+                                <br />
+                                <br />
                                 <asp:Label ID="lblInformPurchase" runat="server" Text=""></asp:Label>
                             </div>
                         </asp:Panel>
@@ -120,7 +120,7 @@
                 </div>
             </div>
 
-            
+
 
 
             <div id="custInfo" class="custInfo" runat="server">
@@ -152,6 +152,7 @@
 
         </form>
     </div>
+
 
 
 

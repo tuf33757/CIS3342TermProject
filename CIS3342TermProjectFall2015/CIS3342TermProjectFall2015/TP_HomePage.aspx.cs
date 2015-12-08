@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections;
+using System.Text;
 
 namespace CIS3342TermProjectFall2015
 {
@@ -38,6 +39,30 @@ namespace CIS3342TermProjectFall2015
 
             if (!IsPostBack)
             {
+
+                //AJAX Quote Generator
+                String csname1 = "QuoteScript";
+                Type cstype = this.GetType();
+
+                ClientScriptManager cs = Page.ClientScript;
+                if (!cs.IsStartupScriptRegistered(cstype, csname1))
+                {
+                    StringBuilder cstext1 = new StringBuilder();
+                    cstext1.Append("<script type=text/javascript> \n");
+                    cstext1.Append("var xhttp = new XMLHttpRequest();\n" +
+           " xhttp.onreadystatechange = function () {\n" +
+                "if (xhttp.readyState == 4 && xhttp.status == 200) {\n" +
+                    "console.log(xhttp.responseText);\n" +
+               " }\n" +
+            "};" +
+            "xhttp.open('GET', '/quotes.json', true);\n" +
+            "xhttp.send();\n");
+                    cstext1.Append("</script>");
+
+                    cs.RegisterStartupScript(cstype, csname1, cstext1.ToString());
+                }
+
+
                 putAmazonCardInDropDown();
 
                 Session["Cart"] = cart;
@@ -99,7 +124,7 @@ namespace CIS3342TermProjectFall2015
                 decreaseTotal(index);
                 int totalCost = Convert.ToInt32(Session["TotalCost"]);
                 lblTotalCost.Text = "Your Current Total Is: $ " + totalCost;
-                
+
             }
         }
 
@@ -327,7 +352,7 @@ namespace CIS3342TermProjectFall2015
         {
             try
             {
-                
+
                 int total = (int)Session["TotalCost"];
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_UpdateTotalDollars";
